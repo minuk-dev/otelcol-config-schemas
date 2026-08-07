@@ -1,9 +1,8 @@
 collectorVersion: v0.150.0
 distribution: k8s
-generatedAt: "2026-08-02T13:15:53Z"
+generatedAt: "2026-08-07T00:08:38Z"
 sources:
-  contrib: github.com/open-telemetry/opentelemetry-collector-contrib
-  core: go.opentelemetry.io/collector
+  k8s: github.com/open-telemetry/opentelemetry-collector-releases/k8s
 components:
   connector:
     count:
@@ -105,8 +104,7 @@ components:
                 type: list
                 children:
                   item:
-                    type: map
-                    open: true
+                    type: string
             doc: PipelinePriority is the list of pipeline level priorities in a 1 - n configuration, multiple pipelines can sit at a single priority level and will be routed in a fanout. If any pipeline at a level fails, the level is considered unhealthy
           retry_gap:
             type: duration
@@ -140,8 +138,7 @@ components:
                         doc: MetadataKeys is a list of client.Metadata keys that will be used to partition the data into batches. If this setting is empty, a single batcher instance will be used. When this setting is not empty, one batcher will be used per distinct combination of values for the listed metadata keys. Empty value and unset metadata are treated as distinct cases. Entries are case-insensitive. Duplicated entries will trigger a validation error.
                     doc: Partition defines the partitioning of the batches configuration.
                   sizer:
-                    type: map
-                    open: true
+                    type: string
                     doc: Sizer determines the type of size measurement used by the batch. If not configured, use the same configuration as the queue. It accepts "requests", "items", or "bytes".
                 doc: BatchConfig it configures how the requests are consumed from the queue and batch together during consumption.
               block_on_overflow:
@@ -157,12 +154,10 @@ components:
                 type: int
                 doc: QueueSize represents the maximum data size allowed for concurrent storage and processing.
               sizer:
-                type: map
-                open: true
+                type: string
                 doc: Sizer determines the type of size measurement used by this component. It accepts "requests", "items", or "bytes".
               storage:
-                type: map
-                open: true
+                type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
               wait_for_result:
                 type: bool
@@ -234,8 +229,7 @@ components:
             type: list
             children:
               item:
-                type: map
-                open: true
+                type: string
             doc: DefaultPipelines contains the list of pipelines to use when a more specific record can't be found in the routing table. Optional.
           error_mode:
             type: string
@@ -259,8 +253,7 @@ components:
                     type: list
                     children:
                       item:
-                        type: map
-                        open: true
+                        type: string
                     doc: Pipelines contains the list of pipelines to use when the value from the FromAttribute field matches this table item. When no pipelines are specified, the ones specified under DefaultPipelines are used, if any. The routing processor will fail upon the first failure from these pipelines. Optional.
                   statement:
                     type: string
@@ -332,6 +325,144 @@ components:
                 type: string
             doc: VirtualNodePeerAttributes the list of attributes need to match, the higher the front, the higher the priority.
         doc: Config defines the configuration options for servicegraphprocessor.
+    spanmetrics:
+      type: spanmetrics
+      stability:
+        traces_to_metrics: alpha
+      pairs:
+        - from: traces
+          to: metrics
+      module: github.com/open-telemetry/opentelemetry-collector-contrib/connector/spanmetricsconnector
+      fields:
+        type: map
+        children:
+          add_resource_attributes:
+            type: bool
+            doc: Add the resource attributes to the resulting metrics (disabled by default) This option enables the old behavior https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/42103
+          aggregation_cardinality_limit:
+            type: int
+          aggregation_temporality:
+            type: string
+          calls_dimensions:
+            type: list
+            children:
+              item:
+                type: map
+                children:
+                  default:
+                    type: string
+                  name:
+                    type: string
+                doc: Dimension defines the dimension name and optional default value if the Dimension is missing from a span attribute.
+          dimensions:
+            type: list
+            children:
+              item:
+                type: map
+                children:
+                  default:
+                    type: string
+                  name:
+                    type: string
+                doc: Dimension defines the dimension name and optional default value if the Dimension is missing from a span attribute.
+            doc: 'Dimensions defines the list of additional dimensions on top of the provided: - service.name - span.kind - span.kind - status.code - collector.instance.id This dimensions never added unless enable feature-gate connector.spanmetrics.includeCollectorInstanceID The dimensions will be fetched from the span''s attributes. Examples of some conventionally used attributes: https://github.com/open-telemetry/opentelemetry-collector/blob/main/model/semconv/opentelemetry.go.'
+          dimensions_cache_size:
+            type: int
+            doc: 'DimensionsCacheSize defines the size of cache for storing Dimensions, which helps to avoid cache memory growing indefinitely over the lifetime of the collector. Optional. See defaultDimensionsCacheSize in connector.go for the default value. Deprecated [v0.130.0]:  Please use AggregationCardinalityLimit instead'
+          enable_metrics_sampling_method:
+            type: bool
+            doc: EnableMetricsSamplingMethod adds the sampling.method attribute ("extrapolated" or "counted") to metrics. When false (default), the attribute is not added.
+          events:
+            type: map
+            children:
+              dimensions:
+                type: list
+                children:
+                  item:
+                    type: map
+                    children:
+                      default:
+                        type: string
+                      name:
+                        type: string
+                    doc: Dimension defines the dimension name and optional default value if the Dimension is missing from a span attribute.
+                doc: Dimensions defines the list of dimensions to add to the events metric.
+              enabled:
+                type: bool
+                doc: Enabled is a flag to enable events.
+            doc: Events defines the configuration for events section of spans.
+          exclude_dimensions:
+            type: list
+            children:
+              item:
+                type: string
+          exemplars:
+            type: map
+            children:
+              enabled:
+                type: bool
+              max_per_data_point:
+                type: int
+            doc: Exemplars defines the configuration for exemplars.
+          histogram:
+            type: map
+            children:
+              dimensions:
+                type: list
+                children:
+                  item:
+                    type: map
+                    children:
+                      default:
+                        type: string
+                      name:
+                        type: string
+                    doc: Dimension defines the dimension name and optional default value if the Dimension is missing from a span attribute.
+              disable:
+                type: bool
+              explicit:
+                type: map
+                children:
+                  buckets:
+                    type: list
+                    children:
+                      item:
+                        type: duration
+                    doc: Buckets is the list of durations representing explicit histogram buckets.
+              exponential:
+                type: map
+                children:
+                  max_size:
+                    type: int
+              unit:
+                type: string
+          include_instrumentation_scope:
+            type: list
+            children:
+              item:
+                type: string
+          metric_timestamp_cache_size:
+            type: int
+            doc: TimestampCacheSize controls the size of the cache used to keep track of delta metrics' TimestampUnixNano the last time it was flushed
+          metrics_expiration:
+            type: duration
+            doc: MetricsExpiration is the time period after which, if no new spans are received, metrics are considered stale and will no longer be exported. Default value (0) means that the metrics will never expire.
+          metrics_flush_interval:
+            type: duration
+            doc: MetricsEmitInterval is the time period between when metrics are flushed or emitted to the configured MetricsExporter.
+          namespace:
+            type: string
+            doc: Namespace is the namespace of the metrics emitted by the connector.
+          resource_metrics_cache_size:
+            type: int
+            doc: ResourceMetricsCacheSize defines the size of the cache holding metrics for a service. This is mostly relevant for cumulative temporality to avoid memory leaks and correct metric timestamp resets. Optional. See defaultResourceMetricsCacheSize in connector.go for the default value.
+          resource_metrics_key_attributes:
+            type: list
+            children:
+              item:
+                type: string
+            doc: ResourceMetricsKeyAttributes filters the resource attributes used to create the resource metrics key hash. This can be used to avoid situations where resource attributes may change across service restarts, causing metric counters to break (and duplicate). A resource does not need to have all of the attributes. The list must include enough attributes to properly identify unique resources or risk aggregating data from more than one service and span. e.g. ["service.name", "telemetry.sdk.language", "telemetry.sdk.name"] See https://opentelemetry.io/docs/specs/semconv/resource/ for possible attributes.
+        doc: Config defines the configuration options for spanmetricsconnector.
   exporter:
     debug:
       type: debug
@@ -349,21 +480,53 @@ components:
       fields:
         type: map
         children:
+          output_paths:
+            type: list
+            children:
+              item:
+                type: string
           sampling_initial:
             type: int
-            doc: messages logged per second before sampling kicks in
           sampling_thereafter:
             type: int
-            doc: log one in every N messages after the initial burst
+          sending_queue:
+            type: map
+            children:
+              batch:
+                type: map
+                children:
+                  flush_timeout:
+                    type: duration
+                  max_size:
+                    type: int
+                  min_size:
+                    type: int
+                  partition:
+                    type: map
+                    children:
+                      metadata_keys:
+                        type: list
+                        children:
+                          item:
+                            type: string
+                  sizer:
+                    type: string
+              block_on_overflow:
+                type: bool
+              num_consumers:
+                type: int
+              queue_size:
+                type: int
+              sizer:
+                type: string
+              storage:
+                type: string
+              wait_for_result:
+                type: bool
           use_internal_logger:
             type: bool
           verbosity:
             type: string
-            enum:
-              - basic
-              - normal
-              - detailed
-            doc: how much of each payload is written to the collector log
     file:
       type: file
       signals:
@@ -393,8 +556,7 @@ components:
             type: string
             doc: DirectoryPermissions specifies permissions used when creating directories (minus process umask). Value must be an octal string like "0755".
           encoding:
-            type: map
-            open: true
+            type: string
             doc: Encoding defines the encoding of the telemetry data. If specified, it overrides `FormatType` and applies an encoding extension.
           flush_interval:
             type: duration
@@ -474,8 +636,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   authority:
                     type: string
                   balancer_name:
@@ -501,8 +662,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                   read_buffer_size:
                     type: int
                   retry_on_failure:
@@ -541,8 +701,7 @@ components:
                                   item:
                                     type: string
                           sizer:
-                            type: map
-                            open: true
+                            type: string
                       block_on_overflow:
                         type: bool
                       num_consumers:
@@ -550,11 +709,9 @@ components:
                       queue_size:
                         type: int
                       sizer:
-                        type: map
-                        open: true
+                        type: string
                       storage:
-                        type: map
-                        open: true
+                        type: string
                       wait_for_result:
                         type: bool
                   timeout:
@@ -723,8 +880,7 @@ components:
                         doc: MetadataKeys is a list of client.Metadata keys that will be used to partition the data into batches. If this setting is empty, a single batcher instance will be used. When this setting is not empty, one batcher will be used per distinct combination of values for the listed metadata keys. Empty value and unset metadata are treated as distinct cases. Entries are case-insensitive. Duplicated entries will trigger a validation error.
                     doc: Partition defines the partitioning of the batches configuration.
                   sizer:
-                    type: map
-                    open: true
+                    type: string
                     doc: Sizer determines the type of size measurement used by the batch. If not configured, use the same configuration as the queue. It accepts "requests", "items", or "bytes".
                 doc: BatchConfig it configures how the requests are consumed from the queue and batch together during consumption.
               block_on_overflow:
@@ -740,12 +896,10 @@ components:
                 type: int
                 doc: QueueSize represents the maximum data size allowed for concurrent storage and processing.
               sizer:
-                type: map
-                open: true
+                type: string
                 doc: Sizer determines the type of size measurement used by this component. It accepts "requests", "items", or "bytes".
               storage:
-                type: map
-                open: true
+                type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
               wait_for_result:
                 type: bool
@@ -821,8 +975,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
             doc: Auth configuration for outgoing RPCs.
           authority:
@@ -875,8 +1028,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
                     doc: ID specifies the name of the extension to use.
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares for the gRPC client.
@@ -931,8 +1083,7 @@ components:
                         doc: MetadataKeys is a list of client.Metadata keys that will be used to partition the data into batches. If this setting is empty, a single batcher instance will be used. When this setting is not empty, one batcher will be used per distinct combination of values for the listed metadata keys. Empty value and unset metadata are treated as distinct cases. Entries are case-insensitive. Duplicated entries will trigger a validation error.
                     doc: Partition defines the partitioning of the batches configuration.
                   sizer:
-                    type: map
-                    open: true
+                    type: string
                     doc: Sizer determines the type of size measurement used by the batch. If not configured, use the same configuration as the queue. It accepts "requests", "items", or "bytes".
                 doc: BatchConfig it configures how the requests are consumed from the queue and batch together during consumption.
               block_on_overflow:
@@ -948,12 +1099,10 @@ components:
                 type: int
                 doc: QueueSize represents the maximum data size allowed for concurrent storage and processing.
               sizer:
-                type: map
-                open: true
+                type: string
                 doc: Sizer determines the type of size measurement used by this component. It accepts "requests", "items", or "bytes".
               storage:
-                type: map
-                open: true
+                type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
               wait_for_result:
                 type: bool
@@ -1064,147 +1213,6 @@ components:
             type: string
           balancer_name:
             type: string
-            enum:
-              - round_robin
-              - pick_first
-          compression:
-            type: string
-            enum:
-              - gzip
-              - snappy
-              - zstd
-              - zlib
-              - deflate
-              - lz4
-              - none
-              - ""
-          endpoint:
-            type: string
-            doc: host:port of the OTLP gRPC endpoint
-          headers:
-            type: map
-            open: true
-            doc: extra gRPC metadata sent with every request
-          keepalive:
-            type: map
-            children:
-              permit_without_stream:
-                type: bool
-              time:
-                type: duration
-              timeout:
-                type: duration
-          read_buffer_size:
-            type: int
-          retry_on_failure:
-            type: map
-            children:
-              enabled:
-                type: bool
-              initial_interval:
-                type: duration
-              max_elapsed_time:
-                type: duration
-              max_interval:
-                type: duration
-              multiplier:
-                type: float
-              randomization_factor:
-                type: float
-          sending_queue:
-            type: map
-            children:
-              blocking:
-                type: bool
-              enabled:
-                type: bool
-              num_consumers:
-                type: int
-              queue_size:
-                type: int
-              sizer:
-                type: string
-                enum:
-                  - requests
-                  - items
-                  - bytes
-              storage:
-                type: string
-                doc: id of a storage extension for a persistent queue
-              wait_for_result:
-                type: bool
-            open: true
-          timeout:
-            type: duration
-          tls:
-            type: map
-            children:
-              ca_file:
-                type: string
-              ca_pem:
-                type: string
-              cert_file:
-                type: string
-              cert_pem:
-                type: string
-              cipher_suites:
-                type: list
-                children:
-                  item:
-                    type: string
-              include_system_ca_certs_pool:
-                type: bool
-              insecure:
-                type: bool
-                doc: send in plaintext; only for local testing
-              insecure_skip_verify:
-                type: bool
-                doc: accept any server certificate
-              key_file:
-                type: string
-              key_pem:
-                type: string
-              max_version:
-                type: string
-              min_version:
-                type: string
-              reload_interval:
-                type: duration
-              server_name_override:
-                type: string
-          wait_for_ready:
-            type: bool
-          write_buffer_size:
-            type: int
-        required:
-          - endpoint
-    otlp_grpc:
-      type: otlp_grpc
-      signals:
-        - traces
-        - metrics
-        - logs
-        - profiles
-      stability:
-        logs: stable
-        metrics: stable
-        profiles: alpha
-        traces: stable
-      module: go.opentelemetry.io/collector/exporter/otlpexporter
-      alias: otlp
-      fields:
-        type: map
-        children:
-          auth:
-            type: map
-            children:
-              authenticator:
-                type: map
-                open: true
-          authority:
-            type: string
-          balancer_name:
-            type: string
           compression:
             type: string
           endpoint:
@@ -1226,8 +1234,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           read_buffer_size:
             type: int
           retry_on_failure:
@@ -1266,8 +1273,7 @@ components:
                           item:
                             type: string
                   sizer:
-                    type: map
-                    open: true
+                    type: string
               block_on_overflow:
                 type: bool
               num_consumers:
@@ -1275,11 +1281,164 @@ components:
               queue_size:
                 type: int
               sizer:
-                type: map
-                open: true
+                type: string
               storage:
+                type: string
+              wait_for_result:
+                type: bool
+          timeout:
+            type: duration
+          tls:
+            type: map
+            children:
+              ca_file:
+                type: string
+              ca_pem:
+                type: string
+              cert_file:
+                type: string
+              cert_pem:
+                type: string
+              cipher_suites:
+                type: list
+                children:
+                  item:
+                    type: string
+              curve_preferences:
+                type: list
+                children:
+                  item:
+                    type: string
+              include_system_ca_certs_pool:
+                type: bool
+              insecure:
+                type: bool
+              insecure_skip_verify:
+                type: bool
+              key_file:
+                type: string
+              key_pem:
+                type: string
+              max_version:
+                type: string
+              min_version:
+                type: string
+              reload_interval:
+                type: duration
+              server_name_override:
+                type: string
+              tpm:
                 type: map
-                open: true
+                children:
+                  auth:
+                    type: string
+                  enabled:
+                    type: bool
+                  owner_auth:
+                    type: string
+                  path:
+                    type: string
+          wait_for_ready:
+            type: bool
+          write_buffer_size:
+            type: int
+    otlp_grpc:
+      type: otlp_grpc
+      signals:
+        - traces
+        - metrics
+        - logs
+        - profiles
+      stability:
+        logs: stable
+        metrics: stable
+        profiles: alpha
+        traces: stable
+      module: go.opentelemetry.io/collector/exporter/otlpexporter
+      alias: otlp
+      fields:
+        type: map
+        children:
+          auth:
+            type: map
+            children:
+              authenticator:
+                type: string
+          authority:
+            type: string
+          balancer_name:
+            type: string
+          compression:
+            type: string
+          endpoint:
+            type: string
+          headers: {}
+          keepalive:
+            type: map
+            children:
+              permit_without_stream:
+                type: bool
+              time:
+                type: duration
+              timeout:
+                type: duration
+          middlewares:
+            type: list
+            children:
+              item:
+                type: map
+                children:
+                  id:
+                    type: string
+          read_buffer_size:
+            type: int
+          retry_on_failure:
+            type: map
+            children:
+              enabled:
+                type: bool
+              initial_interval:
+                type: duration
+              max_elapsed_time:
+                type: duration
+              max_interval:
+                type: duration
+              multiplier:
+                type: float
+              randomization_factor:
+                type: float
+          sending_queue:
+            type: map
+            children:
+              batch:
+                type: map
+                children:
+                  flush_timeout:
+                    type: duration
+                  max_size:
+                    type: int
+                  min_size:
+                    type: int
+                  partition:
+                    type: map
+                    children:
+                      metadata_keys:
+                        type: list
+                        children:
+                          item:
+                            type: string
+                  sizer:
+                    type: string
+              block_on_overflow:
+                type: bool
+              num_consumers:
+                type: int
+              queue_size:
+                type: int
+              sizer:
+                type: string
+              storage:
+                type: string
               wait_for_result:
                 type: bool
           timeout:
@@ -1359,8 +1518,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           compression_params:
@@ -1403,8 +1561,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           profiles_endpoint:
             type: string
           proxy_url:
@@ -1447,8 +1604,7 @@ components:
                           item:
                             type: string
                   sizer:
-                    type: map
-                    open: true
+                    type: string
               block_on_overflow:
                 type: bool
               num_consumers:
@@ -1456,11 +1612,9 @@ components:
               queue_size:
                 type: int
               sizer:
-                type: map
-                open: true
+                type: string
               storage:
-                type: map
-                open: true
+                type: string
               wait_for_result:
                 type: bool
           timeout:
@@ -1541,8 +1695,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           compression_params:
@@ -1585,8 +1738,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           profiles_endpoint:
             type: string
           proxy_url:
@@ -1629,8 +1781,7 @@ components:
                           item:
                             type: string
                   sizer:
-                    type: map
-                    open: true
+                    type: string
               block_on_overflow:
                 type: bool
               num_consumers:
@@ -1638,11 +1789,9 @@ components:
               queue_size:
                 type: int
               sizer:
-                type: map
-                open: true
+                type: string
               storage:
-                type: map
-                open: true
+                type: string
               wait_for_result:
                 type: bool
           timeout:
@@ -1717,8 +1866,7 @@ components:
             type: int
             doc: MaxNumPendingAcksPerPartition Specifies the maximum number of ackIDs and their corresponding status information that are waiting to be queried in each partition.
           storage:
-            type: map
-            open: true
+            type: string
             doc: StorageID defines the storage type of the extension. In-memory type is set by default (if not provided). Future consideration is disk type.
         doc: Config defines configuration for ack extension
     basicauth:
@@ -1783,6 +1931,49 @@ components:
                 doc: String alias that is marshaled and printed in an opaque way. To recover the original value, cast it to a string.
             doc: Tokens specifies multiple bearer tokens to use for every RPC.
         doc: Config specifies how the Per-RPC bearer token based authentication data should be obtained.
+    cgroup_runtime:
+      type: cgroup_runtime
+      stability:
+        extension: alpha
+      module: github.com/open-telemetry/opentelemetry-collector-contrib/extension/cgroupruntimeextension
+      alias: cgroupruntime
+      fields:
+        type: map
+        children:
+          gomaxprocs:
+            type: map
+            children:
+              enabled:
+                type: bool
+          gomemlimit:
+            type: map
+            children:
+              enabled:
+                type: bool
+              ratio:
+                type: float
+    cgroupruntime:
+      type: cgroupruntime
+      stability:
+        extension: alpha
+      module: github.com/open-telemetry/opentelemetry-collector-contrib/extension/cgroupruntimeextension
+      deprecated: renamed to "cgroup_runtime" upstream; the old name still resolves for now
+      aliasOf: cgroup_runtime
+      fields:
+        type: map
+        children:
+          gomaxprocs:
+            type: map
+            children:
+              enabled:
+                type: bool
+          gomemlimit:
+            type: map
+            children:
+              enabled:
+                type: bool
+              ratio:
+                type: float
     file_storage:
       type: file_storage
       stability:
@@ -1831,8 +2022,7 @@ components:
         type: map
         children:
           additional_auth:
-            type: map
-            open: true
+            type: string
           headers:
             type: list
             children:
@@ -1867,8 +2057,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -1926,8 +2115,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               dialer:
                 type: map
                 children:
@@ -1971,8 +2159,7 @@ components:
                     type: map
                     children:
                       id:
-                        type: map
-                        open: true
+                        type: string
               read_buffer_size:
                 type: int
               tls:
@@ -2034,8 +2221,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
                   request_params:
                     type: list
                     children:
@@ -2092,8 +2278,7 @@ components:
                     type: map
                     children:
                       id:
-                        type: map
-                        open: true
+                        type: string
               read_header_timeout:
                 type: duration
               read_timeout:
@@ -2175,8 +2360,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           path:
             type: string
           read_header_timeout:
@@ -2270,8 +2454,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
                 doc: Auth configuration for outgoing HTTP calls.
               compression:
@@ -2333,8 +2516,7 @@ components:
                     type: map
                     children:
                       id:
-                        type: map
-                        open: true
+                        type: string
                         doc: ID specifies the name of the extension to use.
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
@@ -2426,8 +2608,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
                   request_params:
                     type: list
@@ -2488,8 +2669,7 @@ components:
                     type: map
                     children:
                       id:
-                        type: map
-                        open: true
+                        type: string
                         doc: ID specifies the name of the extension to use.
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
@@ -2887,8 +3067,7 @@ components:
                 type: map
                 children:
                   auth:
-                    type: map
-                    open: true
+                    type: string
                   endpoint:
                     type: string
                   headers:
@@ -2968,8 +3147,7 @@ components:
                 type: map
                 children:
                   auth:
-                    type: map
-                    open: true
+                    type: string
                   endpoint:
                     type: string
                   headers:
@@ -3085,8 +3263,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -3139,8 +3316,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           read_header_timeout:
             type: duration
           read_timeout:
@@ -3476,22 +3652,17 @@ components:
         children:
           metadata_cardinality_limit:
             type: int
-            doc: maximum number of distinct metadata_keys combinations
           metadata_keys:
             type: list
             children:
               item:
                 type: string
-            doc: client metadata keys that get their own batcher
           send_batch_max_size:
             type: int
-            doc: hard upper bound on a batch; must be >= send_batch_size when set
           send_batch_size:
             type: int
-            doc: number of spans, metric data points or log records per batch
           timeout:
             type: duration
-            doc: how long to wait before sending a batch that is not yet full
     cumulativetodelta:
       type: cumulativetodelta
       signals:
@@ -3557,7 +3728,7 @@ components:
                 doc: Config represents the options for a NewFilterSet.
             doc: Include specifies a filter on the metrics that should be converted. Exclude specifies a filter on the metrics that should not be converted. If neither `include` nor `exclude` are set, all metrics will be converted. Cannot be used with deprecated Metrics config option.
           initial_value:
-            type: int
+            type: string
             doc: 'InitialValue determines how to handle the first datapoint for a given metric. Valid values: - auto: (default) send the first point iff the startime is set AND the starttime happens after the component started AND the starttime is different from the timestamp - keep: always send the first point - drop: don''t send the first point, but store it for subsequent delta calculations'
           max_staleness:
             type: duration
@@ -4656,21 +4827,57 @@ components:
         children:
           check_interval:
             type: duration
-            doc: how often memory use is measured; 1s is the usual value
           limit_mib:
             type: int
-            doc: hard limit in MiB; above it the processor starts refusing data
           limit_percentage:
             type: int
-            doc: hard limit as a percentage of total memory, for containers
+          min_gc_interval_when_hard_limited:
+            type: duration
+          min_gc_interval_when_soft_limited:
+            type: duration
           spike_limit_mib:
             type: int
-            doc: headroom in MiB reserved for allocation spikes
           spike_limit_percentage:
             type: int
-            doc: spike headroom as a percentage of total memory
-        required:
-          - check_interval
+    metricsgeneration:
+      type: metricsgeneration
+      signals:
+        - metrics
+      stability:
+        metrics: alpha
+      module: github.com/open-telemetry/opentelemetry-collector-contrib/processor/metricsgenerationprocessor
+      fields:
+        type: map
+        children:
+          rules:
+            type: list
+            children:
+              item:
+                type: map
+                children:
+                  metric1:
+                    type: string
+                    doc: First operand metric to use in the calculation. This is a required field.
+                  metric2:
+                    type: string
+                    doc: Second operand metric to use in the calculation. A required field if the type is calculate.
+                  name:
+                    type: string
+                    doc: Name of the new metric being generated. This is a required field.
+                  operation:
+                    type: string
+                    doc: The arithmetic operation to apply for the calculation. This is a required field.
+                  scale_by:
+                    type: float
+                    doc: A constant number by which the first operand will be scaled. A required field if the type is scale.
+                  type:
+                    type: string
+                    doc: The rule type following which the new metric will be generated. This is a required field.
+                  unit:
+                    type: string
+                    doc: Unit for the new metric being generated.
+            doc: Set of rules for generating new metrics
+        doc: Config defines the configuration for the processor.
     metricstransform:
       type: metricstransform
       signals:
@@ -4985,8 +5192,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
               request_params:
                 type: list
@@ -5051,8 +5257,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
                     doc: ID specifies the name of the extension to use.
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
@@ -5344,8 +5549,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
             doc: Auth configuration for outgoing HTTP calls.
           azure:
@@ -6208,8 +6412,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
                     doc: ID specifies the name of the extension to use.
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
@@ -7755,8 +7958,7 @@ components:
             type: string
             doc: SamplingStrategy controls how/when sampling decisions are made. "trace-complete" (default) evaluates accumulated trace data on timer handling. "span-ingest" evaluates each incoming batch on ingest; terminal outcomes finalize immediately, and non-terminal traces are finalized on cleanup.
           tail_storage:
-            type: map
-            open: true
+            type: string
             doc: TailStorageID specifies an optional tail storage extension to use for buffering spans. If not set, in-memory tail storage is used. It is behind feature gate `processor.tailsamplingprocessor.tailstorageextension`.
         doc: Config holds the configuration for tail-based sampling.
     transform:
@@ -8330,8 +8532,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
                     doc: Auth configuration for outgoing HTTP calls.
                   auto_content_type:
@@ -8404,8 +8605,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                             doc: ID specifies the name of the extension to use.
                         doc: Middleware defines the extension ID for a middleware component.
                     doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
@@ -8622,8 +8822,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
                     doc: Auth configuration for outgoing HTTP calls.
                   auto_content_type:
@@ -8696,8 +8895,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                             doc: ID specifies the name of the extension to use.
                         doc: Middleware defines the extension ID for a middleware component.
                     doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
@@ -8971,8 +9169,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   dialer:
                     type: map
                     children:
@@ -9016,8 +9213,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                   read_buffer_size:
                     type: int
                   tls:
@@ -9105,8 +9301,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                       request_params:
                         type: list
                         children:
@@ -9154,8 +9349,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                   read_header_timeout:
                     type: duration
                   read_timeout:
@@ -9220,8 +9414,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
                 doc: Auth configuration for outgoing RPCs.
               authority:
@@ -9267,8 +9460,7 @@ components:
                     type: map
                     children:
                       id:
-                        type: map
-                        open: true
+                        type: string
                         doc: ID specifies the name of the extension to use.
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares for the gRPC client.
@@ -9658,8 +9850,7 @@ components:
             type: string
             doc: Whether OpenShift support should be enabled or not.
           k8s_leader_elector:
-            type: map
-            open: true
+            type: string
             doc: K8sLeaderElector defines the reference to the k8s leader elector extension use this when k8s cluster receiver needs to be deployed in HA mode
           kube_api_burst:
             type: int
@@ -11355,8 +11546,7 @@ components:
             type: string
             doc: When using auth_type `kubeConfig`, override the current context.
           k8s_leader_elector:
-            type: map
-            open: true
+            type: string
           kube_api_burst:
             type: int
             doc: KubeAPIBurst is the maximum burst of requests to the Kubernetes API. Uses client-go's default (10) if unset. Increase if you see client-side throttling warnings.
@@ -11391,8 +11581,7 @@ components:
           include_initial_state:
             type: bool
           k8s_leader_elector:
-            type: map
-            open: true
+            type: string
           kube_api_burst:
             type: int
             doc: KubeAPIBurst is the maximum burst of requests to the Kubernetes API. Uses client-go's default (10) if unset. Increase if you see client-side throttling warnings.
@@ -12606,8 +12795,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   dialer:
                     type: map
                     children:
@@ -12651,8 +12839,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                   read_buffer_size:
                     type: int
                   tls:
@@ -12735,10 +12922,13 @@ components:
                     children:
                       authenticator:
                         type: string
-                        doc: id of an authenticator extension
+                  dialer:
+                    type: map
+                    children:
+                      timeout:
+                        type: duration
                   endpoint:
                     type: string
-                    doc: host:port to listen on, e.g. 0.0.0.0:4317
                   include_metadata:
                     type: bool
                   keepalive:
@@ -12768,6 +12958,14 @@ components:
                     type: int
                   max_recv_msg_size_mib:
                     type: int
+                  middlewares:
+                    type: list
+                    children:
+                      item:
+                        type: map
+                        children:
+                          id:
+                            type: string
                   read_buffer_size:
                     type: int
                   tls:
@@ -12790,6 +12988,11 @@ components:
                         type: string
                       client_ca_file_reload:
                         type: bool
+                      curve_preferences:
+                        type: list
+                        children:
+                          item:
+                            type: string
                       include_system_ca_certs_pool:
                         type: bool
                       key_file:
@@ -12802,21 +13005,19 @@ components:
                         type: string
                       reload_interval:
                         type: duration
+                      tpm:
+                        type: map
+                        children:
+                          auth:
+                            type: string
+                          enabled:
+                            type: bool
+                          owner_auth:
+                            type: string
+                          path:
+                            type: string
                   transport:
                     type: string
-                    enum:
-                      - tcp
-                      - tcp4
-                      - tcp6
-                      - udp
-                      - udp4
-                      - udp6
-                      - ip
-                      - ip4
-                      - ip6
-                      - unix
-                      - unixgram
-                      - unixpacket
                   write_buffer_size:
                     type: int
               http:
@@ -12827,6 +13028,11 @@ components:
                     children:
                       authenticator:
                         type: string
+                      request_params:
+                        type: list
+                        children:
+                          item:
+                            type: string
                   compression_algorithms:
                     type: list
                     children:
@@ -12847,10 +13053,18 @@ components:
                             type: string
                       max_age:
                         type: int
+                  dialer:
+                    type: map
+                    children:
+                      timeout:
+                        type: duration
                   endpoint:
                     type: string
-                    doc: host:port to listen on, e.g. 0.0.0.0:4318
+                  idle_timeout:
+                    type: duration
                   include_metadata:
+                    type: bool
+                  keep_alives_enabled:
                     type: bool
                   logs_url_path:
                     type: string
@@ -12858,9 +13072,19 @@ components:
                     type: int
                   metrics_url_path:
                     type: string
-                  response_headers:
-                    type: map
-                    open: true
+                  middlewares:
+                    type: list
+                    children:
+                      item:
+                        type: map
+                        children:
+                          id:
+                            type: string
+                  read_header_timeout:
+                    type: duration
+                  read_timeout:
+                    type: duration
+                  response_headers: {}
                   tls:
                     type: map
                     children:
@@ -12881,6 +13105,11 @@ components:
                         type: string
                       client_ca_file_reload:
                         type: bool
+                      curve_preferences:
+                        type: list
+                        children:
+                          item:
+                            type: string
                       include_system_ca_certs_pool:
                         type: bool
                       key_file:
@@ -12893,11 +13122,23 @@ components:
                         type: string
                       reload_interval:
                         type: duration
+                      tpm:
+                        type: map
+                        children:
+                          auth:
+                            type: string
+                          enabled:
+                            type: bool
+                          owner_auth:
+                            type: string
+                          path:
+                            type: string
                   traces_url_path:
                     type: string
-            doc: at least one of grpc or http must be enabled
-        required:
-          - protocols
+                  transport:
+                    type: string
+                  write_timeout:
+                    type: duration
     prometheus:
       type: prometheus
       signals:
@@ -12920,8 +13161,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
                       request_params:
                         type: list
@@ -12982,8 +13222,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                             doc: ID specifies the name of the extension to use.
                         doc: Middleware defines the extension ID for a middleware component.
                     doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
@@ -13086,8 +13325,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
                 doc: Auth configuration for outgoing HTTP calls.
               collector_id:
@@ -13156,8 +13394,7 @@ components:
                     type: map
                     children:
                       id:
-                        type: map
-                        open: true
+                        type: string
                         doc: ID specifies the name of the extension to use.
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
@@ -13281,8 +13518,7 @@ components:
             type: list
             children:
               item:
-                type: map
-                open: true
+                type: string
             doc: WatchObservers are the extensions to listen to endpoints from.
         doc: Config defines configuration for receiver_creator.
     zipkin:
@@ -13299,8 +13535,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
               request_params:
                 type: list
@@ -13361,8 +13596,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
                     doc: ID specifies the name of the extension to use.
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
