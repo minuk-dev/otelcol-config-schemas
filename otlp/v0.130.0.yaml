@@ -1,9 +1,8 @@
 collectorVersion: v0.130.0
 distribution: otlp
-generatedAt: "2026-08-02T13:15:52Z"
+generatedAt: "2026-08-07T00:10:12Z"
 sources:
-  contrib: github.com/open-telemetry/opentelemetry-collector-contrib
-  core: go.opentelemetry.io/collector
+  otlp: github.com/open-telemetry/opentelemetry-collector-releases/otlp
 components:
   exporter:
     otlp:
@@ -31,27 +30,13 @@ components:
             type: string
           balancer_name:
             type: string
-            enum:
-              - round_robin
-              - pick_first
           compression:
             type: string
-            enum:
-              - gzip
-              - snappy
-              - zstd
-              - zlib
-              - deflate
-              - lz4
-              - none
-              - ""
           endpoint:
             type: string
-            doc: host:port of the OTLP gRPC endpoint
           headers:
             type: map
             open: true
-            doc: extra gRPC metadata sent with every request
           keepalive:
             type: map
             children:
@@ -61,6 +46,14 @@ components:
                 type: duration
               timeout:
                 type: duration
+          middlewares:
+            type: list
+            children:
+              item:
+                type: map
+                children:
+                  id:
+                    type: string
           read_buffer_size:
             type: int
           retry_on_failure:
@@ -81,7 +74,18 @@ components:
           sending_queue:
             type: map
             children:
-              blocking:
+              batch:
+                type: map
+                children:
+                  flush_timeout:
+                    type: duration
+                  max_size:
+                    type: int
+                  min_size:
+                    type: int
+                  sizer:
+                    type: string
+              block_on_overflow:
                 type: bool
               enabled:
                 type: bool
@@ -91,16 +95,10 @@ components:
                 type: int
               sizer:
                 type: string
-                enum:
-                  - requests
-                  - items
-                  - bytes
               storage:
                 type: string
-                doc: id of a storage extension for a persistent queue
               wait_for_result:
                 type: bool
-            open: true
           timeout:
             type: duration
           tls:
@@ -119,14 +117,17 @@ components:
                 children:
                   item:
                     type: string
+              curve_preferences:
+                type: list
+                children:
+                  item:
+                    type: string
               include_system_ca_certs_pool:
                 type: bool
               insecure:
                 type: bool
-                doc: send in plaintext; only for local testing
               insecure_skip_verify:
                 type: bool
-                doc: accept any server certificate
               key_file:
                 type: string
               key_pem:
@@ -139,12 +140,21 @@ components:
                 type: duration
               server_name_override:
                 type: string
+              tpm:
+                type: map
+                children:
+                  auth:
+                    type: string
+                  enabled:
+                    type: bool
+                  owner_auth:
+                    type: string
+                  path:
+                    type: string
           wait_for_ready:
             type: bool
           write_buffer_size:
             type: int
-        required:
-          - endpoint
     otlphttp:
       type: otlphttp
       signals:
@@ -165,8 +175,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           compression_params:
@@ -211,8 +220,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           proxy_url:
             type: string
           read_buffer_size:
@@ -245,8 +253,7 @@ components:
                   min_size:
                     type: int
                   sizer:
-                    type: map
-                    open: true
+                    type: string
               block_on_overflow:
                 type: bool
               enabled:
@@ -256,11 +263,9 @@ components:
               queue_size:
                 type: int
               sizer:
-                type: map
-                open: true
+                type: string
               storage:
-                type: map
-                open: true
+                type: string
               wait_for_result:
                 type: bool
           timeout:
@@ -347,10 +352,13 @@ components:
                     children:
                       authenticator:
                         type: string
-                        doc: id of an authenticator extension
+                  dialer:
+                    type: map
+                    children:
+                      timeout:
+                        type: duration
                   endpoint:
                     type: string
-                    doc: host:port to listen on, e.g. 0.0.0.0:4317
                   include_metadata:
                     type: bool
                   keepalive:
@@ -380,6 +388,14 @@ components:
                     type: int
                   max_recv_msg_size_mib:
                     type: int
+                  middlewares:
+                    type: list
+                    children:
+                      item:
+                        type: map
+                        children:
+                          id:
+                            type: string
                   read_buffer_size:
                     type: int
                   tls:
@@ -402,6 +418,11 @@ components:
                         type: string
                       client_ca_file_reload:
                         type: bool
+                      curve_preferences:
+                        type: list
+                        children:
+                          item:
+                            type: string
                       include_system_ca_certs_pool:
                         type: bool
                       key_file:
@@ -414,21 +435,19 @@ components:
                         type: string
                       reload_interval:
                         type: duration
+                      tpm:
+                        type: map
+                        children:
+                          auth:
+                            type: string
+                          enabled:
+                            type: bool
+                          owner_auth:
+                            type: string
+                          path:
+                            type: string
                   transport:
                     type: string
-                    enum:
-                      - tcp
-                      - tcp4
-                      - tcp6
-                      - udp
-                      - udp4
-                      - udp6
-                      - ip
-                      - ip4
-                      - ip6
-                      - unix
-                      - unixgram
-                      - unixpacket
                   write_buffer_size:
                     type: int
               http:
@@ -439,6 +458,11 @@ components:
                     children:
                       authenticator:
                         type: string
+                      request_params:
+                        type: list
+                        children:
+                          item:
+                            type: string
                   compression_algorithms:
                     type: list
                     children:
@@ -461,7 +485,8 @@ components:
                         type: int
                   endpoint:
                     type: string
-                    doc: host:port to listen on, e.g. 0.0.0.0:4318
+                  idle_timeout:
+                    type: duration
                   include_metadata:
                     type: bool
                   logs_url_path:
@@ -470,6 +495,18 @@ components:
                     type: int
                   metrics_url_path:
                     type: string
+                  middleware:
+                    type: list
+                    children:
+                      item:
+                        type: map
+                        children:
+                          id:
+                            type: string
+                  read_header_timeout:
+                    type: duration
+                  read_timeout:
+                    type: duration
                   response_headers:
                     type: map
                     open: true
@@ -493,6 +530,11 @@ components:
                         type: string
                       client_ca_file_reload:
                         type: bool
+                      curve_preferences:
+                        type: list
+                        children:
+                          item:
+                            type: string
                       include_system_ca_certs_pool:
                         type: bool
                       key_file:
@@ -505,8 +547,18 @@ components:
                         type: string
                       reload_interval:
                         type: duration
+                      tpm:
+                        type: map
+                        children:
+                          auth:
+                            type: string
+                          enabled:
+                            type: bool
+                          owner_auth:
+                            type: string
+                          path:
+                            type: string
                   traces_url_path:
                     type: string
-            doc: at least one of grpc or http must be enabled
-        required:
-          - protocols
+                  write_timeout:
+                    type: duration
