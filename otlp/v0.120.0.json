@@ -1,10 +1,9 @@
 {
   "collectorVersion": "v0.120.0",
   "distribution": "otlp",
-  "generatedAt": "2026-08-02T13:15:51Z",
+  "generatedAt": "2026-08-07T00:11:21Z",
   "sources": {
-    "contrib": "github.com/open-telemetry/opentelemetry-collector-contrib",
-    "core": "go.opentelemetry.io/collector"
+    "otlp": "github.com/open-telemetry/opentelemetry-collector-releases/otlp"
   },
   "components": {
     "exporter": {
@@ -38,33 +37,34 @@
               "type": "string"
             },
             "balancer_name": {
-              "type": "string",
-              "enum": [
-                "round_robin",
-                "pick_first"
-              ]
+              "type": "string"
+            },
+            "batcher": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "flush_timeout": {
+                  "type": "duration"
+                },
+                "max_size_items": {
+                  "type": "int"
+                },
+                "min_size_items": {
+                  "type": "int"
+                }
+              }
             },
             "compression": {
-              "type": "string",
-              "enum": [
-                "gzip",
-                "snappy",
-                "zstd",
-                "zlib",
-                "deflate",
-                "lz4",
-                "none",
-                ""
-              ]
+              "type": "string"
             },
             "endpoint": {
-              "type": "string",
-              "doc": "host:port of the OTLP gRPC endpoint"
+              "type": "string"
             },
             "headers": {
               "type": "map",
-              "open": true,
-              "doc": "extra gRPC metadata sent with every request"
+              "open": true
             },
             "keepalive": {
               "type": "map",
@@ -121,23 +121,10 @@
                 "queue_size": {
                   "type": "int"
                 },
-                "sizer": {
-                  "type": "string",
-                  "enum": [
-                    "requests",
-                    "items",
-                    "bytes"
-                  ]
-                },
                 "storage": {
-                  "type": "string",
-                  "doc": "id of a storage extension for a persistent queue"
-                },
-                "wait_for_result": {
-                  "type": "bool"
+                  "type": "string"
                 }
-              },
-              "open": true
+              }
             },
             "timeout": {
               "type": "duration"
@@ -165,16 +152,22 @@
                     }
                   }
                 },
+                "curve_preferences": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
                 "include_system_ca_certs_pool": {
                   "type": "bool"
                 },
                 "insecure": {
-                  "type": "bool",
-                  "doc": "send in plaintext; only for local testing"
+                  "type": "bool"
                 },
                 "insecure_skip_verify": {
-                  "type": "bool",
-                  "doc": "accept any server certificate"
+                  "type": "bool"
                 },
                 "key_file": {
                   "type": "string"
@@ -202,10 +195,7 @@
             "write_buffer_size": {
               "type": "int"
             }
-          },
-          "required": [
-            "endpoint"
-          ]
+          }
         }
       },
       "otlphttp": {
@@ -230,8 +220,7 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 }
               }
             },
@@ -336,8 +325,7 @@
                   "type": "int"
                 },
                 "storage": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 }
               }
             },
@@ -443,14 +431,20 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string",
-                          "doc": "id of an authenticator extension"
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "dialer": {
+                      "type": "map",
+                      "children": {
+                        "timeout": {
+                          "type": "duration"
                         }
                       }
                     },
                     "endpoint": {
-                      "type": "string",
-                      "doc": "host:port to listen on, e.g. 0.0.0.0:4317"
+                      "type": "string"
                     },
                     "include_metadata": {
                       "type": "bool"
@@ -529,6 +523,14 @@
                         "client_ca_file_reload": {
                           "type": "bool"
                         },
+                        "curve_preferences": {
+                          "type": "list",
+                          "children": {
+                            "item": {
+                              "type": "string"
+                            }
+                          }
+                        },
                         "include_system_ca_certs_pool": {
                           "type": "bool"
                         },
@@ -550,21 +552,7 @@
                       }
                     },
                     "transport": {
-                      "type": "string",
-                      "enum": [
-                        "tcp",
-                        "tcp4",
-                        "tcp6",
-                        "udp",
-                        "udp4",
-                        "udp6",
-                        "ip",
-                        "ip4",
-                        "ip6",
-                        "unix",
-                        "unixgram",
-                        "unixpacket"
-                      ]
+                      "type": "string"
                     },
                     "write_buffer_size": {
                       "type": "int"
@@ -579,6 +567,14 @@
                       "children": {
                         "authenticator": {
                           "type": "string"
+                        },
+                        "request_params": {
+                          "type": "list",
+                          "children": {
+                            "item": {
+                              "type": "string"
+                            }
+                          }
                         }
                       }
                     },
@@ -615,8 +611,10 @@
                       }
                     },
                     "endpoint": {
-                      "type": "string",
-                      "doc": "host:port to listen on, e.g. 0.0.0.0:4318"
+                      "type": "string"
+                    },
+                    "idle_timeout": {
+                      "type": "duration"
                     },
                     "include_metadata": {
                       "type": "bool"
@@ -629,6 +627,12 @@
                     },
                     "metrics_url_path": {
                       "type": "string"
+                    },
+                    "read_header_timeout": {
+                      "type": "duration"
+                    },
+                    "read_timeout": {
+                      "type": "duration"
                     },
                     "response_headers": {
                       "type": "map",
@@ -663,6 +667,14 @@
                         "client_ca_file_reload": {
                           "type": "bool"
                         },
+                        "curve_preferences": {
+                          "type": "list",
+                          "children": {
+                            "item": {
+                              "type": "string"
+                            }
+                          }
+                        },
                         "include_system_ca_certs_pool": {
                           "type": "bool"
                         },
@@ -685,16 +697,15 @@
                     },
                     "traces_url_path": {
                       "type": "string"
+                    },
+                    "write_timeout": {
+                      "type": "duration"
                     }
                   }
                 }
-              },
-              "doc": "at least one of grpc or http must be enabled"
+              }
             }
-          },
-          "required": [
-            "protocols"
-          ]
+          }
         }
       }
     }
