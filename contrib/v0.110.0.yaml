@@ -1,9 +1,8 @@
 collectorVersion: v0.110.0
 distribution: contrib
-generatedAt: "2026-08-02T13:15:51Z"
+generatedAt: "2026-08-07T00:13:01Z"
 sources:
-  contrib: github.com/open-telemetry/opentelemetry-collector-contrib
-  core: go.opentelemetry.io/collector
+  contrib: github.com/open-telemetry/opentelemetry-collector-releases/contrib
 components:
   connector:
     count:
@@ -116,38 +115,6 @@ components:
             children:
               enabled:
                 type: bool
-    failover:
-      type: failover
-      stability:
-        logs_to_logs: alpha
-        metrics_to_metrics: alpha
-        traces_to_traces: alpha
-      pairs:
-        - from: logs
-          to: logs
-        - from: metrics
-          to: metrics
-        - from: traces
-          to: traces
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/connector/failoverconnector
-      fields:
-        type: map
-        children:
-          max_retries:
-            type: int
-          priority_levels:
-            type: list
-            children:
-              item:
-                type: list
-                children:
-                  item:
-                    type: map
-                    open: true
-          retry_gap:
-            type: duration
-          retry_interval:
-            type: duration
     forward:
       type: forward
       stability:
@@ -229,8 +196,7 @@ components:
             type: list
             children:
               item:
-                type: map
-                open: true
+                type: string
           error_mode:
             type: string
           match_once:
@@ -245,8 +211,7 @@ components:
                     type: list
                     children:
                       item:
-                        type: map
-                        open: true
+                        type: string
                   statement:
                     type: string
     servicegraph:
@@ -365,7 +330,7 @@ components:
                   max_size:
                     type: int
               unit:
-                type: int
+                type: string
           metric_timestamp_cache_size:
             type: int
           metrics_expiration:
@@ -381,156 +346,7 @@ components:
             children:
               item:
                 type: string
-    sum:
-      type: sum
-      stability:
-        logs_to_metrics: development
-        metrics_to_metrics: development
-        traces_to_metrics: development
-      pairs:
-        - from: logs
-          to: metrics
-        - from: metrics
-          to: metrics
-        - from: traces
-          to: metrics
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/connector/sumconnector
-      fields:
-        type: map
-        children:
-          datapoints:
-            type: map
-            open: true
-          logs:
-            type: map
-            open: true
-          metrics:
-            type: map
-            open: true
-          spanevents:
-            type: map
-            open: true
-          spans:
-            type: map
-            open: true
   exporter:
-    alertmanager:
-      type: alertmanager
-      signals:
-        - traces
-      stability:
-        traces: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/exporter/alertmanagerexporter
-      fields:
-        type: map
-        children:
-          auth:
-            type: map
-            children:
-              authenticator:
-                type: map
-                open: true
-          compression:
-            type: string
-          cookies:
-            type: map
-            children:
-              enabled:
-                type: bool
-          disable_keep_alives:
-            type: bool
-          endpoint:
-            type: string
-          generator_url:
-            type: string
-          headers:
-            type: map
-            open: true
-          http2_ping_timeout:
-            type: duration
-          http2_read_idle_timeout:
-            type: duration
-          idle_conn_timeout:
-            type: duration
-          max_conns_per_host:
-            type: int
-          max_idle_conns:
-            type: int
-          max_idle_conns_per_host:
-            type: int
-          proxy_url:
-            type: string
-          read_buffer_size:
-            type: int
-          retry_on_failure:
-            type: map
-            children:
-              enabled:
-                type: bool
-              initial_interval:
-                type: duration
-              max_elapsed_time:
-                type: duration
-              max_interval:
-                type: duration
-              multiplier:
-                type: float
-              randomization_factor:
-                type: float
-          sending_queue:
-            type: map
-            children:
-              enabled:
-                type: bool
-              num_consumers:
-                type: int
-              queue_size:
-                type: int
-              storage:
-                type: map
-                open: true
-          severity:
-            type: string
-          severity_attribute:
-            type: string
-          timeout:
-            type: duration
-          tls:
-            type: map
-            children:
-              ca_file:
-                type: string
-              ca_pem:
-                type: string
-              cert_file:
-                type: string
-              cert_pem:
-                type: string
-              cipher_suites:
-                type: list
-                children:
-                  item:
-                    type: string
-              include_system_ca_certs_pool:
-                type: bool
-              insecure:
-                type: bool
-              insecure_skip_verify:
-                type: bool
-              key_file:
-                type: string
-              key_pem:
-                type: string
-              max_version:
-                type: string
-              min_version:
-                type: string
-              reload_interval:
-                type: duration
-              server_name_override:
-                type: string
-          write_buffer_size:
-            type: int
     alibabacloud_logservice:
       type: alibabacloud_logservice
       signals:
@@ -622,8 +438,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           tags:
             type: map
             open: true
@@ -797,8 +612,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
     awss3:
@@ -816,8 +630,7 @@ components:
         type: map
         children:
           encoding:
-            type: map
-            open: true
+            type: string
           encoding_file_extension:
             type: string
           marshaler:
@@ -894,8 +707,7 @@ components:
                 type: list
                 children:
                   item:
-                    type: map
-                    open: true
+                    type: string
               enabled:
                 type: bool
               hostname:
@@ -965,8 +777,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           tenant_id:
             type: string
           timeout:
@@ -1009,8 +820,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           spaneventsenabled:
             type: bool
     carbon:
@@ -1062,8 +872,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
     cassandra:
@@ -1169,8 +978,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           table_engine:
             type: map
             children:
@@ -1211,8 +1019,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           authority:
             type: string
           balancer_name:
@@ -1228,8 +1035,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               authority:
                 type: string
               balancer_name:
@@ -1311,8 +1117,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               authority:
                 type: string
               balancer_name:
@@ -1380,8 +1185,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               authority:
                 type: string
               balancer_name:
@@ -1471,8 +1275,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           subsystem_name:
             type: string
           subsystem_name_attributes:
@@ -1523,8 +1326,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               authority:
                 type: string
               balancer_name:
@@ -1616,8 +1418,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -1744,8 +1545,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -1903,8 +1703,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           server_host:
             type: map
             children:
@@ -1940,161 +1739,12 @@ components:
         children:
           sampling_initial:
             type: int
-            doc: messages logged per second before sampling kicks in
           sampling_thereafter:
             type: int
-            doc: log one in every N messages after the initial burst
           use_internal_logger:
             type: bool
           verbosity:
             type: string
-            enum:
-              - basic
-              - normal
-              - detailed
-            doc: how much of each payload is written to the collector log
-    doris:
-      type: doris
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: development
-        metrics: development
-        traces: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dorisexporter
-      fields:
-        type: map
-        children:
-          auth:
-            type: map
-            children:
-              authenticator:
-                type: map
-                open: true
-          compression:
-            type: string
-          cookies:
-            type: map
-            children:
-              enabled:
-                type: bool
-          create_history_days:
-            type: int
-          create_schema:
-            type: bool
-          database:
-            type: string
-          disable_keep_alives:
-            type: bool
-          endpoint:
-            type: string
-          headers:
-            type: map
-            open: true
-          history_days:
-            type: int
-          http2_ping_timeout:
-            type: duration
-          http2_read_idle_timeout:
-            type: duration
-          idle_conn_timeout:
-            type: duration
-          max_conns_per_host:
-            type: int
-          max_idle_conns:
-            type: int
-          max_idle_conns_per_host:
-            type: int
-          mysql_endpoint:
-            type: string
-          password:
-            type: string
-          proxy_url:
-            type: string
-          read_buffer_size:
-            type: int
-          replication_num:
-            type: int
-          retry_on_failure:
-            type: map
-            children:
-              enabled:
-                type: bool
-              initial_interval:
-                type: duration
-              max_elapsed_time:
-                type: duration
-              max_interval:
-                type: duration
-              multiplier:
-                type: float
-              randomization_factor:
-                type: float
-          sending_queue:
-            type: map
-            children:
-              enabled:
-                type: bool
-              num_consumers:
-                type: int
-              queue_size:
-                type: int
-              storage:
-                type: map
-                open: true
-          table:
-            type: map
-            children:
-              logs:
-                type: string
-              metrics:
-                type: string
-              traces:
-                type: string
-          timeout:
-            type: duration
-          timezone:
-            type: string
-          tls:
-            type: map
-            children:
-              ca_file:
-                type: string
-              ca_pem:
-                type: string
-              cert_file:
-                type: string
-              cert_pem:
-                type: string
-              cipher_suites:
-                type: list
-                children:
-                  item:
-                    type: string
-              include_system_ca_certs_pool:
-                type: bool
-              insecure:
-                type: bool
-              insecure_skip_verify:
-                type: bool
-              key_file:
-                type: string
-              key_pem:
-                type: string
-              max_version:
-                type: string
-              min_version:
-                type: string
-              reload_interval:
-                type: duration
-              server_name_override:
-                type: string
-          username:
-            type: string
-          write_buffer_size:
-            type: int
     elasticsearch:
       type: elasticsearch
       signals:
@@ -2115,8 +1765,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           batcher:
             type: map
             children:
@@ -2245,8 +1894,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           telemetry:
             type: map
             children:
@@ -2301,17 +1949,6 @@ components:
             type: string
           write_buffer_size:
             type: int
-    exporterhelper:
-      type: exporterhelper
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: beta
-        metrics: beta
-        traces: beta
-      module: go.opentelemetry.io/collector/exporter/exporterhelper
     file:
       type: file
       signals:
@@ -2331,8 +1968,7 @@ components:
           compression:
             type: string
           encoding:
-            type: map
-            open: true
+            type: string
           flush_interval:
             type: duration
           format:
@@ -2383,8 +2019,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
     googlecloudpubsub:
@@ -2434,8 +2069,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           topic:
@@ -2482,8 +2116,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           user_agent:
@@ -2506,8 +2139,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -2585,8 +2217,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -2643,8 +2274,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           bucket:
             type: string
           compression:
@@ -2715,8 +2345,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           span_dimensions:
             type: list
             children:
@@ -2770,92 +2399,6 @@ components:
               password:
                 type: string
               username:
-                type: string
-          write_buffer_size:
-            type: int
-    instana:
-      type: instana
-      signals:
-        - traces
-      stability:
-        traces: deprecated
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/exporter/instanaexporter
-      fields:
-        type: map
-        children:
-          agent_key:
-            type: string
-          auth:
-            type: map
-            children:
-              authenticator:
-                type: map
-                open: true
-          compression:
-            type: string
-          cookies:
-            type: map
-            children:
-              enabled:
-                type: bool
-          disable_keep_alives:
-            type: bool
-          endpoint:
-            type: string
-          headers:
-            type: map
-            open: true
-          http2_ping_timeout:
-            type: duration
-          http2_read_idle_timeout:
-            type: duration
-          idle_conn_timeout:
-            type: duration
-          max_conns_per_host:
-            type: int
-          max_idle_conns:
-            type: int
-          max_idle_conns_per_host:
-            type: int
-          proxy_url:
-            type: string
-          read_buffer_size:
-            type: int
-          timeout:
-            type: duration
-          tls:
-            type: map
-            children:
-              ca_file:
-                type: string
-              ca_pem:
-                type: string
-              cert_file:
-                type: string
-              cert_pem:
-                type: string
-              cipher_suites:
-                type: list
-                children:
-                  item:
-                    type: string
-              include_system_ca_certs_pool:
-                type: bool
-              insecure:
-                type: bool
-              insecure_skip_verify:
-                type: bool
-              key_file:
-                type: string
-              key_pem:
-                type: string
-              max_version:
-                type: string
-              min_version:
-                type: string
-              reload_interval:
-                type: duration
-              server_name_override:
                 type: string
           write_buffer_size:
             type: int
@@ -3022,37 +2565,12 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           topic:
             type: string
           topic_from_attribute:
-            type: string
-    kinetica:
-      type: kinetica
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: development
-        metrics: development
-        traces: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/exporter/kineticaexporter
-      fields:
-        type: map
-        children:
-          bypasssslcertcheck:
-            type: bool
-          host:
-            type: string
-          password:
-            type: string
-          schema:
-            type: string
-          username:
             type: string
     loadbalancing:
       type: loadbalancing
@@ -3078,8 +2596,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   authority:
                     type: string
                   balancer_name:
@@ -3138,8 +2655,7 @@ components:
                       queue_size:
                         type: int
                       storage:
-                        type: map
-                        open: true
+                        type: string
                   timeout:
                     type: duration
                   tls:
@@ -3254,7 +2770,7 @@ components:
           sampling_thereafter:
             type: int
           verbosity:
-            type: int
+            type: string
     logicmonitor:
       type: logicmonitor
       signals:
@@ -3278,8 +2794,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -3345,8 +2860,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -3403,8 +2917,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -3470,8 +2983,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -3524,8 +3036,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -3584,8 +3095,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -3638,8 +3148,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -3699,8 +3208,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -3766,8 +3274,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           authority:
             type: string
           balancer_name:
@@ -3817,8 +3324,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           tls:
             type: map
             children:
@@ -3880,8 +3386,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               compression:
                 type: string
               cookies:
@@ -4031,8 +3536,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           authority:
             type: string
           balancer_name:
@@ -4098,8 +3602,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -4163,27 +3666,24 @@ components:
             type: string
           balancer_name:
             type: string
-            enum:
-              - round_robin
-              - pick_first
+          batcher:
+            type: map
+            children:
+              enabled:
+                type: bool
+              flush_timeout:
+                type: duration
+              max_size_items:
+                type: int
+              min_size_items:
+                type: int
           compression:
             type: string
-            enum:
-              - gzip
-              - snappy
-              - zstd
-              - zlib
-              - deflate
-              - lz4
-              - none
-              - ""
           endpoint:
             type: string
-            doc: host:port of the OTLP gRPC endpoint
           headers:
             type: map
             open: true
-            doc: extra gRPC metadata sent with every request
           keepalive:
             type: map
             children:
@@ -4213,26 +3713,14 @@ components:
           sending_queue:
             type: map
             children:
-              blocking:
-                type: bool
               enabled:
                 type: bool
               num_consumers:
                 type: int
               queue_size:
                 type: int
-              sizer:
-                type: string
-                enum:
-                  - requests
-                  - items
-                  - bytes
               storage:
                 type: string
-                doc: id of a storage extension for a persistent queue
-              wait_for_result:
-                type: bool
-            open: true
           timeout:
             type: duration
           tls:
@@ -4255,10 +3743,8 @@ components:
                 type: bool
               insecure:
                 type: bool
-                doc: send in plaintext; only for local testing
               insecure_skip_verify:
                 type: bool
-                doc: accept any server certificate
               key_file:
                 type: string
               key_pem:
@@ -4275,8 +3761,6 @@ components:
             type: bool
           write_buffer_size:
             type: int
-        required:
-          - endpoint
     otlphttp:
       type: otlphttp
       signals:
@@ -4295,8 +3779,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -4358,8 +3841,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -4416,8 +3898,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -4524,8 +4005,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -4768,8 +4248,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls_allow_insecure_connection:
@@ -4852,8 +4331,7 @@ components:
           durable:
             type: bool
           encoding_extension:
-            type: map
-            open: true
+            type: string
           retry_on_failure:
             type: map
             children:
@@ -4927,8 +4405,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
     sentry:
@@ -5005,8 +4482,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -5021,8 +4497,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               cleanup_interval:
                 type: duration
               compression:
@@ -5158,17 +4633,13 @@ components:
                 type: map
                 children:
                   dimension_name:
-                    type: map
-                    open: true
+                    type: string
                   dimension_value:
-                    type: map
-                    open: true
+                    type: string
                   property_name:
-                    type: map
-                    open: true
+                    type: string
                   property_value:
-                    type: map
-                    open: true
+                    type: string
           headers:
             type: map
             open: true
@@ -5275,8 +4746,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           sync_host_metadata:
             type: bool
           timeout:
@@ -5387,8 +4857,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           batcher:
             type: map
             children:
@@ -5502,8 +4971,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           source:
             type: string
           sourcetype:
@@ -5583,8 +5051,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           client:
             type: string
           compress_encoding:
@@ -5652,8 +5119,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           sticky_session_enabled:
             type: bool
           timeout:
@@ -5739,8 +5205,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -5811,8 +5276,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -5872,8 +5336,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -5926,8 +5389,7 @@ components:
           max_number_of_pending_acks_per_partition:
             type: int
           storage:
-            type: map
-            open: true
+            type: string
     asapclient:
       type: asapclient
       stability:
@@ -5949,16 +5411,6 @@ components:
             type: string
           ttl:
             type: duration
-    avro_log_encoding:
-      type: avro_log_encoding
-      stability:
-        extension: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/extension/encoding/avrologencodingextension
-      fields:
-        type: map
-        children:
-          schema:
-            type: string
     awsproxy:
       type: awsproxy
       stability:
@@ -6056,18 +5508,6 @@ components:
             type: string
           token:
             type: string
-    cfgarden_observer:
-      type: cfgarden_observer
-      stability:
-        extension: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/extension/observer/cfgardenobserver
-      fields:
-        type: map
-        children:
-          endpoint:
-            type: string
-          refresh_interval:
-            type: duration
     db_storage:
       type: db_storage
       stability:
@@ -6196,8 +5636,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -6351,8 +5790,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -6443,303 +5881,6 @@ components:
                 type: string
               reload_interval:
                 type: duration
-          write_timeout:
-            type: duration
-    healthcheckv2:
-      type: healthcheckv2
-      stability:
-        extension: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension
-      fields:
-        type: map
-        children:
-          auth:
-            type: map
-            children:
-              authenticator:
-                type: map
-                open: true
-              request_params:
-                type: list
-                children:
-                  item:
-                    type: string
-          check_collector_pipeline:
-            type: map
-            children:
-              enabled:
-                type: bool
-              exporter_failure_threshold:
-                type: int
-              interval:
-                type: string
-          component_health:
-            type: map
-            children:
-              include_permanent_errors:
-                type: bool
-              include_recoverable_errors:
-                type: bool
-              recovery_duration:
-                type: duration
-          compression_algorithms:
-            type: list
-            children:
-              item:
-                type: string
-          cors:
-            type: map
-            children:
-              allowed_headers:
-                type: list
-                children:
-                  item:
-                    type: string
-              allowed_origins:
-                type: list
-                children:
-                  item:
-                    type: string
-              max_age:
-                type: int
-          endpoint:
-            type: string
-          grpc:
-            type: map
-            children:
-              auth:
-                type: map
-                children:
-                  authenticator:
-                    type: map
-                    open: true
-              dialer:
-                type: map
-                children:
-                  timeout:
-                    type: duration
-              endpoint:
-                type: string
-              include_metadata:
-                type: bool
-              keepalive:
-                type: map
-                children:
-                  enforcement_policy:
-                    type: map
-                    children:
-                      min_time:
-                        type: duration
-                      permit_without_stream:
-                        type: bool
-                  server_parameters:
-                    type: map
-                    children:
-                      max_connection_age:
-                        type: duration
-                      max_connection_age_grace:
-                        type: duration
-                      max_connection_idle:
-                        type: duration
-                      time:
-                        type: duration
-                      timeout:
-                        type: duration
-              max_concurrent_streams:
-                type: int
-              max_recv_msg_size_mib:
-                type: int
-              read_buffer_size:
-                type: int
-              tls:
-                type: map
-                children:
-                  ca_file:
-                    type: string
-                  ca_pem:
-                    type: string
-                  cert_file:
-                    type: string
-                  cert_pem:
-                    type: string
-                  cipher_suites:
-                    type: list
-                    children:
-                      item:
-                        type: string
-                  client_ca_file:
-                    type: string
-                  client_ca_file_reload:
-                    type: bool
-                  include_system_ca_certs_pool:
-                    type: bool
-                  key_file:
-                    type: string
-                  key_pem:
-                    type: string
-                  max_version:
-                    type: string
-                  min_version:
-                    type: string
-                  reload_interval:
-                    type: duration
-              transport:
-                type: string
-              write_buffer_size:
-                type: int
-          http:
-            type: map
-            children:
-              auth:
-                type: map
-                children:
-                  authenticator:
-                    type: map
-                    open: true
-                  request_params:
-                    type: list
-                    children:
-                      item:
-                        type: string
-              compression_algorithms:
-                type: list
-                children:
-                  item:
-                    type: string
-              config:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-                  path:
-                    type: string
-              cors:
-                type: map
-                children:
-                  allowed_headers:
-                    type: list
-                    children:
-                      item:
-                        type: string
-                  allowed_origins:
-                    type: list
-                    children:
-                      item:
-                        type: string
-                  max_age:
-                    type: int
-              endpoint:
-                type: string
-              idle_timeout:
-                type: duration
-              include_metadata:
-                type: bool
-              max_request_body_size:
-                type: int
-              read_header_timeout:
-                type: duration
-              read_timeout:
-                type: duration
-              response_headers:
-                type: map
-                open: true
-              status:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-                  path:
-                    type: string
-              tls:
-                type: map
-                children:
-                  ca_file:
-                    type: string
-                  ca_pem:
-                    type: string
-                  cert_file:
-                    type: string
-                  cert_pem:
-                    type: string
-                  cipher_suites:
-                    type: list
-                    children:
-                      item:
-                        type: string
-                  client_ca_file:
-                    type: string
-                  client_ca_file_reload:
-                    type: bool
-                  include_system_ca_certs_pool:
-                    type: bool
-                  key_file:
-                    type: string
-                  key_pem:
-                    type: string
-                  max_version:
-                    type: string
-                  min_version:
-                    type: string
-                  reload_interval:
-                    type: duration
-              write_timeout:
-                type: duration
-          idle_timeout:
-            type: duration
-          include_metadata:
-            type: bool
-          max_request_body_size:
-            type: int
-          path:
-            type: string
-          read_header_timeout:
-            type: duration
-          read_timeout:
-            type: duration
-          response_body:
-            type: map
-            children:
-              healthy:
-                type: string
-              unhealthy:
-                type: string
-          response_headers:
-            type: map
-            open: true
-          tls:
-            type: map
-            children:
-              ca_file:
-                type: string
-              ca_pem:
-                type: string
-              cert_file:
-                type: string
-              cert_pem:
-                type: string
-              cipher_suites:
-                type: list
-                children:
-                  item:
-                    type: string
-              client_ca_file:
-                type: string
-              client_ca_file_reload:
-                type: bool
-              include_system_ca_certs_pool:
-                type: bool
-              key_file:
-                type: string
-              key_pem:
-                type: string
-              max_version:
-                type: string
-              min_version:
-                type: string
-              reload_interval:
-                type: duration
-          use_v2:
-            type: bool
           write_timeout:
             type: duration
     host_observer:
@@ -6767,8 +5908,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               compression:
                 type: string
               cookies:
@@ -6844,8 +5984,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
                   request_params:
                     type: list
                     children:
@@ -6945,8 +6084,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               dialer:
                 type: map
                 children:
@@ -7028,8 +6166,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
                   request_params:
                     type: list
                     children:
@@ -7118,8 +6255,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   authority:
                     type: string
                   balancer_name:
@@ -7439,110 +6575,6 @@ components:
             type: int
           save_to_file:
             type: string
-    redis_storage:
-      type: redis_storage
-      stability:
-        extension: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/extension/storage/redisstorageextension
-      fields:
-        type: map
-        children:
-          db:
-            type: int
-          endpoint:
-            type: string
-          expiration:
-            type: duration
-          password:
-            type: string
-    remotetap:
-      type: remotetap
-      stability:
-        extension: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/extension/remotetapextension
-      fields:
-        type: map
-        children:
-          auth:
-            type: map
-            children:
-              authenticator:
-                type: map
-                open: true
-              request_params:
-                type: list
-                children:
-                  item:
-                    type: string
-          compression_algorithms:
-            type: list
-            children:
-              item:
-                type: string
-          cors:
-            type: map
-            children:
-              allowed_headers:
-                type: list
-                children:
-                  item:
-                    type: string
-              allowed_origins:
-                type: list
-                children:
-                  item:
-                    type: string
-              max_age:
-                type: int
-          endpoint:
-            type: string
-          idle_timeout:
-            type: duration
-          include_metadata:
-            type: bool
-          max_request_body_size:
-            type: int
-          read_header_timeout:
-            type: duration
-          read_timeout:
-            type: duration
-          response_headers:
-            type: map
-            open: true
-          tls:
-            type: map
-            children:
-              ca_file:
-                type: string
-              ca_pem:
-                type: string
-              cert_file:
-                type: string
-              cert_pem:
-                type: string
-              cipher_suites:
-                type: list
-                children:
-                  item:
-                    type: string
-              client_ca_file:
-                type: string
-              client_ca_file_reload:
-                type: bool
-              include_system_ca_certs_pool:
-                type: bool
-              key_file:
-                type: string
-              key_pem:
-                type: string
-              max_version:
-                type: string
-              min_version:
-                type: string
-              reload_interval:
-                type: duration
-          write_timeout:
-            type: duration
     sigv4auth:
       type: sigv4auth
       stability:
@@ -7564,84 +6596,6 @@ components:
             type: string
           service:
             type: string
-    solarwindsapmsettings:
-      type: solarwindsapmsettings
-      stability:
-        extension: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/extension/solarwindsapmsettingsextension
-      fields:
-        type: map
-        children:
-          auth:
-            type: map
-            children:
-              authenticator:
-                type: map
-                open: true
-          authority:
-            type: string
-          balancer_name:
-            type: string
-          compression:
-            type: string
-          endpoint:
-            type: string
-          headers:
-            type: map
-            open: true
-          interval:
-            type: duration
-          keepalive:
-            type: map
-            children:
-              permit_without_stream:
-                type: bool
-              time:
-                type: duration
-              timeout:
-                type: duration
-          key:
-            type: string
-          read_buffer_size:
-            type: int
-          tls:
-            type: map
-            children:
-              ca_file:
-                type: string
-              ca_pem:
-                type: string
-              cert_file:
-                type: string
-              cert_pem:
-                type: string
-              cipher_suites:
-                type: list
-                children:
-                  item:
-                    type: string
-              include_system_ca_certs_pool:
-                type: bool
-              insecure:
-                type: bool
-              insecure_skip_verify:
-                type: bool
-              key_file:
-                type: string
-              key_pem:
-                type: string
-              max_version:
-                type: string
-              min_version:
-                type: string
-              reload_interval:
-                type: duration
-              server_name_override:
-                type: string
-          wait_for_ready:
-            type: bool
-          write_buffer_size:
-            type: int
     sumologic:
       type: sumologic
       stability:
@@ -7656,8 +6610,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           backoff:
             type: map
             children:
@@ -7764,20 +6717,6 @@ components:
                 type: string
           write_buffer_size:
             type: int
-    text_encoding:
-      type: text_encoding
-      stability:
-        extension: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/extension/encoding/textencodingextension
-      fields:
-        type: map
-        children:
-          encoding:
-            type: string
-          marshaling_separator:
-            type: string
-          unmarshaling_separator:
-            type: string
     zipkin_encoding:
       type: zipkin_encoding
       stability:
@@ -7802,8 +6741,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -8092,35 +7030,17 @@ components:
         children:
           metadata_cardinality_limit:
             type: int
-            doc: maximum number of distinct metadata_keys combinations
           metadata_keys:
             type: list
             children:
               item:
                 type: string
-            doc: client metadata keys that get their own batcher
           send_batch_max_size:
             type: int
-            doc: hard upper bound on a batch; must be >= send_batch_size when set
           send_batch_size:
             type: int
-            doc: number of spans, metric data points or log records per batch
           timeout:
             type: duration
-            doc: how long to wait before sending a batch that is not yet full
-    coralogix:
-      type: coralogix
-      signals:
-        - traces
-      stability:
-        traces: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/processor/coralogixprocessor
-      fields:
-        type: map
-        children:
-          database_blueprints_config:
-            type: map
-            open: true
     cumulativetodelta:
       type: cumulativetodelta
       signals:
@@ -8166,7 +7086,7 @@ components:
                   cachemaxnumentries:
                     type: int
           initial_value:
-            type: int
+            type: string
           max_staleness:
             type: duration
     deltatocumulative:
@@ -8659,25 +7579,6 @@ components:
             type: bool
           wait_duration:
             type: duration
-    interval:
-      type: interval
-      signals:
-        - metrics
-      stability:
-        metrics: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/processor/intervalprocessor
-      fields:
-        type: map
-        children:
-          interval:
-            type: duration
-          pass_through:
-            type: map
-            children:
-              gauge:
-                type: bool
-              summary:
-                type: bool
     k8sattributes:
       type: k8sattributes
       signals:
@@ -8819,36 +7720,6 @@ components:
             type: string
           timezone:
             type: string
-    logstransform:
-      type: logstransform
-      signals:
-        - logs
-      stability:
-        logs: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/processor/logstransformprocessor
-      fields:
-        type: map
-        children:
-          operators:
-            type: list
-            children:
-              item:
-                type: map
-                open: true
-          retry_on_failure:
-            type: map
-            children:
-              enabled:
-                type: bool
-              initial_interval:
-                type: duration
-              max_elapsed_time:
-                type: duration
-              max_interval:
-                type: duration
-          storage:
-            type: map
-            open: true
     memory_limiter:
       type: memory_limiter
       signals:
@@ -8865,21 +7736,14 @@ components:
         children:
           check_interval:
             type: duration
-            doc: how often memory use is measured; 1s is the usual value
           limit_mib:
             type: int
-            doc: hard limit in MiB; above it the processor starts refusing data
           limit_percentage:
             type: int
-            doc: hard limit as a percentage of total memory, for containers
           spike_limit_mib:
             type: int
-            doc: headroom in MiB reserved for allocation spikes
           spike_limit_percentage:
             type: int
-            doc: spike headroom as a percentage of total memory
-        required:
-          - check_interval
     metricstransform:
       type: metricstransform
       signals:
@@ -8982,17 +7846,6 @@ components:
             type: int
           sampling_priority:
             type: string
-    processorhelper:
-      type: processorhelper
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: beta
-        metrics: beta
-        traces: beta
-      module: go.opentelemetry.io/collector/processor/processorhelper
     redaction:
       type: redaction
       signals:
@@ -9044,8 +7897,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -9202,8 +8054,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           azure:
             type: map
             children:
@@ -9971,104 +8822,6 @@ components:
                     type: string
                   value:
                     type: string
-    schema:
-      type: schema
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: development
-        metrics: development
-        traces: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/processor/schemaprocessor
-      fields:
-        type: map
-        children:
-          auth:
-            type: map
-            children:
-              authenticator:
-                type: map
-                open: true
-          compression:
-            type: string
-          cookies:
-            type: map
-            children:
-              enabled:
-                type: bool
-          disable_keep_alives:
-            type: bool
-          endpoint:
-            type: string
-          headers:
-            type: map
-            open: true
-          http2_ping_timeout:
-            type: duration
-          http2_read_idle_timeout:
-            type: duration
-          idle_conn_timeout:
-            type: duration
-          max_conns_per_host:
-            type: int
-          max_idle_conns:
-            type: int
-          max_idle_conns_per_host:
-            type: int
-          prefetch:
-            type: list
-            children:
-              item:
-                type: string
-          proxy_url:
-            type: string
-          read_buffer_size:
-            type: int
-          targets:
-            type: list
-            children:
-              item:
-                type: string
-          timeout:
-            type: duration
-          tls:
-            type: map
-            children:
-              ca_file:
-                type: string
-              ca_pem:
-                type: string
-              cert_file:
-                type: string
-              cert_pem:
-                type: string
-              cipher_suites:
-                type: list
-                children:
-                  item:
-                    type: string
-              include_system_ca_certs_pool:
-                type: bool
-              insecure:
-                type: bool
-              insecure_skip_verify:
-                type: bool
-              key_file:
-                type: string
-              key_pem:
-                type: string
-              max_version:
-                type: string
-              min_version:
-                type: string
-              reload_interval:
-                type: duration
-              server_name_override:
-                type: string
-          write_buffer_size:
-            type: int
     span:
       type: span
       signals:
@@ -11202,8 +9955,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -11411,8 +10163,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -12005,51 +10756,6 @@ components:
             type: string
           region:
             type: string
-    awscloudwatchmetrics:
-      type: awscloudwatchmetrics
-      signals:
-        - metrics
-      stability:
-        metrics: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awscloudwatchmetricsreceiver
-      fields:
-        type: map
-        children:
-          imds_endpoint:
-            type: string
-          metrics:
-            type: map
-            children:
-              named:
-                type: list
-                children:
-                  item:
-                    type: map
-                    children:
-                      aws_aggregation:
-                        type: string
-                      dimensions:
-                        type: list
-                        children:
-                          item:
-                            type: map
-                            children:
-                              Name:
-                                type: string
-                              Value:
-                                type: string
-                      metric_name:
-                        type: string
-                      namespace:
-                        type: string
-                      period:
-                        type: duration
-          poll_interval:
-            type: duration
-          profile:
-            type: string
-          region:
-            type: string
     awscontainerinsightreceiver:
       type: awscontainerinsightreceiver
       signals:
@@ -12098,8 +10804,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -12176,54 +10881,6 @@ components:
                 type: duration
           write_timeout:
             type: duration
-    awss3:
-      type: awss3
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: development
-        metrics: development
-        traces: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/awss3receiver
-      fields:
-        type: map
-        children:
-          encodings:
-            type: list
-            children:
-              item:
-                type: map
-                children:
-                  extension:
-                    type: map
-                    open: true
-                  suffix:
-                    type: string
-          endtime:
-            type: string
-          s3downloader:
-            type: map
-            children:
-              endpoint:
-                type: string
-              endpoint_partition_id:
-                type: string
-              file_prefix:
-                type: string
-              region:
-                type: string
-              s3_bucket:
-                type: string
-              s3_force_path_style:
-                type: bool
-              s3_partition:
-                type: string
-              s3_prefix:
-                type: string
-          starttime:
-            type: string
     awsxray:
       type: awsxray
       signals:
@@ -12368,8 +11025,7 @@ components:
           partition:
             type: string
           storage:
-            type: map
-            open: true
+            type: string
     azuremonitor:
       type: azuremonitor
       signals:
@@ -12447,8 +11103,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -12997,8 +11652,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               compression:
                 type: string
               cookies:
@@ -13099,8 +11753,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -13193,8 +11846,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -13358,8 +12010,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -14015,8 +12666,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -14685,8 +13335,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -15012,8 +13661,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -15534,32 +14182,6 @@ components:
             open: true
           timeout:
             type: duration
-    googlecloudmonitoring:
-      type: googlecloudmonitoring
-      signals:
-        - metrics
-      stability:
-        metrics: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/googlecloudmonitoringreceiver
-      fields:
-        type: map
-        children:
-          collection_interval:
-            type: duration
-          initial_delay:
-            type: duration
-          metrics_list:
-            type: list
-            children:
-              item:
-                type: map
-                children:
-                  metric_name:
-                    type: string
-          project_id:
-            type: string
-          timeout:
-            type: duration
     googlecloudpubsub:
       type: googlecloudpubsub
       signals:
@@ -15655,8 +14277,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -16004,8 +14625,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   compression:
                     type: string
                   cookies:
@@ -16224,8 +14844,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -16320,8 +14939,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   dialer:
                     type: map
                     children:
@@ -16429,8 +15047,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                       request_params:
                         type: list
                         children:
@@ -16512,8 +15129,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               authority:
                 type: string
               balancer_name:
@@ -19061,8 +17677,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   dialer:
                     type: map
                     children:
@@ -19144,8 +17759,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                       request_params:
                         type: list
                         children:
@@ -20449,8 +19063,7 @@ components:
               randomization_factor:
                 type: float
           storage:
-            type: map
-            open: true
+            type: string
           timeout:
             type: duration
     mysql:
@@ -20811,8 +19424,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -20933,8 +19545,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -21168,8 +19779,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           cors_allowed_origins:
             type: list
             children:
@@ -21441,29 +20051,6 @@ components:
             type: duration
           username:
             type: string
-    osquery:
-      type: osquery
-      signals:
-        - logs
-      stability:
-        logs: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/osqueryreceiver
-      fields:
-        type: map
-        children:
-          collection_interval:
-            type: duration
-          extensions_socket:
-            type: string
-          initial_delay:
-            type: duration
-          queries:
-            type: list
-            children:
-              item:
-                type: string
-          timeout:
-            type: duration
     otelarrow:
       type: otelarrow
       signals:
@@ -21506,8 +20093,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   dialer:
                     type: map
                     children:
@@ -21609,10 +20195,13 @@ components:
                     children:
                       authenticator:
                         type: string
-                        doc: id of an authenticator extension
+                  dialer:
+                    type: map
+                    children:
+                      timeout:
+                        type: duration
                   endpoint:
                     type: string
-                    doc: host:port to listen on, e.g. 0.0.0.0:4317
                   include_metadata:
                     type: bool
                   keepalive:
@@ -21678,19 +20267,6 @@ components:
                         type: duration
                   transport:
                     type: string
-                    enum:
-                      - tcp
-                      - tcp4
-                      - tcp6
-                      - udp
-                      - udp4
-                      - udp6
-                      - ip
-                      - ip4
-                      - ip6
-                      - unix
-                      - unixgram
-                      - unixpacket
                   write_buffer_size:
                     type: int
               http:
@@ -21701,6 +20277,11 @@ components:
                     children:
                       authenticator:
                         type: string
+                      request_params:
+                        type: list
+                        children:
+                          item:
+                            type: string
                   compression_algorithms:
                     type: list
                     children:
@@ -21723,7 +20304,8 @@ components:
                         type: int
                   endpoint:
                     type: string
-                    doc: host:port to listen on, e.g. 0.0.0.0:4318
+                  idle_timeout:
+                    type: duration
                   include_metadata:
                     type: bool
                   logs_url_path:
@@ -21732,6 +20314,10 @@ components:
                     type: int
                   metrics_url_path:
                     type: string
+                  read_header_timeout:
+                    type: duration
+                  read_timeout:
+                    type: duration
                   response_headers:
                     type: map
                     open: true
@@ -21769,9 +20355,8 @@ components:
                         type: duration
                   traces_url_path:
                     type: string
-            doc: at least one of grpc or http must be enabled
-        required:
-          - protocols
+                  write_timeout:
+                    type: duration
     otlpjsonfile:
       type: otlpjsonfile
       signals:
@@ -21802,7 +20387,7 @@ components:
           exclude_older_than:
             type: duration
           fingerprint_size:
-            type: int
+            type: string
           force_flush_period:
             type: duration
           header:
@@ -21812,8 +20397,7 @@ components:
                 type: list
                 children:
                   item:
-                    type: map
-                    open: true
+                    type: string
               pattern:
                 type: string
           include:
@@ -21840,7 +20424,7 @@ components:
           max_concurrent_files:
             type: int
           max_log_size:
-            type: int
+            type: string
           multiline:
             type: map
             children:
@@ -21884,8 +20468,7 @@ components:
           start_at:
             type: string
           storage:
-            type: map
-            open: true
+            type: string
     podman_stats:
       type: podman_stats
       signals:
@@ -22418,8 +21001,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               collector_id:
                 type: string
               compression:
@@ -22512,8 +21094,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -22698,14 +21279,12 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
           auth:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -22725,8 +21304,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
           disable_keep_alives:
             type: bool
           endpoint:
@@ -22750,8 +21328,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
           http2_ping_timeout:
             type: duration
           http2_read_idle_timeout:
@@ -22776,8 +21353,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
           proxy_url:
             type: string
           read_buffer_size:
@@ -22846,8 +21422,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
           write_buffer_size:
             type: int
     purefb:
@@ -22872,14 +21447,12 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
           auth:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           clients:
             type: list
             children:
@@ -22892,8 +21465,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
           compression:
             type: string
           cookies:
@@ -22986,8 +21558,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
           write_buffer_size:
             type: int
     rabbitmq:
@@ -23004,8 +21575,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -23212,19 +21782,7 @@ components:
             type: list
             children:
               item:
-                type: map
-                open: true
-    receiverhelper:
-      type: receiverhelper
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: beta
-        metrics: beta
-        traces: beta
-      module: go.opentelemetry.io/collector/receiver/receiverhelper
+                type: string
     redis:
       type: redis
       signals:
@@ -23558,8 +22116,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           collection_interval:
             type: duration
           compression:
@@ -23700,348 +22257,6 @@ components:
             type: string
           write_buffer_size:
             type: int
-    saphana:
-      type: saphana
-      signals:
-        - metrics
-      stability:
-        metrics: development
-      module: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/saphanareceiver
-      fields:
-        type: map
-        children:
-          collection_interval:
-            type: duration
-          dialer:
-            type: map
-            children:
-              timeout:
-                type: duration
-          endpoint:
-            type: string
-          initial_delay:
-            type: duration
-          metrics:
-            type: map
-            children:
-              saphana.alert.count:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.backup.latest:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.column.memory.used:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.component.memory.used:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.connection.count:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.cpu.used:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.disk.size.current:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.host.memory.current:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.host.swap.current:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.instance.code_size:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.instance.memory.current:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.instance.memory.shared.allocated:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.instance.memory.used.peak:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.license.expiration.time:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.license.limit:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.license.peak:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.network.request.average_time:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.network.request.count:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.network.request.finished.count:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.replication.average_time:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.replication.backlog.size:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.replication.backlog.time:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.row_store.memory.used:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.schema.memory.used.current:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.schema.memory.used.max:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.schema.operation.count:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.schema.record.compressed.count:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.schema.record.count:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.service.code_size:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.service.count:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.service.memory.compactors.allocated:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.service.memory.compactors.freeable:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.service.memory.effective_limit:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.service.memory.heap.current:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.service.memory.limit:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.service.memory.shared.current:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.service.memory.used:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.service.stack_size:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.service.thread.count:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.transaction.blocked:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.transaction.count:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.uptime:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.volume.operation.count:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.volume.operation.size:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-              saphana.volume.operation.time:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-          password:
-            type: string
-          resource_attributes:
-            type: map
-            children:
-              db.system:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-                  metrics_exclude:
-                    type: list
-                    children:
-                      item:
-                        type: map
-                        children:
-                          regexp:
-                            type: string
-                          strict:
-                            type: string
-                  metrics_include:
-                    type: list
-                    children:
-                      item:
-                        type: map
-                        children:
-                          regexp:
-                            type: string
-                          strict:
-                            type: string
-              saphana.host:
-                type: map
-                children:
-                  enabled:
-                    type: bool
-                  metrics_exclude:
-                    type: list
-                    children:
-                      item:
-                        type: map
-                        children:
-                          regexp:
-                            type: string
-                          strict:
-                            type: string
-                  metrics_include:
-                    type: list
-                    children:
-                      item:
-                        type: map
-                        children:
-                          regexp:
-                            type: string
-                          strict:
-                            type: string
-          timeout:
-            type: duration
-          tls:
-            type: map
-            children:
-              ca_file:
-                type: string
-              ca_pem:
-                type: string
-              cert_file:
-                type: string
-              cert_pem:
-                type: string
-              cipher_suites:
-                type: list
-                children:
-                  item:
-                    type: string
-              include_system_ca_certs_pool:
-                type: bool
-              insecure:
-                type: bool
-              insecure_skip_verify:
-                type: bool
-              key_file:
-                type: string
-              key_pem:
-                type: string
-              max_version:
-                type: string
-              min_version:
-                type: string
-              reload_interval:
-                type: duration
-              server_name_override:
-                type: string
-          username:
-            type: string
     sapm:
       type: sapm
       signals:
@@ -24058,8 +22273,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -24134,17 +22348,6 @@ components:
                 type: duration
           write_timeout:
             type: duration
-    scraperhelper:
-      type: scraperhelper
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: beta
-        metrics: beta
-        traces: beta
-      module: go.opentelemetry.io/collector/receiver/scraperhelper
     signalfx:
       type: signalfx
       signals:
@@ -24163,8 +22366,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -24261,8 +22463,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   dialer:
                     type: map
                     children:
@@ -24344,8 +22545,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                       request_params:
                         type: list
                         children:
@@ -24798,16 +22998,14 @@ components:
             type: map
             children:
               extension:
-                type: map
-                open: true
+                type: string
               path:
                 type: string
           auth:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -24916,8 +23114,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               compression:
                 type: string
               cookies:
@@ -24995,8 +23192,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               compression:
                 type: string
               cookies:
@@ -25222,8 +23418,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               compression:
                 type: string
               cookies:
@@ -25374,8 +23569,7 @@ components:
                   tracking_start_value:
                     type: string
           storage:
-            type: map
-            open: true
+            type: string
           telemetry:
             type: map
             children:
@@ -26519,8 +24713,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -26674,8 +24867,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:

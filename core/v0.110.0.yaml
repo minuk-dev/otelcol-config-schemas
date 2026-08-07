@@ -1,9 +1,8 @@
 collectorVersion: v0.110.0
 distribution: core
-generatedAt: "2026-08-02T13:15:51Z"
+generatedAt: "2026-08-07T00:11:44Z"
 sources:
-  contrib: github.com/open-telemetry/opentelemetry-collector-contrib
-  core: go.opentelemetry.io/collector
+  core: github.com/open-telemetry/opentelemetry-collector-releases/core
 components:
   connector:
     forward:
@@ -37,30 +36,12 @@ components:
         children:
           sampling_initial:
             type: int
-            doc: messages logged per second before sampling kicks in
           sampling_thereafter:
             type: int
-            doc: log one in every N messages after the initial burst
           use_internal_logger:
             type: bool
           verbosity:
             type: string
-            enum:
-              - basic
-              - normal
-              - detailed
-            doc: how much of each payload is written to the collector log
-    exporterhelper:
-      type: exporterhelper
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: beta
-        metrics: beta
-        traces: beta
-      module: go.opentelemetry.io/collector/exporter/exporterhelper
     file:
       type: file
       signals:
@@ -80,8 +61,7 @@ components:
           compression:
             type: string
           encoding:
-            type: map
-            open: true
+            type: string
           flush_interval:
             type: duration
           format:
@@ -271,8 +251,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           topic:
@@ -301,7 +280,7 @@ components:
           sampling_thereafter:
             type: int
           verbosity:
-            type: int
+            type: string
     nop:
       type: nop
       signals:
@@ -329,8 +308,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           authority:
             type: string
           balancer_name:
@@ -380,8 +358,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           tls:
             type: map
             children:
@@ -443,27 +420,24 @@ components:
             type: string
           balancer_name:
             type: string
-            enum:
-              - round_robin
-              - pick_first
+          batcher:
+            type: map
+            children:
+              enabled:
+                type: bool
+              flush_timeout:
+                type: duration
+              max_size_items:
+                type: int
+              min_size_items:
+                type: int
           compression:
             type: string
-            enum:
-              - gzip
-              - snappy
-              - zstd
-              - zlib
-              - deflate
-              - lz4
-              - none
-              - ""
           endpoint:
             type: string
-            doc: host:port of the OTLP gRPC endpoint
           headers:
             type: map
             open: true
-            doc: extra gRPC metadata sent with every request
           keepalive:
             type: map
             children:
@@ -493,26 +467,14 @@ components:
           sending_queue:
             type: map
             children:
-              blocking:
-                type: bool
               enabled:
                 type: bool
               num_consumers:
                 type: int
               queue_size:
                 type: int
-              sizer:
-                type: string
-                enum:
-                  - requests
-                  - items
-                  - bytes
               storage:
                 type: string
-                doc: id of a storage extension for a persistent queue
-              wait_for_result:
-                type: bool
-            open: true
           timeout:
             type: duration
           tls:
@@ -535,10 +497,8 @@ components:
                 type: bool
               insecure:
                 type: bool
-                doc: send in plaintext; only for local testing
               insecure_skip_verify:
                 type: bool
-                doc: accept any server certificate
               key_file:
                 type: string
               key_pem:
@@ -555,8 +515,6 @@ components:
             type: bool
           write_buffer_size:
             type: int
-        required:
-          - endpoint
     otlphttp:
       type: otlphttp
       signals:
@@ -575,8 +533,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -638,8 +595,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -696,8 +652,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -804,8 +759,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -945,8 +899,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           cookies:
@@ -1006,8 +959,7 @@ components:
               queue_size:
                 type: int
               storage:
-                type: map
-                open: true
+                type: string
           timeout:
             type: duration
           tls:
@@ -1059,8 +1011,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -1153,24 +1104,6 @@ components:
                 type: duration
           write_timeout:
             type: duration
-    memory_limiter:
-      type: memory_limiter
-      stability:
-        extension: development
-      module: go.opentelemetry.io/collector/extension/memorylimiterextension
-      fields:
-        type: map
-        children:
-          check_interval:
-            type: duration
-          limit_mib:
-            type: int
-          limit_percentage:
-            type: int
-          spike_limit_mib:
-            type: int
-          spike_limit_percentage:
-            type: int
     pprof:
       type: pprof
       stability:
@@ -1204,8 +1137,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -1494,22 +1426,17 @@ components:
         children:
           metadata_cardinality_limit:
             type: int
-            doc: maximum number of distinct metadata_keys combinations
           metadata_keys:
             type: list
             children:
               item:
                 type: string
-            doc: client metadata keys that get their own batcher
           send_batch_max_size:
             type: int
-            doc: hard upper bound on a batch; must be >= send_batch_size when set
           send_batch_size:
             type: int
-            doc: number of spans, metric data points or log records per batch
           timeout:
             type: duration
-            doc: how long to wait before sending a batch that is not yet full
     filter:
       type: filter
       signals:
@@ -1902,21 +1829,14 @@ components:
         children:
           check_interval:
             type: duration
-            doc: how often memory use is measured; 1s is the usual value
           limit_mib:
             type: int
-            doc: hard limit in MiB; above it the processor starts refusing data
           limit_percentage:
             type: int
-            doc: hard limit as a percentage of total memory, for containers
           spike_limit_mib:
             type: int
-            doc: headroom in MiB reserved for allocation spikes
           spike_limit_percentage:
             type: int
-            doc: spike headroom as a percentage of total memory
-        required:
-          - check_interval
     probabilistic_sampler:
       type: probabilistic_sampler
       signals:
@@ -1945,17 +1865,6 @@ components:
             type: int
           sampling_priority:
             type: string
-    processorhelper:
-      type: processorhelper
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: beta
-        metrics: beta
-        traces: beta
-      module: go.opentelemetry.io/collector/processor/processorhelper
     resource:
       type: resource
       signals:
@@ -2233,8 +2142,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   dialer:
                     type: map
                     children:
@@ -2342,8 +2250,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                       request_params:
                         type: list
                         children:
@@ -2425,8 +2332,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               authority:
                 type: string
               balancer_name:
@@ -2680,8 +2586,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           cors_allowed_origins:
             type: list
             children:
@@ -2788,10 +2693,13 @@ components:
                     children:
                       authenticator:
                         type: string
-                        doc: id of an authenticator extension
+                  dialer:
+                    type: map
+                    children:
+                      timeout:
+                        type: duration
                   endpoint:
                     type: string
-                    doc: host:port to listen on, e.g. 0.0.0.0:4317
                   include_metadata:
                     type: bool
                   keepalive:
@@ -2857,19 +2765,6 @@ components:
                         type: duration
                   transport:
                     type: string
-                    enum:
-                      - tcp
-                      - tcp4
-                      - tcp6
-                      - udp
-                      - udp4
-                      - udp6
-                      - ip
-                      - ip4
-                      - ip6
-                      - unix
-                      - unixgram
-                      - unixpacket
                   write_buffer_size:
                     type: int
               http:
@@ -2880,6 +2775,11 @@ components:
                     children:
                       authenticator:
                         type: string
+                      request_params:
+                        type: list
+                        children:
+                          item:
+                            type: string
                   compression_algorithms:
                     type: list
                     children:
@@ -2902,7 +2802,8 @@ components:
                         type: int
                   endpoint:
                     type: string
-                    doc: host:port to listen on, e.g. 0.0.0.0:4318
+                  idle_timeout:
+                    type: duration
                   include_metadata:
                     type: bool
                   logs_url_path:
@@ -2911,6 +2812,10 @@ components:
                     type: int
                   metrics_url_path:
                     type: string
+                  read_header_timeout:
+                    type: duration
+                  read_timeout:
+                    type: duration
                   response_headers:
                     type: map
                     open: true
@@ -2948,9 +2853,8 @@ components:
                         type: duration
                   traces_url_path:
                     type: string
-            doc: at least one of grpc or http must be enabled
-        required:
-          - protocols
+                  write_timeout:
+                    type: duration
     prometheus:
       type: prometheus
       signals:
@@ -2973,8 +2877,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               collector_id:
                 type: string
               compression:
@@ -3053,28 +2956,6 @@ components:
             type: bool
           use_start_time_metric:
             type: bool
-    receiverhelper:
-      type: receiverhelper
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: beta
-        metrics: beta
-        traces: beta
-      module: go.opentelemetry.io/collector/receiver/receiverhelper
-    scraperhelper:
-      type: scraperhelper
-      signals:
-        - traces
-        - metrics
-        - logs
-      stability:
-        logs: beta
-        metrics: beta
-        traces: beta
-      module: go.opentelemetry.io/collector/receiver/scraperhelper
     zipkin:
       type: zipkin
       signals:
@@ -3089,8 +2970,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
