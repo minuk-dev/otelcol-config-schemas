@@ -1,10 +1,9 @@
 {
   "collectorVersion": "v0.150.0",
   "distribution": "otlp",
-  "generatedAt": "2026-08-02T13:15:53Z",
+  "generatedAt": "2026-08-07T00:08:38Z",
   "sources": {
-    "contrib": "github.com/open-telemetry/opentelemetry-collector-contrib",
-    "core": "go.opentelemetry.io/collector"
+    "otlp": "github.com/open-telemetry/opentelemetry-collector-releases/otlp"
   },
   "components": {
     "exporter": {
@@ -33,208 +32,6 @@
               "children": {
                 "authenticator": {
                   "type": "string"
-                }
-              }
-            },
-            "authority": {
-              "type": "string"
-            },
-            "balancer_name": {
-              "type": "string",
-              "enum": [
-                "round_robin",
-                "pick_first"
-              ]
-            },
-            "compression": {
-              "type": "string",
-              "enum": [
-                "gzip",
-                "snappy",
-                "zstd",
-                "zlib",
-                "deflate",
-                "lz4",
-                "none",
-                ""
-              ]
-            },
-            "endpoint": {
-              "type": "string",
-              "doc": "host:port of the OTLP gRPC endpoint"
-            },
-            "headers": {
-              "type": "map",
-              "open": true,
-              "doc": "extra gRPC metadata sent with every request"
-            },
-            "keepalive": {
-              "type": "map",
-              "children": {
-                "permit_without_stream": {
-                  "type": "bool"
-                },
-                "time": {
-                  "type": "duration"
-                },
-                "timeout": {
-                  "type": "duration"
-                }
-              }
-            },
-            "read_buffer_size": {
-              "type": "int"
-            },
-            "retry_on_failure": {
-              "type": "map",
-              "children": {
-                "enabled": {
-                  "type": "bool"
-                },
-                "initial_interval": {
-                  "type": "duration"
-                },
-                "max_elapsed_time": {
-                  "type": "duration"
-                },
-                "max_interval": {
-                  "type": "duration"
-                },
-                "multiplier": {
-                  "type": "float"
-                },
-                "randomization_factor": {
-                  "type": "float"
-                }
-              }
-            },
-            "sending_queue": {
-              "type": "map",
-              "children": {
-                "blocking": {
-                  "type": "bool"
-                },
-                "enabled": {
-                  "type": "bool"
-                },
-                "num_consumers": {
-                  "type": "int"
-                },
-                "queue_size": {
-                  "type": "int"
-                },
-                "sizer": {
-                  "type": "string",
-                  "enum": [
-                    "requests",
-                    "items",
-                    "bytes"
-                  ]
-                },
-                "storage": {
-                  "type": "string",
-                  "doc": "id of a storage extension for a persistent queue"
-                },
-                "wait_for_result": {
-                  "type": "bool"
-                }
-              },
-              "open": true
-            },
-            "timeout": {
-              "type": "duration"
-            },
-            "tls": {
-              "type": "map",
-              "children": {
-                "ca_file": {
-                  "type": "string"
-                },
-                "ca_pem": {
-                  "type": "string"
-                },
-                "cert_file": {
-                  "type": "string"
-                },
-                "cert_pem": {
-                  "type": "string"
-                },
-                "cipher_suites": {
-                  "type": "list",
-                  "children": {
-                    "item": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "include_system_ca_certs_pool": {
-                  "type": "bool"
-                },
-                "insecure": {
-                  "type": "bool",
-                  "doc": "send in plaintext; only for local testing"
-                },
-                "insecure_skip_verify": {
-                  "type": "bool",
-                  "doc": "accept any server certificate"
-                },
-                "key_file": {
-                  "type": "string"
-                },
-                "key_pem": {
-                  "type": "string"
-                },
-                "max_version": {
-                  "type": "string"
-                },
-                "min_version": {
-                  "type": "string"
-                },
-                "reload_interval": {
-                  "type": "duration"
-                },
-                "server_name_override": {
-                  "type": "string"
-                }
-              }
-            },
-            "wait_for_ready": {
-              "type": "bool"
-            },
-            "write_buffer_size": {
-              "type": "int"
-            }
-          },
-          "required": [
-            "endpoint"
-          ]
-        }
-      },
-      "otlp_grpc": {
-        "type": "otlp_grpc",
-        "signals": [
-          "traces",
-          "metrics",
-          "logs",
-          "profiles"
-        ],
-        "stability": {
-          "logs": "stable",
-          "metrics": "stable",
-          "profiles": "alpha",
-          "traces": "stable"
-        },
-        "module": "go.opentelemetry.io/collector/exporter/otlpexporter",
-        "alias": "otlp",
-        "fields": {
-          "type": "map",
-          "children": {
-            "auth": {
-              "type": "map",
-              "children": {
-                "authenticator": {
-                  "type": "map",
-                  "open": true
                 }
               }
             },
@@ -272,8 +69,7 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 }
@@ -334,8 +130,7 @@
                       }
                     },
                     "sizer": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 },
@@ -349,12 +144,245 @@
                   "type": "int"
                 },
                 "sizer": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "storage": {
+                  "type": "string"
+                },
+                "wait_for_result": {
+                  "type": "bool"
+                }
+              }
+            },
+            "timeout": {
+              "type": "duration"
+            },
+            "tls": {
+              "type": "map",
+              "children": {
+                "ca_file": {
+                  "type": "string"
+                },
+                "ca_pem": {
+                  "type": "string"
+                },
+                "cert_file": {
+                  "type": "string"
+                },
+                "cert_pem": {
+                  "type": "string"
+                },
+                "cipher_suites": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "curve_preferences": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "include_system_ca_certs_pool": {
+                  "type": "bool"
+                },
+                "insecure": {
+                  "type": "bool"
+                },
+                "insecure_skip_verify": {
+                  "type": "bool"
+                },
+                "key_file": {
+                  "type": "string"
+                },
+                "key_pem": {
+                  "type": "string"
+                },
+                "max_version": {
+                  "type": "string"
+                },
+                "min_version": {
+                  "type": "string"
+                },
+                "reload_interval": {
+                  "type": "duration"
+                },
+                "server_name_override": {
+                  "type": "string"
+                },
+                "tpm": {
                   "type": "map",
-                  "open": true
+                  "children": {
+                    "auth": {
+                      "type": "string"
+                    },
+                    "enabled": {
+                      "type": "bool"
+                    },
+                    "owner_auth": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "wait_for_ready": {
+              "type": "bool"
+            },
+            "write_buffer_size": {
+              "type": "int"
+            }
+          }
+        }
+      },
+      "otlp_grpc": {
+        "type": "otlp_grpc",
+        "signals": [
+          "traces",
+          "metrics",
+          "logs",
+          "profiles"
+        ],
+        "stability": {
+          "logs": "stable",
+          "metrics": "stable",
+          "profiles": "alpha",
+          "traces": "stable"
+        },
+        "module": "go.opentelemetry.io/collector/exporter/otlpexporter",
+        "alias": "otlp",
+        "fields": {
+          "type": "map",
+          "children": {
+            "auth": {
+              "type": "map",
+              "children": {
+                "authenticator": {
+                  "type": "string"
+                }
+              }
+            },
+            "authority": {
+              "type": "string"
+            },
+            "balancer_name": {
+              "type": "string"
+            },
+            "compression": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "headers": {},
+            "keepalive": {
+              "type": "map",
+              "children": {
+                "permit_without_stream": {
+                  "type": "bool"
+                },
+                "time": {
+                  "type": "duration"
+                },
+                "timeout": {
+                  "type": "duration"
+                }
+              }
+            },
+            "middlewares": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "map",
+                  "children": {
+                    "id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "read_buffer_size": {
+              "type": "int"
+            },
+            "retry_on_failure": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "initial_interval": {
+                  "type": "duration"
+                },
+                "max_elapsed_time": {
+                  "type": "duration"
+                },
+                "max_interval": {
+                  "type": "duration"
+                },
+                "multiplier": {
+                  "type": "float"
+                },
+                "randomization_factor": {
+                  "type": "float"
+                }
+              }
+            },
+            "sending_queue": {
+              "type": "map",
+              "children": {
+                "batch": {
+                  "type": "map",
+                  "children": {
+                    "flush_timeout": {
+                      "type": "duration"
+                    },
+                    "max_size": {
+                      "type": "int"
+                    },
+                    "min_size": {
+                      "type": "int"
+                    },
+                    "partition": {
+                      "type": "map",
+                      "children": {
+                        "metadata_keys": {
+                          "type": "list",
+                          "children": {
+                            "item": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "sizer": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "block_on_overflow": {
+                  "type": "bool"
+                },
+                "num_consumers": {
+                  "type": "int"
+                },
+                "queue_size": {
+                  "type": "int"
+                },
+                "sizer": {
+                  "type": "string"
+                },
+                "storage": {
+                  "type": "string"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -473,8 +501,7 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 }
               }
             },
@@ -537,8 +564,7 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 }
@@ -605,8 +631,7 @@
                       }
                     },
                     "sizer": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 },
@@ -620,12 +645,10 @@
                   "type": "int"
                 },
                 "sizer": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "storage": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -745,8 +768,7 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 }
               }
             },
@@ -809,8 +831,7 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 }
@@ -877,8 +898,7 @@
                       }
                     },
                     "sizer": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 },
@@ -892,12 +912,10 @@
                   "type": "int"
                 },
                 "sizer": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "storage": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -1023,14 +1041,20 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string",
-                          "doc": "id of an authenticator extension"
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "dialer": {
+                      "type": "map",
+                      "children": {
+                        "timeout": {
+                          "type": "duration"
                         }
                       }
                     },
                     "endpoint": {
-                      "type": "string",
-                      "doc": "host:port to listen on, e.g. 0.0.0.0:4317"
+                      "type": "string"
                     },
                     "include_metadata": {
                       "type": "bool"
@@ -1077,6 +1101,19 @@
                     "max_recv_msg_size_mib": {
                       "type": "int"
                     },
+                    "middlewares": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "map",
+                          "children": {
+                            "id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "read_buffer_size": {
                       "type": "int"
                     },
@@ -1109,6 +1146,14 @@
                         "client_ca_file_reload": {
                           "type": "bool"
                         },
+                        "curve_preferences": {
+                          "type": "list",
+                          "children": {
+                            "item": {
+                              "type": "string"
+                            }
+                          }
+                        },
                         "include_system_ca_certs_pool": {
                           "type": "bool"
                         },
@@ -1126,25 +1171,28 @@
                         },
                         "reload_interval": {
                           "type": "duration"
+                        },
+                        "tpm": {
+                          "type": "map",
+                          "children": {
+                            "auth": {
+                              "type": "string"
+                            },
+                            "enabled": {
+                              "type": "bool"
+                            },
+                            "owner_auth": {
+                              "type": "string"
+                            },
+                            "path": {
+                              "type": "string"
+                            }
+                          }
                         }
                       }
                     },
                     "transport": {
-                      "type": "string",
-                      "enum": [
-                        "tcp",
-                        "tcp4",
-                        "tcp6",
-                        "udp",
-                        "udp4",
-                        "udp6",
-                        "ip",
-                        "ip4",
-                        "ip6",
-                        "unix",
-                        "unixgram",
-                        "unixpacket"
-                      ]
+                      "type": "string"
                     },
                     "write_buffer_size": {
                       "type": "int"
@@ -1159,6 +1207,14 @@
                       "children": {
                         "authenticator": {
                           "type": "string"
+                        },
+                        "request_params": {
+                          "type": "list",
+                          "children": {
+                            "item": {
+                              "type": "string"
+                            }
+                          }
                         }
                       }
                     },
@@ -1194,11 +1250,24 @@
                         }
                       }
                     },
+                    "dialer": {
+                      "type": "map",
+                      "children": {
+                        "timeout": {
+                          "type": "duration"
+                        }
+                      }
+                    },
                     "endpoint": {
-                      "type": "string",
-                      "doc": "host:port to listen on, e.g. 0.0.0.0:4318"
+                      "type": "string"
+                    },
+                    "idle_timeout": {
+                      "type": "duration"
                     },
                     "include_metadata": {
+                      "type": "bool"
+                    },
+                    "keep_alives_enabled": {
                       "type": "bool"
                     },
                     "logs_url_path": {
@@ -1210,10 +1279,26 @@
                     "metrics_url_path": {
                       "type": "string"
                     },
-                    "response_headers": {
-                      "type": "map",
-                      "open": true
+                    "middlewares": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "map",
+                          "children": {
+                            "id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
                     },
+                    "read_header_timeout": {
+                      "type": "duration"
+                    },
+                    "read_timeout": {
+                      "type": "duration"
+                    },
+                    "response_headers": {},
                     "tls": {
                       "type": "map",
                       "children": {
@@ -1243,6 +1328,14 @@
                         "client_ca_file_reload": {
                           "type": "bool"
                         },
+                        "curve_preferences": {
+                          "type": "list",
+                          "children": {
+                            "item": {
+                              "type": "string"
+                            }
+                          }
+                        },
                         "include_system_ca_certs_pool": {
                           "type": "bool"
                         },
@@ -1260,21 +1353,40 @@
                         },
                         "reload_interval": {
                           "type": "duration"
+                        },
+                        "tpm": {
+                          "type": "map",
+                          "children": {
+                            "auth": {
+                              "type": "string"
+                            },
+                            "enabled": {
+                              "type": "bool"
+                            },
+                            "owner_auth": {
+                              "type": "string"
+                            },
+                            "path": {
+                              "type": "string"
+                            }
+                          }
                         }
                       }
                     },
                     "traces_url_path": {
                       "type": "string"
+                    },
+                    "transport": {
+                      "type": "string"
+                    },
+                    "write_timeout": {
+                      "type": "duration"
                     }
                   }
                 }
-              },
-              "doc": "at least one of grpc or http must be enabled"
+              }
             }
-          },
-          "required": [
-            "protocols"
-          ]
+          }
         }
       }
     }
