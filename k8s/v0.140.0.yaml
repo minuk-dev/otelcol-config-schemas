@@ -1,9 +1,8 @@
 collectorVersion: v0.140.0
 distribution: k8s
-generatedAt: "2026-08-02T13:15:53Z"
+generatedAt: "2026-08-07T00:09:06Z"
 sources:
-  contrib: github.com/open-telemetry/opentelemetry-collector-contrib
-  core: go.opentelemetry.io/collector
+  k8s: github.com/open-telemetry/opentelemetry-collector-releases/k8s
 components:
   connector:
     count:
@@ -99,8 +98,7 @@ components:
                 type: list
                 children:
                   item:
-                    type: map
-                    open: true
+                    type: string
           retry_gap:
             type: duration
           retry_interval:
@@ -118,8 +116,7 @@ components:
                   min_size:
                     type: int
                   sizer:
-                    type: map
-                    open: true
+                    type: string
               block_on_overflow:
                 type: bool
               enabled:
@@ -129,11 +126,9 @@ components:
               queue_size:
                 type: int
               sizer:
-                type: map
-                open: true
+                type: string
               storage:
-                type: map
-                open: true
+                type: string
               wait_for_result:
                 type: bool
     forward:
@@ -202,8 +197,7 @@ components:
             type: list
             children:
               item:
-                type: map
-                open: true
+                type: string
           error_mode:
             type: string
           table:
@@ -220,8 +214,7 @@ components:
                     type: list
                     children:
                       item:
-                        type: map
-                        open: true
+                        type: string
                   statement:
                     type: string
     servicegraph:
@@ -276,6 +269,122 @@ components:
             children:
               item:
                 type: string
+    spanmetrics:
+      type: spanmetrics
+      stability:
+        traces_to_metrics: alpha
+      pairs:
+        - from: traces
+          to: metrics
+      module: github.com/open-telemetry/opentelemetry-collector-contrib/connector/spanmetricsconnector
+      fields:
+        type: map
+        children:
+          add_resource_attributes:
+            type: bool
+          aggregation_cardinality_limit:
+            type: int
+          aggregation_temporality:
+            type: string
+          calls_dimensions:
+            type: list
+            children:
+              item:
+                type: map
+                children:
+                  default:
+                    type: string
+                  name:
+                    type: string
+          dimensions:
+            type: list
+            children:
+              item:
+                type: map
+                children:
+                  default:
+                    type: string
+                  name:
+                    type: string
+          dimensions_cache_size:
+            type: int
+          events:
+            type: map
+            children:
+              dimensions:
+                type: list
+                children:
+                  item:
+                    type: map
+                    children:
+                      default:
+                        type: string
+                      name:
+                        type: string
+              enabled:
+                type: bool
+          exclude_dimensions:
+            type: list
+            children:
+              item:
+                type: string
+          exemplars:
+            type: map
+            children:
+              enabled:
+                type: bool
+              max_per_data_point:
+                type: int
+          histogram:
+            type: map
+            children:
+              dimensions:
+                type: list
+                children:
+                  item:
+                    type: map
+                    children:
+                      default:
+                        type: string
+                      name:
+                        type: string
+              disable:
+                type: bool
+              explicit:
+                type: map
+                children:
+                  buckets:
+                    type: list
+                    children:
+                      item:
+                        type: duration
+              exponential:
+                type: map
+                children:
+                  max_size:
+                    type: int
+              unit:
+                type: string
+          include_instrumentation_scope:
+            type: list
+            children:
+              item:
+                type: string
+          metric_timestamp_cache_size:
+            type: int
+          metrics_expiration:
+            type: duration
+          metrics_flush_interval:
+            type: duration
+          namespace:
+            type: string
+          resource_metrics_cache_size:
+            type: int
+          resource_metrics_key_attributes:
+            type: list
+            children:
+              item:
+                type: string
   exporter:
     debug:
       type: debug
@@ -295,19 +404,40 @@ components:
         children:
           sampling_initial:
             type: int
-            doc: messages logged per second before sampling kicks in
           sampling_thereafter:
             type: int
-            doc: log one in every N messages after the initial burst
+          sending_queue:
+            type: map
+            children:
+              batch:
+                type: map
+                children:
+                  flush_timeout:
+                    type: duration
+                  max_size:
+                    type: int
+                  min_size:
+                    type: int
+                  sizer:
+                    type: string
+              block_on_overflow:
+                type: bool
+              enabled:
+                type: bool
+              num_consumers:
+                type: int
+              queue_size:
+                type: int
+              sizer:
+                type: string
+              storage:
+                type: string
+              wait_for_result:
+                type: bool
           use_internal_logger:
             type: bool
           verbosity:
             type: string
-            enum:
-              - basic
-              - normal
-              - detailed
-            doc: how much of each payload is written to the collector log
     file:
       type: file
       signals:
@@ -329,8 +459,7 @@ components:
           compression:
             type: string
           encoding:
-            type: map
-            open: true
+            type: string
           flush_interval:
             type: duration
           format:
@@ -381,8 +510,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   authority:
                     type: string
                   balancer_name:
@@ -408,8 +536,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                   read_buffer_size:
                     type: int
                   retry_on_failure:
@@ -440,8 +567,7 @@ components:
                           min_size:
                             type: int
                           sizer:
-                            type: map
-                            open: true
+                            type: string
                       block_on_overflow:
                         type: bool
                       enabled:
@@ -451,11 +577,9 @@ components:
                       queue_size:
                         type: int
                       sizer:
-                        type: map
-                        open: true
+                        type: string
                       storage:
-                        type: map
-                        open: true
+                        type: string
                       wait_for_result:
                         type: bool
                   timeout:
@@ -601,8 +725,7 @@ components:
                   min_size:
                     type: int
                   sizer:
-                    type: map
-                    open: true
+                    type: string
               block_on_overflow:
                 type: bool
               enabled:
@@ -612,11 +735,9 @@ components:
               queue_size:
                 type: int
               sizer:
-                type: map
-                open: true
+                type: string
               storage:
-                type: map
-                open: true
+                type: string
               wait_for_result:
                 type: bool
           timeout:
@@ -674,8 +795,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           authority:
             type: string
           balancer_name:
@@ -708,8 +828,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           read_buffer_size:
             type: int
           retry_on_failure:
@@ -740,8 +859,7 @@ components:
                   min_size:
                     type: int
                   sizer:
-                    type: map
-                    open: true
+                    type: string
               block_on_overflow:
                 type: bool
               enabled:
@@ -751,11 +869,9 @@ components:
               queue_size:
                 type: int
               sizer:
-                type: map
-                open: true
+                type: string
               storage:
-                type: map
-                open: true
+                type: string
               wait_for_result:
                 type: bool
           timeout:
@@ -839,27 +955,11 @@ components:
             type: string
           balancer_name:
             type: string
-            enum:
-              - round_robin
-              - pick_first
           compression:
             type: string
-            enum:
-              - gzip
-              - snappy
-              - zstd
-              - zlib
-              - deflate
-              - lz4
-              - none
-              - ""
           endpoint:
             type: string
-            doc: host:port of the OTLP gRPC endpoint
-          headers:
-            type: map
-            open: true
-            doc: extra gRPC metadata sent with every request
+          headers: {}
           keepalive:
             type: map
             children:
@@ -869,6 +969,14 @@ components:
                 type: duration
               timeout:
                 type: duration
+          middlewares:
+            type: list
+            children:
+              item:
+                type: map
+                children:
+                  id:
+                    type: string
           read_buffer_size:
             type: int
           retry_on_failure:
@@ -889,7 +997,18 @@ components:
           sending_queue:
             type: map
             children:
-              blocking:
+              batch:
+                type: map
+                children:
+                  flush_timeout:
+                    type: duration
+                  max_size:
+                    type: int
+                  min_size:
+                    type: int
+                  sizer:
+                    type: string
+              block_on_overflow:
                 type: bool
               enabled:
                 type: bool
@@ -899,16 +1018,10 @@ components:
                 type: int
               sizer:
                 type: string
-                enum:
-                  - requests
-                  - items
-                  - bytes
               storage:
                 type: string
-                doc: id of a storage extension for a persistent queue
               wait_for_result:
                 type: bool
-            open: true
           timeout:
             type: duration
           tls:
@@ -927,14 +1040,17 @@ components:
                 children:
                   item:
                     type: string
+              curve_preferences:
+                type: list
+                children:
+                  item:
+                    type: string
               include_system_ca_certs_pool:
                 type: bool
               insecure:
                 type: bool
-                doc: send in plaintext; only for local testing
               insecure_skip_verify:
                 type: bool
-                doc: accept any server certificate
               key_file:
                 type: string
               key_pem:
@@ -947,12 +1063,21 @@ components:
                 type: duration
               server_name_override:
                 type: string
+              tpm:
+                type: map
+                children:
+                  auth:
+                    type: string
+                  enabled:
+                    type: bool
+                  owner_auth:
+                    type: string
+                  path:
+                    type: string
           wait_for_ready:
             type: bool
           write_buffer_size:
             type: int
-        required:
-          - endpoint
     otlphttp:
       type: otlphttp
       signals:
@@ -973,8 +1098,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           compression:
             type: string
           compression_params:
@@ -1019,8 +1143,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           profiles_endpoint:
             type: string
           proxy_url:
@@ -1055,8 +1178,7 @@ components:
                   min_size:
                     type: int
                   sizer:
-                    type: map
-                    open: true
+                    type: string
               block_on_overflow:
                 type: bool
               enabled:
@@ -1066,11 +1188,9 @@ components:
               queue_size:
                 type: int
               sizer:
-                type: map
-                open: true
+                type: string
               storage:
-                type: map
-                open: true
+                type: string
               wait_for_result:
                 type: bool
           timeout:
@@ -1143,8 +1263,7 @@ components:
           max_number_of_pending_acks_per_partition:
             type: int
           storage:
-            type: map
-            open: true
+            type: string
     basicauth:
       type: basicauth
       stability:
@@ -1188,6 +1307,26 @@ components:
             children:
               item:
                 type: string
+    cgroupruntime:
+      type: cgroupruntime
+      stability:
+        extension: alpha
+      module: github.com/open-telemetry/opentelemetry-collector-contrib/extension/cgroupruntimeextension
+      fields:
+        type: map
+        children:
+          gomaxprocs:
+            type: map
+            children:
+              enabled:
+                type: bool
+          gomemlimit:
+            type: map
+            children:
+              enabled:
+                type: bool
+              ratio:
+                type: float
     file_storage:
       type: file_storage
       stability:
@@ -1265,8 +1404,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -1318,8 +1456,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           path:
             type: string
           read_header_timeout:
@@ -1409,8 +1546,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               compression:
                 type: string
               compression_params:
@@ -1449,8 +1585,7 @@ components:
                     type: map
                     children:
                       id:
-                        type: map
-                        open: true
+                        type: string
               proxy_url:
                 type: string
               read_buffer_size:
@@ -1516,8 +1651,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
                   request_params:
                     type: list
                     children:
@@ -1560,8 +1694,7 @@ components:
                     type: map
                     children:
                       id:
-                        type: map
-                        open: true
+                        type: string
               read_header_timeout:
                 type: duration
               read_timeout:
@@ -1824,8 +1957,7 @@ components:
                 type: map
                 children:
                   auth:
-                    type: map
-                    open: true
+                    type: string
                   endpoint:
                     type: string
                   headers:
@@ -1887,8 +2019,7 @@ components:
                 type: map
                 children:
                   auth:
-                    type: map
-                    open: true
+                    type: string
                   endpoint:
                     type: string
                   headers:
@@ -1977,8 +2108,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -2026,8 +2156,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           read_header_timeout:
             type: duration
           read_timeout:
@@ -2297,22 +2426,17 @@ components:
         children:
           metadata_cardinality_limit:
             type: int
-            doc: maximum number of distinct metadata_keys combinations
           metadata_keys:
             type: list
             children:
               item:
                 type: string
-            doc: client metadata keys that get their own batcher
           send_batch_max_size:
             type: int
-            doc: hard upper bound on a batch; must be >= send_batch_size when set
           send_batch_size:
             type: int
-            doc: number of spans, metric data points or log records per batch
           timeout:
             type: duration
-            doc: how long to wait before sending a batch that is not yet full
     cumulativetodelta:
       type: cumulativetodelta
       signals:
@@ -2368,7 +2492,7 @@ components:
                   cachemaxnumentries:
                     type: int
           initial_value:
-            type: int
+            type: string
           max_staleness:
             type: duration
     deltatocumulative:
@@ -3039,21 +3163,18 @@ components:
         children:
           check_interval:
             type: duration
-            doc: how often memory use is measured; 1s is the usual value
           limit_mib:
             type: int
-            doc: hard limit in MiB; above it the processor starts refusing data
           limit_percentage:
             type: int
-            doc: hard limit as a percentage of total memory, for containers
+          min_gc_interval_when_hard_limited:
+            type: duration
+          min_gc_interval_when_soft_limited:
+            type: duration
           spike_limit_mib:
             type: int
-            doc: headroom in MiB reserved for allocation spikes
           spike_limit_percentage:
             type: int
-            doc: spike headroom as a percentage of total memory
-        required:
-          - check_interval
     metricstransform:
       type: metricstransform
       signals:
@@ -3304,8 +3425,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -3351,8 +3471,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           read_header_timeout:
             type: duration
           read_timeout:
@@ -3542,8 +3661,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
           azure:
             type: map
             children:
@@ -4237,8 +4355,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           nova:
             type: map
             children:
@@ -5491,8 +5608,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   auto_content_type:
                     type: bool
                   body:
@@ -5542,8 +5658,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                   proxy_url:
                     type: string
                   read_buffer_size:
@@ -5644,8 +5759,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   dialer:
                     type: map
                     children:
@@ -5689,8 +5803,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                   read_buffer_size:
                     type: int
                   tls:
@@ -5778,8 +5891,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                       request_params:
                         type: list
                         children:
@@ -5822,8 +5934,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                   read_header_timeout:
                     type: duration
                   read_timeout:
@@ -5886,8 +5997,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               authority:
                 type: string
               balancer_name:
@@ -5915,8 +6025,7 @@ components:
                     type: map
                     children:
                       id:
-                        type: map
-                        open: true
+                        type: string
               read_buffer_size:
                 type: int
               strategy_file:
@@ -6010,8 +6119,7 @@ components:
           distribution:
             type: string
           k8s_leader_elector:
-            type: map
-            open: true
+            type: string
           metadata_collection_interval:
             type: duration
           metadata_exporters:
@@ -7282,8 +7390,7 @@ components:
           context:
             type: string
           k8s_leader_elector:
-            type: map
-            open: true
+            type: string
           namespaces:
             type: list
             children:
@@ -7308,8 +7415,7 @@ components:
           include_initial_state:
             type: bool
           k8s_leader_elector:
-            type: map
-            open: true
+            type: string
           objects:
             type: list
             children:
@@ -8157,8 +8263,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                   dialer:
                     type: map
                     children:
@@ -8202,8 +8307,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                   read_buffer_size:
                     type: int
                   tls:
@@ -8285,10 +8389,13 @@ components:
                     children:
                       authenticator:
                         type: string
-                        doc: id of an authenticator extension
+                  dialer:
+                    type: map
+                    children:
+                      timeout:
+                        type: duration
                   endpoint:
                     type: string
-                    doc: host:port to listen on, e.g. 0.0.0.0:4317
                   include_metadata:
                     type: bool
                   keepalive:
@@ -8318,6 +8425,14 @@ components:
                     type: int
                   max_recv_msg_size_mib:
                     type: int
+                  middlewares:
+                    type: list
+                    children:
+                      item:
+                        type: map
+                        children:
+                          id:
+                            type: string
                   read_buffer_size:
                     type: int
                   tls:
@@ -8340,6 +8455,11 @@ components:
                         type: string
                       client_ca_file_reload:
                         type: bool
+                      curve_preferences:
+                        type: list
+                        children:
+                          item:
+                            type: string
                       include_system_ca_certs_pool:
                         type: bool
                       key_file:
@@ -8352,21 +8472,19 @@ components:
                         type: string
                       reload_interval:
                         type: duration
+                      tpm:
+                        type: map
+                        children:
+                          auth:
+                            type: string
+                          enabled:
+                            type: bool
+                          owner_auth:
+                            type: string
+                          path:
+                            type: string
                   transport:
                     type: string
-                    enum:
-                      - tcp
-                      - tcp4
-                      - tcp6
-                      - udp
-                      - udp4
-                      - udp6
-                      - ip
-                      - ip4
-                      - ip6
-                      - unix
-                      - unixgram
-                      - unixpacket
                   write_buffer_size:
                     type: int
               http:
@@ -8377,6 +8495,11 @@ components:
                     children:
                       authenticator:
                         type: string
+                      request_params:
+                        type: list
+                        children:
+                          item:
+                            type: string
                   compression_algorithms:
                     type: list
                     children:
@@ -8399,8 +8522,11 @@ components:
                         type: int
                   endpoint:
                     type: string
-                    doc: host:port to listen on, e.g. 0.0.0.0:4318
+                  idle_timeout:
+                    type: duration
                   include_metadata:
+                    type: bool
+                  keep_alives_enabled:
                     type: bool
                   logs_url_path:
                     type: string
@@ -8408,9 +8534,19 @@ components:
                     type: int
                   metrics_url_path:
                     type: string
-                  response_headers:
-                    type: map
-                    open: true
+                  middlewares:
+                    type: list
+                    children:
+                      item:
+                        type: map
+                        children:
+                          id:
+                            type: string
+                  read_header_timeout:
+                    type: duration
+                  read_timeout:
+                    type: duration
+                  response_headers: {}
                   tls:
                     type: map
                     children:
@@ -8431,6 +8567,11 @@ components:
                         type: string
                       client_ca_file_reload:
                         type: bool
+                      curve_preferences:
+                        type: list
+                        children:
+                          item:
+                            type: string
                       include_system_ca_certs_pool:
                         type: bool
                       key_file:
@@ -8443,11 +8584,21 @@ components:
                         type: string
                       reload_interval:
                         type: duration
+                      tpm:
+                        type: map
+                        children:
+                          auth:
+                            type: string
+                          enabled:
+                            type: bool
+                          owner_auth:
+                            type: string
+                          path:
+                            type: string
                   traces_url_path:
                     type: string
-            doc: at least one of grpc or http must be enabled
-        required:
-          - protocols
+                  write_timeout:
+                    type: duration
     prometheus:
       type: prometheus
       signals:
@@ -8470,8 +8621,7 @@ components:
                     type: map
                     children:
                       authenticator:
-                        type: map
-                        open: true
+                        type: string
                       request_params:
                         type: list
                         children:
@@ -8514,8 +8664,7 @@ components:
                         type: map
                         children:
                           id:
-                            type: map
-                            open: true
+                            type: string
                   read_header_timeout:
                     type: duration
                   read_timeout:
@@ -8583,8 +8732,7 @@ components:
                 type: map
                 children:
                   authenticator:
-                    type: map
-                    open: true
+                    type: string
               collector_id:
                 type: string
               compression:
@@ -8629,8 +8777,7 @@ components:
                     type: map
                     children:
                       id:
-                        type: map
-                        open: true
+                        type: string
               proxy_url:
                 type: string
               read_buffer_size:
@@ -8725,8 +8872,7 @@ components:
             type: list
             children:
               item:
-                type: map
-                open: true
+                type: string
     zipkin:
       type: zipkin
       signals:
@@ -8741,8 +8887,7 @@ components:
             type: map
             children:
               authenticator:
-                type: map
-                open: true
+                type: string
               request_params:
                 type: list
                 children:
@@ -8785,8 +8930,7 @@ components:
                 type: map
                 children:
                   id:
-                    type: map
-                    open: true
+                    type: string
           parse_string_tags:
             type: bool
           read_header_timeout:

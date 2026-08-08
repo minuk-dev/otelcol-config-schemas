@@ -1,10 +1,9 @@
 {
   "collectorVersion": "v0.140.0",
   "distribution": "k8s",
-  "generatedAt": "2026-08-02T13:15:53Z",
+  "generatedAt": "2026-08-07T00:09:06Z",
   "sources": {
-    "contrib": "github.com/open-telemetry/opentelemetry-collector-contrib",
-    "core": "go.opentelemetry.io/collector"
+    "k8s": "github.com/open-telemetry/opentelemetry-collector-releases/k8s"
   },
   "components": {
     "connector": {
@@ -147,8 +146,7 @@
                   "type": "list",
                   "children": {
                     "item": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 }
@@ -176,8 +174,7 @@
                       "type": "int"
                     },
                     "sizer": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 },
@@ -194,12 +191,10 @@
                   "type": "int"
                 },
                 "sizer": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "storage": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -312,8 +307,7 @@
               "type": "list",
               "children": {
                 "item": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 }
               }
             },
@@ -336,8 +330,7 @@
                       "type": "list",
                       "children": {
                         "item": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         }
                       }
                     },
@@ -432,6 +425,190 @@
             }
           }
         }
+      },
+      "spanmetrics": {
+        "type": "spanmetrics",
+        "stability": {
+          "traces_to_metrics": "alpha"
+        },
+        "pairs": [
+          {
+            "from": "traces",
+            "to": "metrics"
+          }
+        ],
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/connector/spanmetricsconnector",
+        "fields": {
+          "type": "map",
+          "children": {
+            "add_resource_attributes": {
+              "type": "bool"
+            },
+            "aggregation_cardinality_limit": {
+              "type": "int"
+            },
+            "aggregation_temporality": {
+              "type": "string"
+            },
+            "calls_dimensions": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "map",
+                  "children": {
+                    "default": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "dimensions": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "map",
+                  "children": {
+                    "default": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "dimensions_cache_size": {
+              "type": "int"
+            },
+            "events": {
+              "type": "map",
+              "children": {
+                "dimensions": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "default": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "enabled": {
+                  "type": "bool"
+                }
+              }
+            },
+            "exclude_dimensions": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "string"
+                }
+              }
+            },
+            "exemplars": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "max_per_data_point": {
+                  "type": "int"
+                }
+              }
+            },
+            "histogram": {
+              "type": "map",
+              "children": {
+                "dimensions": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "default": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "disable": {
+                  "type": "bool"
+                },
+                "explicit": {
+                  "type": "map",
+                  "children": {
+                    "buckets": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "duration"
+                        }
+                      }
+                    }
+                  }
+                },
+                "exponential": {
+                  "type": "map",
+                  "children": {
+                    "max_size": {
+                      "type": "int"
+                    }
+                  }
+                },
+                "unit": {
+                  "type": "string"
+                }
+              }
+            },
+            "include_instrumentation_scope": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "string"
+                }
+              }
+            },
+            "metric_timestamp_cache_size": {
+              "type": "int"
+            },
+            "metrics_expiration": {
+              "type": "duration"
+            },
+            "metrics_flush_interval": {
+              "type": "duration"
+            },
+            "namespace": {
+              "type": "string"
+            },
+            "resource_metrics_cache_size": {
+              "type": "int"
+            },
+            "resource_metrics_key_attributes": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "exporter": {
@@ -454,24 +631,59 @@
           "type": "map",
           "children": {
             "sampling_initial": {
-              "type": "int",
-              "doc": "messages logged per second before sampling kicks in"
+              "type": "int"
             },
             "sampling_thereafter": {
-              "type": "int",
-              "doc": "log one in every N messages after the initial burst"
+              "type": "int"
+            },
+            "sending_queue": {
+              "type": "map",
+              "children": {
+                "batch": {
+                  "type": "map",
+                  "children": {
+                    "flush_timeout": {
+                      "type": "duration"
+                    },
+                    "max_size": {
+                      "type": "int"
+                    },
+                    "min_size": {
+                      "type": "int"
+                    },
+                    "sizer": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "block_on_overflow": {
+                  "type": "bool"
+                },
+                "enabled": {
+                  "type": "bool"
+                },
+                "num_consumers": {
+                  "type": "int"
+                },
+                "queue_size": {
+                  "type": "int"
+                },
+                "sizer": {
+                  "type": "string"
+                },
+                "storage": {
+                  "type": "string"
+                },
+                "wait_for_result": {
+                  "type": "bool"
+                }
+              }
             },
             "use_internal_logger": {
               "type": "bool"
             },
             "verbosity": {
-              "type": "string",
-              "enum": [
-                "basic",
-                "normal",
-                "detailed"
-              ],
-              "doc": "how much of each payload is written to the collector log"
+              "type": "string"
             }
           }
         }
@@ -501,8 +713,7 @@
               "type": "string"
             },
             "encoding": {
-              "type": "map",
-              "open": true
+              "type": "string"
             },
             "flush_interval": {
               "type": "duration"
@@ -573,8 +784,7 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         }
                       }
                     },
@@ -612,8 +822,7 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "map",
-                              "open": true
+                              "type": "string"
                             }
                           }
                         }
@@ -661,8 +870,7 @@
                               "type": "int"
                             },
                             "sizer": {
-                              "type": "map",
-                              "open": true
+                              "type": "string"
                             }
                           }
                         },
@@ -679,12 +887,10 @@
                           "type": "int"
                         },
                         "sizer": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         },
                         "storage": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         },
                         "wait_for_result": {
                           "type": "bool"
@@ -912,8 +1118,7 @@
                       "type": "int"
                     },
                     "sizer": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 },
@@ -930,12 +1135,10 @@
                   "type": "int"
                 },
                 "sizer": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "storage": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -1019,8 +1222,7 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 }
               }
             },
@@ -1069,8 +1271,7 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 }
@@ -1118,8 +1319,7 @@
                       "type": "int"
                     },
                     "sizer": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 },
@@ -1136,12 +1336,10 @@
                   "type": "int"
                 },
                 "sizer": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "storage": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -1267,34 +1465,15 @@
               "type": "string"
             },
             "balancer_name": {
-              "type": "string",
-              "enum": [
-                "round_robin",
-                "pick_first"
-              ]
+              "type": "string"
             },
             "compression": {
-              "type": "string",
-              "enum": [
-                "gzip",
-                "snappy",
-                "zstd",
-                "zlib",
-                "deflate",
-                "lz4",
-                "none",
-                ""
-              ]
+              "type": "string"
             },
             "endpoint": {
-              "type": "string",
-              "doc": "host:port of the OTLP gRPC endpoint"
+              "type": "string"
             },
-            "headers": {
-              "type": "map",
-              "open": true,
-              "doc": "extra gRPC metadata sent with every request"
-            },
+            "headers": {},
             "keepalive": {
               "type": "map",
               "children": {
@@ -1306,6 +1485,19 @@
                 },
                 "timeout": {
                   "type": "duration"
+                }
+              }
+            },
+            "middlewares": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "map",
+                  "children": {
+                    "id": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             },
@@ -1338,7 +1530,24 @@
             "sending_queue": {
               "type": "map",
               "children": {
-                "blocking": {
+                "batch": {
+                  "type": "map",
+                  "children": {
+                    "flush_timeout": {
+                      "type": "duration"
+                    },
+                    "max_size": {
+                      "type": "int"
+                    },
+                    "min_size": {
+                      "type": "int"
+                    },
+                    "sizer": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "block_on_overflow": {
                   "type": "bool"
                 },
                 "enabled": {
@@ -1351,22 +1560,15 @@
                   "type": "int"
                 },
                 "sizer": {
-                  "type": "string",
-                  "enum": [
-                    "requests",
-                    "items",
-                    "bytes"
-                  ]
+                  "type": "string"
                 },
                 "storage": {
-                  "type": "string",
-                  "doc": "id of a storage extension for a persistent queue"
+                  "type": "string"
                 },
                 "wait_for_result": {
                   "type": "bool"
                 }
-              },
-              "open": true
+              }
             },
             "timeout": {
               "type": "duration"
@@ -1394,16 +1596,22 @@
                     }
                   }
                 },
+                "curve_preferences": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
                 "include_system_ca_certs_pool": {
                   "type": "bool"
                 },
                 "insecure": {
-                  "type": "bool",
-                  "doc": "send in plaintext; only for local testing"
+                  "type": "bool"
                 },
                 "insecure_skip_verify": {
-                  "type": "bool",
-                  "doc": "accept any server certificate"
+                  "type": "bool"
                 },
                 "key_file": {
                   "type": "string"
@@ -1422,6 +1630,23 @@
                 },
                 "server_name_override": {
                   "type": "string"
+                },
+                "tpm": {
+                  "type": "map",
+                  "children": {
+                    "auth": {
+                      "type": "string"
+                    },
+                    "enabled": {
+                      "type": "bool"
+                    },
+                    "owner_auth": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             },
@@ -1431,10 +1656,7 @@
             "write_buffer_size": {
               "type": "int"
             }
-          },
-          "required": [
-            "endpoint"
-          ]
+          }
         }
       },
       "otlphttp": {
@@ -1459,8 +1681,7 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 }
               }
             },
@@ -1527,8 +1748,7 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 }
@@ -1582,8 +1802,7 @@
                       "type": "int"
                     },
                     "sizer": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 },
@@ -1600,12 +1819,10 @@
                   "type": "int"
                 },
                 "sizer": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "storage": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -1719,8 +1936,7 @@
               "type": "int"
             },
             "storage": {
-              "type": "map",
-              "open": true
+              "type": "string"
             }
           }
         }
@@ -1785,6 +2001,37 @@
               "children": {
                 "item": {
                   "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "cgroupruntime": {
+        "type": "cgroupruntime",
+        "stability": {
+          "extension": "alpha"
+        },
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/extension/cgroupruntimeextension",
+        "fields": {
+          "type": "map",
+          "children": {
+            "gomaxprocs": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                }
+              }
+            },
+            "gomemlimit": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "ratio": {
+                  "type": "float"
                 }
               }
             }
@@ -1903,8 +2150,7 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "request_params": {
                   "type": "list",
@@ -1984,8 +2230,7 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 }
@@ -2123,8 +2368,7 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 },
@@ -2182,8 +2426,7 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         }
                       }
                     }
@@ -2287,8 +2530,7 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     },
                     "request_params": {
                       "type": "list",
@@ -2354,8 +2596,7 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         }
                       }
                     }
@@ -2758,8 +2999,7 @@
                   "type": "map",
                   "children": {
                     "auth": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     },
                     "endpoint": {
                       "type": "string"
@@ -2854,8 +3094,7 @@
                   "type": "map",
                   "children": {
                     "auth": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     },
                     "endpoint": {
                       "type": "string"
@@ -2993,8 +3232,7 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "request_params": {
                   "type": "list",
@@ -3068,8 +3306,7 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 }
@@ -3488,8 +3725,7 @@
           "type": "map",
           "children": {
             "metadata_cardinality_limit": {
-              "type": "int",
-              "doc": "maximum number of distinct metadata_keys combinations"
+              "type": "int"
             },
             "metadata_keys": {
               "type": "list",
@@ -3497,20 +3733,16 @@
                 "item": {
                   "type": "string"
                 }
-              },
-              "doc": "client metadata keys that get their own batcher"
+              }
             },
             "send_batch_max_size": {
-              "type": "int",
-              "doc": "hard upper bound on a batch; must be \u003e= send_batch_size when set"
+              "type": "int"
             },
             "send_batch_size": {
-              "type": "int",
-              "doc": "number of spans, metric data points or log records per batch"
+              "type": "int"
             },
             "timeout": {
-              "type": "duration",
-              "doc": "how long to wait before sending a batch that is not yet full"
+              "type": "duration"
             }
           }
         }
@@ -3598,7 +3830,7 @@
               }
             },
             "initial_value": {
-              "type": "int"
+              "type": "string"
             },
             "max_staleness": {
               "type": "duration"
@@ -4636,29 +4868,27 @@
           "type": "map",
           "children": {
             "check_interval": {
-              "type": "duration",
-              "doc": "how often memory use is measured; 1s is the usual value"
+              "type": "duration"
             },
             "limit_mib": {
-              "type": "int",
-              "doc": "hard limit in MiB; above it the processor starts refusing data"
+              "type": "int"
             },
             "limit_percentage": {
-              "type": "int",
-              "doc": "hard limit as a percentage of total memory, for containers"
+              "type": "int"
+            },
+            "min_gc_interval_when_hard_limited": {
+              "type": "duration"
+            },
+            "min_gc_interval_when_soft_limited": {
+              "type": "duration"
             },
             "spike_limit_mib": {
-              "type": "int",
-              "doc": "headroom in MiB reserved for allocation spikes"
+              "type": "int"
             },
             "spike_limit_percentage": {
-              "type": "int",
-              "doc": "spike headroom as a percentage of total memory"
+              "type": "int"
             }
-          },
-          "required": [
-            "check_interval"
-          ]
+          }
         }
       },
       "metricstransform": {
@@ -5040,8 +5270,7 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "request_params": {
                   "type": "list",
@@ -5111,8 +5340,7 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 }
@@ -5404,8 +5632,7 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 }
               }
             },
@@ -6513,8 +6740,7 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 }
@@ -8489,8 +8715,7 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         }
                       }
                     },
@@ -8565,8 +8790,7 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "map",
-                              "open": true
+                              "type": "string"
                             }
                           }
                         }
@@ -8724,8 +8948,7 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         }
                       }
                     },
@@ -8792,8 +9015,7 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "map",
-                              "open": true
+                              "type": "string"
                             }
                           }
                         }
@@ -8931,8 +9153,7 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         },
                         "request_params": {
                           "type": "list",
@@ -8998,8 +9219,7 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "map",
-                              "open": true
+                              "type": "string"
                             }
                           }
                         }
@@ -9100,8 +9320,7 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 },
@@ -9142,8 +9361,7 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         }
                       }
                     }
@@ -9291,8 +9509,7 @@
               "type": "string"
             },
             "k8s_leader_elector": {
-              "type": "map",
-              "open": true
+              "type": "string"
             },
             "metadata_collection_interval": {
               "type": "duration"
@@ -11324,8 +11541,7 @@
               "type": "string"
             },
             "k8s_leader_elector": {
-              "type": "map",
-              "open": true
+              "type": "string"
             },
             "namespaces": {
               "type": "list",
@@ -11363,8 +11579,7 @@
               "type": "bool"
             },
             "k8s_leader_elector": {
-              "type": "map",
-              "open": true
+              "type": "string"
             },
             "objects": {
               "type": "list",
@@ -12704,8 +12919,7 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         }
                       }
                     },
@@ -12772,8 +12986,7 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "map",
-                              "open": true
+                              "type": "string"
                             }
                           }
                         }
@@ -12897,14 +13110,20 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string",
-                          "doc": "id of an authenticator extension"
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "dialer": {
+                      "type": "map",
+                      "children": {
+                        "timeout": {
+                          "type": "duration"
                         }
                       }
                     },
                     "endpoint": {
-                      "type": "string",
-                      "doc": "host:port to listen on, e.g. 0.0.0.0:4317"
+                      "type": "string"
                     },
                     "include_metadata": {
                       "type": "bool"
@@ -12951,6 +13170,19 @@
                     "max_recv_msg_size_mib": {
                       "type": "int"
                     },
+                    "middlewares": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "map",
+                          "children": {
+                            "id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "read_buffer_size": {
                       "type": "int"
                     },
@@ -12983,6 +13215,14 @@
                         "client_ca_file_reload": {
                           "type": "bool"
                         },
+                        "curve_preferences": {
+                          "type": "list",
+                          "children": {
+                            "item": {
+                              "type": "string"
+                            }
+                          }
+                        },
                         "include_system_ca_certs_pool": {
                           "type": "bool"
                         },
@@ -13000,25 +13240,28 @@
                         },
                         "reload_interval": {
                           "type": "duration"
+                        },
+                        "tpm": {
+                          "type": "map",
+                          "children": {
+                            "auth": {
+                              "type": "string"
+                            },
+                            "enabled": {
+                              "type": "bool"
+                            },
+                            "owner_auth": {
+                              "type": "string"
+                            },
+                            "path": {
+                              "type": "string"
+                            }
+                          }
                         }
                       }
                     },
                     "transport": {
-                      "type": "string",
-                      "enum": [
-                        "tcp",
-                        "tcp4",
-                        "tcp6",
-                        "udp",
-                        "udp4",
-                        "udp6",
-                        "ip",
-                        "ip4",
-                        "ip6",
-                        "unix",
-                        "unixgram",
-                        "unixpacket"
-                      ]
+                      "type": "string"
                     },
                     "write_buffer_size": {
                       "type": "int"
@@ -13033,6 +13276,14 @@
                       "children": {
                         "authenticator": {
                           "type": "string"
+                        },
+                        "request_params": {
+                          "type": "list",
+                          "children": {
+                            "item": {
+                              "type": "string"
+                            }
+                          }
                         }
                       }
                     },
@@ -13069,10 +13320,15 @@
                       }
                     },
                     "endpoint": {
-                      "type": "string",
-                      "doc": "host:port to listen on, e.g. 0.0.0.0:4318"
+                      "type": "string"
+                    },
+                    "idle_timeout": {
+                      "type": "duration"
                     },
                     "include_metadata": {
+                      "type": "bool"
+                    },
+                    "keep_alives_enabled": {
                       "type": "bool"
                     },
                     "logs_url_path": {
@@ -13084,10 +13340,26 @@
                     "metrics_url_path": {
                       "type": "string"
                     },
-                    "response_headers": {
-                      "type": "map",
-                      "open": true
+                    "middlewares": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "map",
+                          "children": {
+                            "id": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
                     },
+                    "read_header_timeout": {
+                      "type": "duration"
+                    },
+                    "read_timeout": {
+                      "type": "duration"
+                    },
+                    "response_headers": {},
                     "tls": {
                       "type": "map",
                       "children": {
@@ -13117,6 +13389,14 @@
                         "client_ca_file_reload": {
                           "type": "bool"
                         },
+                        "curve_preferences": {
+                          "type": "list",
+                          "children": {
+                            "item": {
+                              "type": "string"
+                            }
+                          }
+                        },
                         "include_system_ca_certs_pool": {
                           "type": "bool"
                         },
@@ -13134,21 +13414,37 @@
                         },
                         "reload_interval": {
                           "type": "duration"
+                        },
+                        "tpm": {
+                          "type": "map",
+                          "children": {
+                            "auth": {
+                              "type": "string"
+                            },
+                            "enabled": {
+                              "type": "bool"
+                            },
+                            "owner_auth": {
+                              "type": "string"
+                            },
+                            "path": {
+                              "type": "string"
+                            }
+                          }
                         }
                       }
                     },
                     "traces_url_path": {
                       "type": "string"
+                    },
+                    "write_timeout": {
+                      "type": "duration"
                     }
                   }
                 }
-              },
-              "doc": "at least one of grpc or http must be enabled"
+              }
             }
-          },
-          "required": [
-            "protocols"
-          ]
+          }
         }
       },
       "prometheus": {
@@ -13176,8 +13472,7 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         },
                         "request_params": {
                           "type": "list",
@@ -13243,8 +13538,7 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "map",
-                              "open": true
+                              "type": "string"
                             }
                           }
                         }
@@ -13352,8 +13646,7 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 },
@@ -13419,8 +13712,7 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "map",
-                          "open": true
+                          "type": "string"
                         }
                       }
                     }
@@ -13567,8 +13859,7 @@
               "type": "list",
               "children": {
                 "item": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 }
               }
             }
@@ -13591,8 +13882,7 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "map",
-                  "open": true
+                  "type": "string"
                 },
                 "request_params": {
                   "type": "list",
@@ -13658,8 +13948,7 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "map",
-                      "open": true
+                      "type": "string"
                     }
                   }
                 }
