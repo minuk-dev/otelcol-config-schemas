@@ -51,6 +51,14 @@ on:
 permissions:
   contents: read
 
+# One run at a time. Each reads the registry as it stands and generates what is
+# missing from it, so two at once would both find the same releases missing and
+# both generate them. Queued rather than cancelled: a run that is most of the
+# way through a batch is worth letting finish.
+concurrency:
+  group: schemas
+  cancel-in-progress: false
+
 env:
   # Where the generator lives. Public, so it is checked out without a token.
   LINTER: minuk-dev/otelcol-config-lint
@@ -182,6 +190,19 @@ jobs:
         uses: actions/checkout@v5
         with:
           ref: ${{ inputs.base || 'main' }}
+          # Whole history. This job commits each release as it generates it, and
+          # create-pull-request then has to work out what those commits are
+          # against the branch it is opening: from a depth-1 checkout it asked
+          # for a depth deeper than the clone had and gave up on a branch it was
+          # about to create --
+          #
+          #   git fetch --force --depth=21 origin schemas/v0.135.0-to-v0.145.0
+          #   fatal: couldn't find remote ref schemas/v0.135.0-to-v0.145.0
+          #
+          # -- after having reset the working tree back to origin/main, which is
+          # how the first scheduled run pushed a branch and then failed without
+          # a pull request to show for it.
+          fetch-depth: 0
       - name: Checkout the linter
         # Public, so no token: the generator is read, never written to.
         uses: actions/checkout@v5
