@@ -99,6 +99,24 @@ jobs:
         uses: actions/checkout@v5
         with:
           ref: ${{ inputs.base || 'main' }}
+      - name: Checkout the linter
+        # For "schemagen --print-version", which is how a tag is turned into
+        # the release it resolves to. Public, so no token.
+        uses: actions/checkout@v5
+        with:
+          repository: ${{ env.LINTER }}
+          ref: ${{ inputs.linter-ref || 'main' }}
+          path: linter
+      - name: Clone the upstream release manifests
+        # Blobless and unchecked-out: what is read is one file at each of a few
+        # dozen tags, through "git show", so no working tree is ever needed.
+        run: |
+          git clone --filter=blob:none --no-checkout \
+            https://github.com/open-telemetry/opentelemetry-collector-releases releases
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: linter/go.mod
       - name: Pick the releases to generate
         id: pick
         env:
@@ -106,51 +124,85 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Dispatched versions are generated as asked, present or not: asking
-          # for them by hand is how a schema is corrected in place, and how a
-          # backfill batch is placed on top of the batch before it.
+          # The release a tag's manifest resolves to, which is what the
+          # registry files the schema under and what --collector-version has to
+          # match.
+          #
+          # It is asked of the generator rather than worked out here. The rule
+          # is dist.otelcol_version, or failing that the version most of the
+          # collector's own components are pinned at, or failing that
+          # dist.version, and upstream exercises all three:
+          #
+          #   tag v0.140.1  -> v0.140.0     a packaging re-release
+          #   tag v0.146.0  -> v0.146.1     and it calls itself 0.145.0
+          #   tag v0.152.1  -> v0.152.1     a release of its own, despite the .1
+          #
+          # Comparing tags against the index instead is what made this workflow
+          # find v0.146.0 missing every week, generate it, file it under
+          # v0.146.1, and find it missing again.
+          resolve() {
+            git -C releases show "refs/tags/$1:distributions/otelcol/manifest.yaml" \
+              > "${GITHUB_WORKSPACE}/manifest.yaml" 2>/dev/null || return 1
+
+            (cd linter && go run ./cmd/schemagen --print-version \
+              --builder "core=${GITHUB_WORKSPACE}/manifest.yaml") | cut -f2
+          }
+
           if [ -n "${INPUT_VERSIONS}" ]; then
+            # Dispatched tags are generated as asked, present or not: asking
+            # for them by hand is how a schema is corrected in place, and how a
+            # backfill batch is placed on top of the batch before it.
             printf '%s' "${INPUT_VERSIONS}" | tr ' ,' '\n' |
-              grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V -u > picked.txt
+              grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V -u > tags.txt
           else
-            # Upstream's tags, from the three repositories a release is a
-            # release in. Read over git rather than through the releases API,
-            # which pages every release note in full: megabytes, frequently a
-            # timeout, and no further back than one page.
-            for repo in \
-              opentelemetry-collector-releases \
-              opentelemetry-collector \
-              opentelemetry-collector-contrib
-            do
-              git ls-remote --tags --refs "https://github.com/open-telemetry/${repo}" |
-                sed 's#.*refs/tags/##' |
-                grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -u > "tags-${repo}.txt"
-            done
+            # Read over git rather than through the releases API, which pages
+            # every release note in full: megabytes, frequently a timeout, and
+            # no further back than one page.
+            git ls-remote --tags --refs \
+              https://github.com/open-telemetry/opentelemetry-collector-releases |
+              sed 's#.*refs/tags/##' |
+              grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V -u > all-tags.txt
 
-            # A collector release is a tag all three carry.
-            #
-            # opentelemetry-collector-releases is where the builder manifests
-            # live, but it is also tagged for its own packaging fixes, and
-            # those are not collector releases: v0.140.1 pins every component
-            # at v0.140.0, and schemagen names a schema after what the
-            # components are pinned at, so generating one would rewrite the
-            # release before it under its own name. Requiring core and contrib
-            # to carry the tag too leaves those out.
-            #
-            # It also leaves out a release upstream is midway through tagging.
-            # The releases repository is tagged last, so that is rare, but a
-            # half-empty schema in the registry is worse than a week's wait.
-            comm -12 tags-opentelemetry-collector-releases.txt \
-              <(comm -12 tags-opentelemetry-collector.txt \
-                         tags-opentelemetry-collector-contrib.txt) |
-              sort -V > releases.txt
+            # Only the end of the list is worth resolving. The window is RETAIN
+            # releases and several tags can collapse onto one, so a margin over
+            # RETAIN covers the collapsing without resolving the whole history.
+            tail -n "$((RETAIN + 10))" all-tags.txt > tags.txt
+          fi
 
+          : > resolved.txt
+
+          while read -r tag; do
+            release="$(resolve "${tag}" || true)"
+
+            # A tag with no manifest at that path is not a distribution this
+            # registry serves; upstream's oldest tags predate the layout.
+            if [ -z "${release}" ]; then
+              echo "${tag}: no manifest to resolve, leaving it out"
+
+              continue
+            fi
+
+            printf '%s\t%s\n' "${release}" "${tag}" >> resolved.txt
+          done < tags.txt
+
+          # One tag per release. Where several resolve to the same one --
+          # v0.146.0 and v0.146.1 both resolve to v0.146.1 -- the tag named
+          # after the release is preferred, since that is the one whose own
+          # numbering agrees with what is generated from it.
+          awk -F'\t' '
+            { if ($1 == $2 || !($1 in best)) best[$1] = $2 }
+            END { for (release in best) print release "\t" best[release] }
+          ' resolved.txt | sort -V > one-per-release.txt
+
+          if [ -n "${INPUT_VERSIONS}" ]; then
+            cut -f1 one-per-release.txt > picked-releases.txt
+          else
             # The window this registry promises to serve, and what it holds.
             # contrib is written by every run and is the distribution a config
             # is checked against by default, so it is the one the coverage is
-            # read off. The index is read from the checkout, so it is always
-            # the branch being built on rather than whatever main happens to
-            # hold.
+            # read off. The index comes from the checkout, so it describes the
+            # branch being built on rather than whatever main happens to hold.
+            cut -f1 one-per-release.txt | sort -V -u > releases.txt
             tail -n "${RETAIN}" releases.txt > window.txt
             jq -r '.distributions.contrib[]' index.json > have.txt
 
@@ -163,8 +215,19 @@ jobs:
             # nobody is pinned to, whereas the window is what the linter
             # resolves against every day.
             comm -23 <(sort window.txt) <(sort have.txt) |
-              sort -V | head -n "${MAX_RELEASES}" > picked.txt
+              sort -V | head -n "${MAX_RELEASES}" > picked-releases.txt
           fi
+
+          # Both halves travel together from here: the tag says what to check
+          # out, the release says what the schema will be filed under, and
+          # nothing downstream has to assume they are the same string.
+          : > picked.txt
+
+          while read -r release; do
+            printf '%s %s\n' \
+              "$(awk -F'\t' -v r="${release}" '$1 == r { print $2 }' one-per-release.txt)" \
+              "${release}" >> picked.txt
+          done < picked-releases.txt
 
           versions="$(jq -R -s -c 'split("\n") | map(select(length > 0))' picked.txt)"
           echo "generating ${versions}"
@@ -257,8 +320,13 @@ jobs:
             fi
           }
 
+          # The tag says what to check out; the release says what the schema is
+          # filed under. They are not always the same string -- the tag
+          # v0.146.0 resolves to the release v0.146.1 -- so neither is used for
+          # the other's job.
           generate_one() {
-            version="$1"
+            tag="$1"
+            version="$2"
 
             reclaim_disk
 
@@ -266,7 +334,7 @@ jobs:
             # most of all -- is not this one's, and would be resolved as if it
             # were.
             git -C releases clean -qfdx || return 1
-            git -C releases checkout --quiet --detach "refs/tags/${version}" || return 1
+            git -C releases checkout --quiet --detach "refs/tags/${tag}" || return 1
 
             # From v0.156.0 the contrib manifest replaces go.opentelemetry.io/obi
             # with internal/obi-src, which upstream's own script downloads.
@@ -308,10 +376,12 @@ jobs:
           : > generated.txt
           : > failed.txt
 
-          for version in $(printf '%s' "${VERSIONS}" | jq -r '.[]'); do
-            echo "::group::${version}"
+          # Process substitution, not a pipe, so the loop runs in this shell and
+          # what it commits and appends survives it.
+          while read -r tag version; do
+            echo "::group::${tag} (${version})"
 
-            if generate_one "${version}"; then
+            if generate_one "${tag}" "${version}"; then
               git add -A
               git commit -q \
                 -m "Add schemas for ${version}" \
@@ -344,7 +414,7 @@ jobs:
             # this release's doing. They are left for the next run, which will
             # find them missing and start again from here.
             break
-          done
+          done < <(printf '%s' "${VERSIONS}" | jq -r '.[]')
 
           if [ ! -s generated.txt ]; then
             echo "::error::no release in the batch could be generated"
