@@ -100,7 +100,7 @@ jobs:
         with:
           ref: ${{ inputs.base || 'main' }}
       - name: Checkout the linter
-        # For "schemagen --print-version", which is how a tag is turned into
+        # For "schemagen print-version", which is how a tag is turned into
         # the release it resolves to. Public, so no token.
         uses: actions/checkout@v5
         with:
@@ -144,7 +144,7 @@ jobs:
             git -C releases show "refs/tags/$1:distributions/otelcol/manifest.yaml" \
               > "${GITHUB_WORKSPACE}/manifest.yaml" 2>/dev/null || return 1
 
-            (cd linter && go run ./cmd/schemagen --print-version \
+            (cd linter && go run ./cmd/schemagen print-version \
               --builder "core=${GITHUB_WORKSPACE}/manifest.yaml") | cut -f2
           }
 
@@ -349,7 +349,7 @@ jobs:
             # otelcol-contrib, and what a config is linted against is core and
             # contrib. Paths are absolute because the generator runs from the
             # linter checkout while writing into this one.
-            (cd linter && go run ./cmd/schemagen \
+            (cd linter && go run ./cmd/schemagen generate \
               --registry "${GITHUB_WORKSPACE}" \
               --summary "${GITHUB_WORKSPACE}/release-summary.md" \
               --retain "${RETAIN}" --retain-every "${RETAIN_EVERY}" \
