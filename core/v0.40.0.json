@@ -1,0 +1,2026 @@
+{
+  "collectorVersion": "v0.40.0",
+  "distribution": "core",
+  "generatedAt": "2026-08-11T12:43:42Z",
+  "sources": {
+    "core": "github.com/open-telemetry/opentelemetry-collector-releases/core"
+  },
+  "components": {
+    "exporter": {
+      "file": {
+        "type": "file",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/fileexporter",
+        "fields": {
+          "type": "map",
+          "children": {
+            "path": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "jaeger": {
+        "type": "jaeger",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/jaegerexporter",
+        "fields": {
+          "type": "map",
+          "children": {
+            "auth": {
+              "type": "map",
+              "children": {
+                "authenticator": {
+                  "type": "string"
+                }
+              }
+            },
+            "balancer_name": {
+              "type": "string"
+            },
+            "compression": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "headers": {
+              "type": "map",
+              "open": true
+            },
+            "keepalive": {
+              "type": "map",
+              "children": {
+                "permit_without_stream": {
+                  "type": "bool"
+                },
+                "time": {
+                  "type": "duration"
+                },
+                "timeout": {
+                  "type": "duration"
+                }
+              }
+            },
+            "read_buffer_size": {
+              "type": "int"
+            },
+            "retry_on_failure": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "initial_interval": {
+                  "type": "duration"
+                },
+                "max_elapsed_time": {
+                  "type": "duration"
+                },
+                "max_interval": {
+                  "type": "duration"
+                }
+              }
+            },
+            "sending_queue": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "num_consumers": {
+                  "type": "int"
+                },
+                "queue_size": {
+                  "type": "int"
+                }
+              }
+            },
+            "timeout": {
+              "type": "duration"
+            },
+            "tls": {
+              "type": "map",
+              "children": {
+                "ca_file": {
+                  "type": "string"
+                },
+                "cert_file": {
+                  "type": "string"
+                },
+                "insecure": {
+                  "type": "bool"
+                },
+                "insecure_skip_verify": {
+                  "type": "bool"
+                },
+                "key_file": {
+                  "type": "string"
+                },
+                "max_version": {
+                  "type": "string"
+                },
+                "min_version": {
+                  "type": "string"
+                },
+                "server_name_override": {
+                  "type": "string"
+                }
+              }
+            },
+            "wait_for_ready": {
+              "type": "bool"
+            },
+            "write_buffer_size": {
+              "type": "int"
+            }
+          }
+        }
+      },
+      "kafka": {
+        "type": "kafka",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/kafkaexporter",
+        "fields": {
+          "type": "map",
+          "children": {
+            "auth": {
+              "type": "map",
+              "children": {
+                "kerberos": {
+                  "type": "map",
+                  "children": {
+                    "config_file": {
+                      "type": "string"
+                    },
+                    "keytab_file": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    },
+                    "realm": {
+                      "type": "string"
+                    },
+                    "service_name": {
+                      "type": "string"
+                    },
+                    "use_keytab": {
+                      "type": "bool"
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "plain_text": {
+                  "type": "map",
+                  "children": {
+                    "password": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "sasl": {
+                  "type": "map",
+                  "children": {
+                    "aws_msk": {
+                      "type": "map",
+                      "children": {
+                        "broker_addr": {
+                          "type": "string"
+                        },
+                        "region": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "mechanism": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "tls": {
+                  "type": "map",
+                  "children": {
+                    "ca_file": {
+                      "type": "string"
+                    },
+                    "cert_file": {
+                      "type": "string"
+                    },
+                    "insecure": {
+                      "type": "bool"
+                    },
+                    "insecure_skip_verify": {
+                      "type": "bool"
+                    },
+                    "key_file": {
+                      "type": "string"
+                    },
+                    "max_version": {
+                      "type": "string"
+                    },
+                    "min_version": {
+                      "type": "string"
+                    },
+                    "server_name_override": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "brokers": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "string"
+                }
+              }
+            },
+            "encoding": {
+              "type": "string"
+            },
+            "metadata": {
+              "type": "map",
+              "children": {
+                "full": {
+                  "type": "bool"
+                },
+                "retry": {
+                  "type": "map",
+                  "children": {
+                    "backoff": {
+                      "type": "duration"
+                    },
+                    "max": {
+                      "type": "int"
+                    }
+                  }
+                }
+              }
+            },
+            "producer": {
+              "type": "map",
+              "children": {
+                "max_message_bytes": {
+                  "type": "int"
+                }
+              }
+            },
+            "protocol_version": {
+              "type": "string"
+            },
+            "retry_on_failure": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "initial_interval": {
+                  "type": "duration"
+                },
+                "max_elapsed_time": {
+                  "type": "duration"
+                },
+                "max_interval": {
+                  "type": "duration"
+                }
+              }
+            },
+            "sending_queue": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "num_consumers": {
+                  "type": "int"
+                },
+                "queue_size": {
+                  "type": "int"
+                }
+              }
+            },
+            "timeout": {
+              "type": "duration"
+            },
+            "topic": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "opencensus": {
+        "type": "opencensus",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/opencensusexporter",
+        "fields": {
+          "type": "map",
+          "children": {
+            "auth": {
+              "type": "map",
+              "children": {
+                "authenticator": {
+                  "type": "string"
+                }
+              }
+            },
+            "balancer_name": {
+              "type": "string"
+            },
+            "compression": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "headers": {
+              "type": "map",
+              "open": true
+            },
+            "keepalive": {
+              "type": "map",
+              "children": {
+                "permit_without_stream": {
+                  "type": "bool"
+                },
+                "time": {
+                  "type": "duration"
+                },
+                "timeout": {
+                  "type": "duration"
+                }
+              }
+            },
+            "num_workers": {
+              "type": "int"
+            },
+            "read_buffer_size": {
+              "type": "int"
+            },
+            "retry_on_failure": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "initial_interval": {
+                  "type": "duration"
+                },
+                "max_elapsed_time": {
+                  "type": "duration"
+                },
+                "max_interval": {
+                  "type": "duration"
+                }
+              }
+            },
+            "sending_queue": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "num_consumers": {
+                  "type": "int"
+                },
+                "queue_size": {
+                  "type": "int"
+                }
+              }
+            },
+            "tls": {
+              "type": "map",
+              "children": {
+                "ca_file": {
+                  "type": "string"
+                },
+                "cert_file": {
+                  "type": "string"
+                },
+                "insecure": {
+                  "type": "bool"
+                },
+                "insecure_skip_verify": {
+                  "type": "bool"
+                },
+                "key_file": {
+                  "type": "string"
+                },
+                "max_version": {
+                  "type": "string"
+                },
+                "min_version": {
+                  "type": "string"
+                },
+                "server_name_override": {
+                  "type": "string"
+                }
+              }
+            },
+            "wait_for_ready": {
+              "type": "bool"
+            },
+            "write_buffer_size": {
+              "type": "int"
+            }
+          }
+        }
+      },
+      "prometheus": {
+        "type": "prometheus",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/prometheusexporter",
+        "fields": {
+          "type": "map",
+          "children": {
+            "const_labels": {
+              "type": "map",
+              "open": true
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "metric_expiration": {
+              "type": "duration"
+            },
+            "namespace": {
+              "type": "string"
+            },
+            "resource_to_telemetry_conversion": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                }
+              }
+            },
+            "send_timestamps": {
+              "type": "bool"
+            }
+          }
+        }
+      },
+      "prometheusremotewrite": {
+        "type": "prometheusremotewrite",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/prometheusremotewriteexporter",
+        "fields": {
+          "type": "map",
+          "children": {
+            "auth": {
+              "type": "map",
+              "children": {
+                "authenticator": {
+                  "type": "string"
+                }
+              }
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "external_labels": {
+              "type": "map",
+              "open": true
+            },
+            "headers": {
+              "type": "map",
+              "open": true
+            },
+            "namespace": {
+              "type": "string"
+            },
+            "read_buffer_size": {
+              "type": "int"
+            },
+            "remote_write_queue": {
+              "type": "map",
+              "children": {
+                "num_consumers": {
+                  "type": "int"
+                },
+                "queue_size": {
+                  "type": "int"
+                }
+              }
+            },
+            "resource_to_telemetry_conversion": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                }
+              }
+            },
+            "retry_on_failure": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "initial_interval": {
+                  "type": "duration"
+                },
+                "max_elapsed_time": {
+                  "type": "duration"
+                },
+                "max_interval": {
+                  "type": "duration"
+                }
+              }
+            },
+            "timeout": {
+              "type": "duration"
+            },
+            "tls": {
+              "type": "map",
+              "children": {
+                "ca_file": {
+                  "type": "string"
+                },
+                "cert_file": {
+                  "type": "string"
+                },
+                "insecure": {
+                  "type": "bool"
+                },
+                "insecure_skip_verify": {
+                  "type": "bool"
+                },
+                "key_file": {
+                  "type": "string"
+                },
+                "max_version": {
+                  "type": "string"
+                },
+                "min_version": {
+                  "type": "string"
+                },
+                "server_name_override": {
+                  "type": "string"
+                }
+              }
+            },
+            "write_buffer_size": {
+              "type": "int"
+            }
+          }
+        }
+      },
+      "zipkin": {
+        "type": "zipkin",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/zipkinexporter",
+        "fields": {
+          "type": "map",
+          "children": {
+            "auth": {
+              "type": "map",
+              "children": {
+                "authenticator": {
+                  "type": "string"
+                }
+              }
+            },
+            "default_service_name": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "format": {
+              "type": "string"
+            },
+            "headers": {
+              "type": "map",
+              "open": true
+            },
+            "read_buffer_size": {
+              "type": "int"
+            },
+            "retry_on_failure": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "initial_interval": {
+                  "type": "duration"
+                },
+                "max_elapsed_time": {
+                  "type": "duration"
+                },
+                "max_interval": {
+                  "type": "duration"
+                }
+              }
+            },
+            "sending_queue": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "num_consumers": {
+                  "type": "int"
+                },
+                "queue_size": {
+                  "type": "int"
+                }
+              }
+            },
+            "timeout": {
+              "type": "duration"
+            },
+            "tls": {
+              "type": "map",
+              "children": {
+                "ca_file": {
+                  "type": "string"
+                },
+                "cert_file": {
+                  "type": "string"
+                },
+                "insecure": {
+                  "type": "bool"
+                },
+                "insecure_skip_verify": {
+                  "type": "bool"
+                },
+                "key_file": {
+                  "type": "string"
+                },
+                "max_version": {
+                  "type": "string"
+                },
+                "min_version": {
+                  "type": "string"
+                },
+                "server_name_override": {
+                  "type": "string"
+                }
+              }
+            },
+            "write_buffer_size": {
+              "type": "int"
+            }
+          }
+        }
+      }
+    },
+    "extension": {
+      "healthcheck": {
+        "type": "healthcheck",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextension",
+        "fields": {
+          "type": "map",
+          "children": {
+            "check_collector_pipeline": {
+              "type": "map",
+              "children": {
+                "enabled": {
+                  "type": "bool"
+                },
+                "exporter_failure_threshold": {
+                  "type": "int"
+                },
+                "interval": {
+                  "type": "string"
+                }
+              }
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "port": {
+              "type": "int"
+            }
+          }
+        }
+      },
+      "pprof": {
+        "type": "pprof",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/extension/pprofextension",
+        "fields": {
+          "type": "map",
+          "children": {
+            "block_profile_fraction": {
+              "type": "int"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "mutex_profile_fraction": {
+              "type": "int"
+            },
+            "save_to_file": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "processor": {
+      "attributes": {
+        "type": "attributes",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/processor/attributesprocessor",
+        "fields": {
+          "type": "map",
+          "children": {
+            "actions": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "map",
+                  "children": {
+                    "action": {
+                      "type": "string"
+                    },
+                    "from_attribute": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "pattern": {
+                      "type": "string"
+                    },
+                    "value": {}
+                  }
+                }
+              }
+            },
+            "exclude": {
+              "type": "map",
+              "children": {
+                "attributes": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {}
+                      }
+                    }
+                  }
+                },
+                "libraries": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "log_names": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "match_type": {
+                  "type": "string"
+                },
+                "regexp": {
+                  "type": "map",
+                  "children": {
+                    "cacheenabled": {
+                      "type": "bool"
+                    },
+                    "cachemaxnumentries": {
+                      "type": "int"
+                    }
+                  }
+                },
+                "resources": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {}
+                      }
+                    }
+                  }
+                },
+                "services": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "span_names": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "include": {
+              "type": "map",
+              "children": {
+                "attributes": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {}
+                      }
+                    }
+                  }
+                },
+                "libraries": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "log_names": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "match_type": {
+                  "type": "string"
+                },
+                "regexp": {
+                  "type": "map",
+                  "children": {
+                    "cacheenabled": {
+                      "type": "bool"
+                    },
+                    "cachemaxnumentries": {
+                      "type": "int"
+                    }
+                  }
+                },
+                "resources": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {}
+                      }
+                    }
+                  }
+                },
+                "services": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "span_names": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "filter": {
+        "type": "filter",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/processor/filterprocessor",
+        "fields": {
+          "type": "map",
+          "children": {
+            "logs": {
+              "type": "map",
+              "children": {
+                "exclude": {
+                  "type": "map",
+                  "children": {
+                    "match_type": {
+                      "type": "string"
+                    },
+                    "record_attributes": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "map",
+                          "children": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {}
+                          }
+                        }
+                      }
+                    },
+                    "resource_attributes": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "map",
+                          "children": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "include": {
+                  "type": "map",
+                  "children": {
+                    "match_type": {
+                      "type": "string"
+                    },
+                    "record_attributes": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "map",
+                          "children": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {}
+                          }
+                        }
+                      }
+                    },
+                    "resource_attributes": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "map",
+                          "children": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "metrics": {
+              "type": "map",
+              "children": {
+                "exclude": {
+                  "type": "map",
+                  "children": {
+                    "expressions": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "match_type": {
+                      "type": "string"
+                    },
+                    "metric_names": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "regexp": {
+                      "type": "map",
+                      "children": {
+                        "cacheenabled": {
+                          "type": "bool"
+                        },
+                        "cachemaxnumentries": {
+                          "type": "int"
+                        }
+                      }
+                    },
+                    "resource_attributes": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "map",
+                          "children": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "include": {
+                  "type": "map",
+                  "children": {
+                    "expressions": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "match_type": {
+                      "type": "string"
+                    },
+                    "metric_names": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "regexp": {
+                      "type": "map",
+                      "children": {
+                        "cacheenabled": {
+                          "type": "bool"
+                        },
+                        "cachemaxnumentries": {
+                          "type": "int"
+                        }
+                      }
+                    },
+                    "resource_attributes": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "map",
+                          "children": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "value": {}
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "probabilisticsampler": {
+        "type": "probabilisticsampler",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/processor/probabilisticsamplerprocessor",
+        "fields": {
+          "type": "map",
+          "children": {
+            "hash_seed": {
+              "type": "int"
+            },
+            "sampling_percentage": {
+              "type": "float"
+            }
+          }
+        }
+      },
+      "resource": {
+        "type": "resource",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourceprocessor",
+        "fields": {
+          "type": "map",
+          "children": {
+            "attributes": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "map",
+                  "children": {
+                    "action": {
+                      "type": "string"
+                    },
+                    "from_attribute": {
+                      "type": "string"
+                    },
+                    "key": {
+                      "type": "string"
+                    },
+                    "pattern": {
+                      "type": "string"
+                    },
+                    "value": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "span": {
+        "type": "span",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/processor/spanprocessor",
+        "fields": {
+          "type": "map",
+          "children": {
+            "exclude": {
+              "type": "map",
+              "children": {
+                "attributes": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {}
+                      }
+                    }
+                  }
+                },
+                "libraries": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "log_names": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "match_type": {
+                  "type": "string"
+                },
+                "regexp": {
+                  "type": "map",
+                  "children": {
+                    "cacheenabled": {
+                      "type": "bool"
+                    },
+                    "cachemaxnumentries": {
+                      "type": "int"
+                    }
+                  }
+                },
+                "resources": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {}
+                      }
+                    }
+                  }
+                },
+                "services": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "span_names": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "include": {
+              "type": "map",
+              "children": {
+                "attributes": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {}
+                      }
+                    }
+                  }
+                },
+                "libraries": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "log_names": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "match_type": {
+                  "type": "string"
+                },
+                "regexp": {
+                  "type": "map",
+                  "children": {
+                    "cacheenabled": {
+                      "type": "bool"
+                    },
+                    "cachemaxnumentries": {
+                      "type": "int"
+                    }
+                  }
+                },
+                "resources": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "map",
+                      "children": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "value": {}
+                      }
+                    }
+                  }
+                },
+                "services": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "span_names": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "name": {
+              "type": "map",
+              "children": {
+                "from_attributes": {
+                  "type": "list",
+                  "children": {
+                    "item": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "separator": {
+                  "type": "string"
+                },
+                "to_attributes": {
+                  "type": "map",
+                  "children": {
+                    "break_after_match": {
+                      "type": "bool"
+                    },
+                    "rules": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "receiver": {
+      "hostmetrics": {
+        "type": "hostmetrics",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/hostmetricsreceiver",
+        "fields": {
+          "type": "map",
+          "children": {
+            "collection_interval": {
+              "type": "duration"
+            }
+          }
+        }
+      },
+      "jaeger": {
+        "type": "jaeger",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/jaegerreceiver",
+        "fields": {
+          "type": "map",
+          "children": {
+            "protocols": {
+              "type": "map",
+              "children": {
+                "grpc": {
+                  "type": "map",
+                  "children": {
+                    "auth": {
+                      "type": "map",
+                      "children": {
+                        "authenticator": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "endpoint": {
+                      "type": "string"
+                    },
+                    "keepalive": {
+                      "type": "map",
+                      "children": {
+                        "enforcement_policy": {
+                          "type": "map",
+                          "children": {
+                            "min_time": {
+                              "type": "duration"
+                            },
+                            "permit_without_stream": {
+                              "type": "bool"
+                            }
+                          }
+                        },
+                        "server_parameters": {
+                          "type": "map",
+                          "children": {
+                            "max_connection_age": {
+                              "type": "duration"
+                            },
+                            "max_connection_age_grace": {
+                              "type": "duration"
+                            },
+                            "max_connection_idle": {
+                              "type": "duration"
+                            },
+                            "time": {
+                              "type": "duration"
+                            },
+                            "timeout": {
+                              "type": "duration"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "max_concurrent_streams": {
+                      "type": "int"
+                    },
+                    "max_recv_msg_size_mib": {
+                      "type": "int"
+                    },
+                    "read_buffer_size": {
+                      "type": "int"
+                    },
+                    "tls": {
+                      "type": "map",
+                      "children": {
+                        "ca_file": {
+                          "type": "string"
+                        },
+                        "cert_file": {
+                          "type": "string"
+                        },
+                        "client_ca_file": {
+                          "type": "string"
+                        },
+                        "key_file": {
+                          "type": "string"
+                        },
+                        "max_version": {
+                          "type": "string"
+                        },
+                        "min_version": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "transport": {
+                      "type": "string"
+                    },
+                    "write_buffer_size": {
+                      "type": "int"
+                    }
+                  }
+                },
+                "thrift_binary": {
+                  "type": "map",
+                  "children": {
+                    "endpoint": {
+                      "type": "string"
+                    },
+                    "max_packet_size": {
+                      "type": "int"
+                    },
+                    "queue_size": {
+                      "type": "int"
+                    },
+                    "socket_buffer_size": {
+                      "type": "int"
+                    },
+                    "workers": {
+                      "type": "int"
+                    }
+                  }
+                },
+                "thrift_compact": {
+                  "type": "map",
+                  "children": {
+                    "endpoint": {
+                      "type": "string"
+                    },
+                    "max_packet_size": {
+                      "type": "int"
+                    },
+                    "queue_size": {
+                      "type": "int"
+                    },
+                    "socket_buffer_size": {
+                      "type": "int"
+                    },
+                    "workers": {
+                      "type": "int"
+                    }
+                  }
+                },
+                "thrift_http": {
+                  "type": "map",
+                  "children": {
+                    "cors_allowed_headers": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "cors_allowed_origins": {
+                      "type": "list",
+                      "children": {
+                        "item": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "endpoint": {
+                      "type": "string"
+                    },
+                    "tls": {
+                      "type": "map",
+                      "children": {
+                        "ca_file": {
+                          "type": "string"
+                        },
+                        "cert_file": {
+                          "type": "string"
+                        },
+                        "client_ca_file": {
+                          "type": "string"
+                        },
+                        "key_file": {
+                          "type": "string"
+                        },
+                        "max_version": {
+                          "type": "string"
+                        },
+                        "min_version": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "remote_sampling": {
+              "type": "map",
+              "children": {
+                "auth": {
+                  "type": "map",
+                  "children": {
+                    "authenticator": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "balancer_name": {
+                  "type": "string"
+                },
+                "compression": {
+                  "type": "string"
+                },
+                "endpoint": {
+                  "type": "string"
+                },
+                "headers": {
+                  "type": "map",
+                  "open": true
+                },
+                "host_endpoint": {
+                  "type": "string"
+                },
+                "keepalive": {
+                  "type": "map",
+                  "children": {
+                    "permit_without_stream": {
+                      "type": "bool"
+                    },
+                    "time": {
+                      "type": "duration"
+                    },
+                    "timeout": {
+                      "type": "duration"
+                    }
+                  }
+                },
+                "read_buffer_size": {
+                  "type": "int"
+                },
+                "strategy_file": {
+                  "type": "string"
+                },
+                "tls": {
+                  "type": "map",
+                  "children": {
+                    "ca_file": {
+                      "type": "string"
+                    },
+                    "cert_file": {
+                      "type": "string"
+                    },
+                    "insecure": {
+                      "type": "bool"
+                    },
+                    "insecure_skip_verify": {
+                      "type": "bool"
+                    },
+                    "key_file": {
+                      "type": "string"
+                    },
+                    "max_version": {
+                      "type": "string"
+                    },
+                    "min_version": {
+                      "type": "string"
+                    },
+                    "server_name_override": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "wait_for_ready": {
+                  "type": "bool"
+                },
+                "write_buffer_size": {
+                  "type": "int"
+                }
+              }
+            }
+          }
+        }
+      },
+      "kafka": {
+        "type": "kafka",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/kafkareceiver",
+        "fields": {
+          "type": "map",
+          "children": {
+            "auth": {
+              "type": "map",
+              "children": {
+                "kerberos": {
+                  "type": "map",
+                  "children": {
+                    "config_file": {
+                      "type": "string"
+                    },
+                    "keytab_file": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    },
+                    "realm": {
+                      "type": "string"
+                    },
+                    "service_name": {
+                      "type": "string"
+                    },
+                    "use_keytab": {
+                      "type": "bool"
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "plain_text": {
+                  "type": "map",
+                  "children": {
+                    "password": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "sasl": {
+                  "type": "map",
+                  "children": {
+                    "aws_msk": {
+                      "type": "map",
+                      "children": {
+                        "broker_addr": {
+                          "type": "string"
+                        },
+                        "region": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "mechanism": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "tls": {
+                  "type": "map",
+                  "children": {
+                    "ca_file": {
+                      "type": "string"
+                    },
+                    "cert_file": {
+                      "type": "string"
+                    },
+                    "insecure": {
+                      "type": "bool"
+                    },
+                    "insecure_skip_verify": {
+                      "type": "bool"
+                    },
+                    "key_file": {
+                      "type": "string"
+                    },
+                    "max_version": {
+                      "type": "string"
+                    },
+                    "min_version": {
+                      "type": "string"
+                    },
+                    "server_name_override": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "autocommit": {
+              "type": "map",
+              "children": {
+                "enable": {
+                  "type": "bool"
+                },
+                "interval": {
+                  "type": "duration"
+                }
+              }
+            },
+            "brokers": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "string"
+                }
+              }
+            },
+            "client_id": {
+              "type": "string"
+            },
+            "encoding": {
+              "type": "string"
+            },
+            "group_id": {
+              "type": "string"
+            },
+            "message_marking": {
+              "type": "map",
+              "children": {
+                "after": {
+                  "type": "bool"
+                },
+                "on_error": {
+                  "type": "bool"
+                }
+              }
+            },
+            "metadata": {
+              "type": "map",
+              "children": {
+                "full": {
+                  "type": "bool"
+                },
+                "retry": {
+                  "type": "map",
+                  "children": {
+                    "backoff": {
+                      "type": "duration"
+                    },
+                    "max": {
+                      "type": "int"
+                    }
+                  }
+                }
+              }
+            },
+            "protocol_version": {
+              "type": "string"
+            },
+            "topic": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "opencensus": {
+        "type": "opencensus",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/opencensusreceiver",
+        "fields": {
+          "type": "map",
+          "children": {
+            "auth": {
+              "type": "map",
+              "children": {
+                "authenticator": {
+                  "type": "string"
+                }
+              }
+            },
+            "cors_allowed_origins": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "string"
+                }
+              }
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "keepalive": {
+              "type": "map",
+              "children": {
+                "enforcement_policy": {
+                  "type": "map",
+                  "children": {
+                    "min_time": {
+                      "type": "duration"
+                    },
+                    "permit_without_stream": {
+                      "type": "bool"
+                    }
+                  }
+                },
+                "server_parameters": {
+                  "type": "map",
+                  "children": {
+                    "max_connection_age": {
+                      "type": "duration"
+                    },
+                    "max_connection_age_grace": {
+                      "type": "duration"
+                    },
+                    "max_connection_idle": {
+                      "type": "duration"
+                    },
+                    "time": {
+                      "type": "duration"
+                    },
+                    "timeout": {
+                      "type": "duration"
+                    }
+                  }
+                }
+              }
+            },
+            "max_concurrent_streams": {
+              "type": "int"
+            },
+            "max_recv_msg_size_mib": {
+              "type": "int"
+            },
+            "read_buffer_size": {
+              "type": "int"
+            },
+            "tls": {
+              "type": "map",
+              "children": {
+                "ca_file": {
+                  "type": "string"
+                },
+                "cert_file": {
+                  "type": "string"
+                },
+                "client_ca_file": {
+                  "type": "string"
+                },
+                "key_file": {
+                  "type": "string"
+                },
+                "max_version": {
+                  "type": "string"
+                },
+                "min_version": {
+                  "type": "string"
+                }
+              }
+            },
+            "transport": {
+              "type": "string"
+            },
+            "write_buffer_size": {
+              "type": "int"
+            }
+          }
+        }
+      },
+      "prometheus": {
+        "type": "prometheus",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/prometheusreceiver",
+        "fields": {
+          "type": "map",
+          "children": {
+            "buffer_count": {
+              "type": "int"
+            },
+            "buffer_period": {
+              "type": "duration"
+            },
+            "config": {},
+            "start_time_metric_regex": {
+              "type": "string"
+            },
+            "use_start_time_metric": {
+              "type": "bool"
+            }
+          }
+        }
+      },
+      "zipkin": {
+        "type": "zipkin",
+        "module": "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/zipkinreceiver",
+        "fields": {
+          "type": "map",
+          "children": {
+            "cors_allowed_headers": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "string"
+                }
+              }
+            },
+            "cors_allowed_origins": {
+              "type": "list",
+              "children": {
+                "item": {
+                  "type": "string"
+                }
+              }
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "parse_string_tags": {
+              "type": "bool"
+            },
+            "tls": {
+              "type": "map",
+              "children": {
+                "ca_file": {
+                  "type": "string"
+                },
+                "cert_file": {
+                  "type": "string"
+                },
+                "client_ca_file": {
+                  "type": "string"
+                },
+                "key_file": {
+                  "type": "string"
+                },
+                "max_version": {
+                  "type": "string"
+                },
+                "min_version": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
