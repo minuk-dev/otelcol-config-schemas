@@ -1,6 +1,6 @@
 collectorVersion: v0.151.0
 distribution: contrib
-generatedAt: "2026-08-10T11:29:48Z"
+generatedAt: "2026-09-04T16:00:14Z"
 sources:
   contrib: github.com/open-telemetry/opentelemetry-collector-releases/contrib
 components:
@@ -43,6 +43,7 @@ components:
           spans:
             type: map
             open: true
+        open: true
         doc: Config for the connector
     datadog:
       type: datadog
@@ -224,6 +225,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -997,6 +999,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -1280,6 +1283,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -1308,6 +1312,7 @@ components:
           encoding:
             type: string
             doc: Encoding to apply. If present, overrides the marshaler configuration option.
+            extensionRef: extension
           encoding_file_extension:
             type: string
           initial_interval:
@@ -1455,6 +1460,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -1637,10 +1643,13 @@ components:
             children:
               logs:
                 type: string
+                extensionRef: extension
               metrics:
                 type: string
+                extensionRef: extension
               traces:
                 type: string
+                extensionRef: extension
             doc: Encoding extension to apply for logs/metrics/traces. If present, overrides the marshaler configuration option and format.
           format:
             type: string
@@ -1722,6 +1731,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -1825,10 +1835,13 @@ components:
             children:
               logs:
                 type: string
+                extensionRef: extension
               metrics:
                 type: string
+                extensionRef: extension
               traces:
                 type: string
+                extensionRef: extension
             doc: Encoding extension to apply for logs/metrics/traces. If present, overrides the marshaler configuration option and format.
           format:
             type: string
@@ -1910,6 +1923,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -2036,6 +2050,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -2072,6 +2087,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -2148,6 +2164,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -2203,6 +2220,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -2305,6 +2323,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -2370,6 +2389,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -2681,6 +2701,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -2814,6 +2835,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing RPCs.
               authority:
                 type: string
@@ -2858,6 +2880,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares for the gRPC client.
               proxy_url:
@@ -2963,6 +2986,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing RPCs.
               authority:
                 type: string
@@ -3007,6 +3031,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares for the gRPC client.
               proxy_url:
@@ -3112,6 +3137,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing RPCs.
               authority:
                 type: string
@@ -3156,6 +3182,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares for the gRPC client.
               proxy_url:
@@ -3261,6 +3288,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing RPCs.
               authority:
                 type: string
@@ -3305,6 +3333,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares for the gRPC client.
               read_buffer_size:
@@ -3464,6 +3493,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -3490,6 +3520,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing RPCs.
               authority:
                 type: string
@@ -3534,6 +3565,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares for the gRPC client.
               proxy_url:
@@ -3816,6 +3848,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -3901,6 +3934,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           use_internal_logger:
@@ -3927,6 +3961,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -4028,6 +4063,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -4113,6 +4149,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -4235,6 +4272,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           cloudid:
             type: string
@@ -4394,6 +4432,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           num_workers:
@@ -4483,6 +4522,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -4612,6 +4652,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -4674,6 +4715,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -4751,6 +4793,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -4861,6 +4904,7 @@ components:
           encoding:
             type: string
             doc: Encoding defines the encoding of the telemetry data. If specified, it overrides `FormatType` and applies an encoding extension.
+            extensionRef: extension
           flush_interval:
             type: duration
             doc: FlushInterval is the duration between flushes. See time.ParseDuration for valid values.
@@ -4899,6 +4943,7 @@ components:
                 type: int
                 doc: MaxMegabytes is the maximum size in megabytes of the file before it gets rotated. It defaults to 100 megabytes.
             doc: Rotation defines an option about rotation of telemetry files.
+        open: true
         doc: Config defines configuration for file exporter.
     google_cloud_storage:
       type: google_cloud_storage
@@ -4946,6 +4991,7 @@ components:
                 doc: 'ReuseIfExists controls whether to reuse an existing bucket or create a new one. When set to true: - The exporter checks if the bucket exists (requires storage.buckets.get on the bucket) - If the bucket exists, it will be used - If the bucket does not exist, an error is returned When set to false: - The exporter attempts to create the bucket (requires storage.buckets.create at project level) - If the bucket already exists, an error is returned Set to true when the service account lacks project-level bucket creation permissions but has bucket-level permissions.'
           encoding:
             type: string
+            extensionRef: extension
     googlecloud:
       type: googlecloud
       signals:
@@ -5007,6 +5053,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -5054,6 +5101,7 @@ components:
               encoding:
                 type: string
                 doc: Encoding is a custom encoding for the marshaling the data onto the message
+                extensionRef: extension
             doc: LogsSignalConfig allows for custom log configuration
           max_elapsed_time:
             type: duration
@@ -5071,6 +5119,7 @@ components:
               encoding:
                 type: string
                 doc: Encoding is a custom encoding for the marshaling the data onto the message
+                extensionRef: extension
             doc: MetricsSignalConfig allows for custom log configuration
           multiplier:
             type: float
@@ -5156,6 +5205,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -5176,6 +5226,7 @@ components:
               encoding:
                 type: string
                 doc: Encoding is a custom encoding for the marshaling the data onto the message
+                extensionRef: extension
             doc: TracesSignalConfig allows for custom log configuration
           user_agent:
             type: string
@@ -5238,6 +5289,7 @@ components:
                 doc: 'ReuseIfExists controls whether to reuse an existing bucket or create a new one. When set to true: - The exporter checks if the bucket exists (requires storage.buckets.get on the bucket) - If the bucket exists, it will be used - If the bucket does not exist, an error is returned When set to false: - The exporter attempts to create the bucket (requires storage.buckets.create at project level) - If the bucket already exists, an error is returned Set to true when the service account lacks project-level bucket creation permissions but has bucket-level permissions.'
           encoding:
             type: string
+            extensionRef: extension
     googlemanagedprometheus:
       type: googlemanagedprometheus
       signals:
@@ -5312,6 +5364,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -5345,6 +5398,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -5448,6 +5502,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -5524,6 +5579,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -5627,6 +5683,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -5730,6 +5787,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -5806,6 +5864,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -5905,6 +5964,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           bucket:
             type: string
@@ -5991,6 +6051,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -6079,6 +6140,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -6246,6 +6308,7 @@ components:
                   oauthbearer_token_source:
                     type: string
                     doc: ID of type "extension" providing a TokenSource for OAUTHBEARER Mechanism, typically named "oauth2client"
+                    extensionRef: extension
                   password:
                     type: string
                     doc: Password to be used on authentication
@@ -6483,6 +6546,7 @@ components:
               extension:
                 type: string
                 doc: Extension is the component ID of an extension implementing RecordPartitionerExtension. Setting this field delegates partition assignment to that extension.
+                extensionRef: extension
               least_backup:
                 open: true
                 doc: LeastBackup routes each record to the partition with the fewest buffered records.
@@ -6562,6 +6626,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -6697,6 +6762,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   authority:
                     type: string
                   balancer_name:
@@ -6723,6 +6789,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_buffer_size:
                     type: int
                   retry_on_failure:
@@ -6772,6 +6839,7 @@ components:
                         type: string
                       storage:
                         type: string
+                        extensionRef: storage
                       wait_for_result:
                         type: bool
                   timeout:
@@ -6963,6 +7031,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -6998,6 +7067,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -7079,6 +7149,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -7165,6 +7236,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -7265,6 +7337,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -7343,6 +7416,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -7425,6 +7499,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -7520,6 +7595,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -7600,6 +7676,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -7676,6 +7753,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -7849,6 +7927,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               compression:
                 type: string
               compression_params:
@@ -7886,6 +7965,7 @@ components:
                     children:
                       id:
                         type: string
+                        extensionRef: extension
               proxy_url:
                 type: string
               read_buffer_size:
@@ -8086,6 +8166,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -8233,6 +8314,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing RPCs.
           authority:
             type: string
@@ -8286,6 +8368,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares for the gRPC client.
           read_buffer_size:
@@ -8360,6 +8443,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -8467,6 +8551,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -8493,6 +8578,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           read_buffer_size:
             type: int
           retry_on_failure:
@@ -8542,6 +8628,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           timeout:
@@ -8624,6 +8711,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -8650,6 +8738,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           read_buffer_size:
             type: int
           retry_on_failure:
@@ -8699,6 +8788,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           timeout:
@@ -8781,6 +8871,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           compression_params:
@@ -8824,6 +8915,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           profiles_endpoint:
             type: string
           proxy_url:
@@ -8877,6 +8969,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           timeout:
@@ -8958,6 +9051,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           compression_params:
@@ -9001,6 +9095,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           profiles_endpoint:
             type: string
           proxy_url:
@@ -9054,6 +9149,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           timeout:
@@ -9131,6 +9227,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -9202,6 +9299,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           namespace:
@@ -9285,6 +9383,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -9385,6 +9484,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -9472,6 +9572,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -9812,6 +9913,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -9940,6 +10042,7 @@ components:
             type: bool
           encoding_extension:
             type: string
+            extensionRef: extension
           retry_on_failure:
             type: map
             children:
@@ -10035,6 +10138,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               compression:
                 type: string
               compression_params:
@@ -10072,6 +10176,7 @@ components:
                     children:
                       id:
                         type: string
+                        extensionRef: extension
               proxy_url:
                 type: string
               read_buffer_size:
@@ -10226,6 +10331,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -10405,6 +10511,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -10428,6 +10535,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing HTTP calls.
               cleanup_interval:
                 type: duration
@@ -10500,6 +10608,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               proxy_url:
@@ -10823,6 +10932,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -10911,6 +11021,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -11013,6 +11124,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -11127,6 +11239,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -11232,6 +11345,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -11360,6 +11474,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing RPCs.
           authority:
             type: string
@@ -11404,6 +11519,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares for the gRPC client.
           read_buffer_size:
@@ -11478,6 +11594,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -11582,6 +11699,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           client:
             type: string
@@ -11677,6 +11795,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -11753,6 +11872,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -11940,6 +12060,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -12062,6 +12183,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -12152,6 +12274,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -12229,6 +12352,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -12335,6 +12459,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -12413,6 +12538,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           multiplier:
@@ -12489,6 +12615,7 @@ components:
               storage:
                 type: string
                 doc: 'StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822'
+                extensionRef: storage
               wait_for_result:
                 type: bool
                 doc: WaitForResult determines if incoming requests are blocked until the request is processed or not. Currently, this option is not available when persistent queue is configured using the storage configuration.
@@ -12586,6 +12713,7 @@ components:
           storage:
             type: string
             doc: StorageID defines the storage type of the extension. In-memory type is set by default (if not provided). Future consideration is disk type.
+            extensionRef: storage
         doc: Config defines configuration for ack extension
     asapclient:
       type: asapclient
@@ -13053,6 +13181,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -13108,6 +13237,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
                   request_params:
                     type: list
                     children:
@@ -13156,6 +13286,7 @@ components:
                     children:
                       id:
                         type: string
+                        extensionRef: extension
               path:
                 type: string
               read_header_timeout:
@@ -13246,6 +13377,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -13578,6 +13710,7 @@ components:
         children:
           additional_auth:
             type: string
+            extensionRef: extension
           headers:
             type: list
             children:
@@ -13613,6 +13746,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -13671,6 +13805,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               dialer:
                 type: map
                 children:
@@ -13715,6 +13850,7 @@ components:
                     children:
                       id:
                         type: string
+                        extensionRef: extension
               read_buffer_size:
                 type: int
               tls:
@@ -13777,6 +13913,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
                   request_params:
                     type: list
                     children:
@@ -13834,6 +13971,7 @@ components:
                     children:
                       id:
                         type: string
+                        extensionRef: extension
               read_header_timeout:
                 type: duration
               read_timeout:
@@ -13916,6 +14054,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           path:
             type: string
           read_header_timeout:
@@ -14011,6 +14150,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing HTTP calls.
               compression:
                 type: string
@@ -14073,6 +14213,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               proxy_url:
@@ -14165,6 +14306,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                   request_params:
                     type: list
                     children:
@@ -14226,6 +14368,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               read_header_timeout:
@@ -14345,6 +14488,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth for this receiver
               dialer:
                 type: map
@@ -14400,6 +14544,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares for the gRPC server.
               read_buffer_size:
@@ -14486,6 +14631,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                   request_params:
                     type: list
                     children:
@@ -14547,6 +14693,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               read_header_timeout:
@@ -14656,6 +14803,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                     doc: Auth configuration for outgoing RPCs.
                   authority:
                     type: string
@@ -14700,6 +14848,7 @@ components:
                           id:
                             type: string
                             doc: ID specifies the name of the extension to use.
+                            extensionRef: extension
                         doc: Middleware defines the extension ID for a middleware component.
                     doc: Middlewares for the gRPC client.
                   read_buffer_size:
@@ -14907,6 +15056,7 @@ components:
                     type: string
                   oauthbearer_token_source:
                     type: string
+                    extensionRef: extension
                   password:
                     type: string
                   username:
@@ -15291,6 +15441,7 @@ components:
                 children:
                   auth:
                     type: string
+                    extensionRef: extension
                   endpoint:
                     type: string
                   headers:
@@ -15371,6 +15522,7 @@ components:
                 children:
                   auth:
                     type: string
+                    extensionRef: extension
                   endpoint:
                     type: string
                   headers:
@@ -15600,6 +15752,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           backoff:
             type: map
@@ -15708,6 +15861,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -15839,6 +15993,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -15892,6 +16047,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           read_header_timeout:
             type: duration
           read_timeout:
@@ -16945,6 +17101,7 @@ components:
                     type: string
                 doc: SpanEventConditions is a list of OTTL conditions for an ottlspanevent context. If any condition resolves to true, the span event will be dropped. Supports `and`, `or`, and `()`
             doc: 'Deprecated: use TraceConditions instead.'
+        open: true
         doc: Config defines configuration for Resource processor.
     geoip:
       type: geoip
@@ -16970,6 +17127,7 @@ components:
           context:
             type: string
             doc: 'Context section allows specifying the source type to look for the IP. Available options: resource or record.'
+        open: true
         doc: Config holds the configuration for the GeoIP processor.
     groupbyattrs:
       type: groupbyattrs
@@ -17994,6 +18152,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -18059,6 +18218,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           read_header_timeout:
@@ -18351,6 +18511,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           azure:
             type: map
@@ -19214,6 +19375,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           nova:
@@ -19776,6 +19938,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           cache_cooldown:
             type: duration
@@ -19844,6 +20007,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           prefetch:
@@ -21290,6 +21454,7 @@ components:
           tail_storage:
             type: string
             doc: TailStorageID specifies an optional tail storage extension to use for buffering spans. If not set, in-memory tail storage is used. It is behind feature gate `processor.tailsamplingprocessor.tailstorageextension`.
+            extensionRef: extension
         doc: Config holds the configuration for tail-based sampling.
     transform:
       type: transform
@@ -21396,6 +21561,7 @@ components:
                     children:
                       item:
                         type: string
+        open: true
         doc: Config defines the configuration for the processor.
     unroll:
       type: unroll
@@ -22012,6 +22178,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -22219,6 +22386,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -22387,6 +22555,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -23122,6 +23291,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -23455,6 +23625,7 @@ components:
             type: string
           storage:
             type: string
+            extensionRef: storage
         doc: Config is the overall config structure for the awscloudwatchreceiver
     awscontainerinsightreceiver:
       type: awscontainerinsightreceiver
@@ -23517,6 +23688,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -23581,6 +23753,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           read_header_timeout:
@@ -23744,6 +23917,7 @@ components:
                 children:
                   extension:
                     type: string
+                    extensionRef: extension
                   suffix:
                     type: string
                 doc: Encoding defines the encoding configuration for the file receiver.
@@ -23754,6 +23928,7 @@ components:
             children:
               opampextension:
                 type: string
+                extensionRef: extension
             doc: Notifications groups optional notification sources.
           s3downloader:
             type: map
@@ -24007,6 +24182,7 @@ components:
             type: bool
           auth:
             type: string
+            extensionRef: extension
           blob_checkpoint_store:
             type: map
             children:
@@ -24049,6 +24225,7 @@ components:
             doc: azeventhub lib specific
           storage:
             type: string
+            extensionRef: storage
           time_formats:
             type: map
             children:
@@ -24089,6 +24266,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the azure extension to authenticate the requests to azure monitor.
+                extensionRef: auth
             doc: Authentication accepts the component azureauthextension, and uses it to get an access token to make requests. Using this, `credentials` and any related fields become useless.
           cache_resources:
             type: float
@@ -24247,6 +24425,7 @@ components:
             type: bool
           auth:
             type: string
+            extensionRef: extension
           blob_checkpoint_store:
             type: map
             children:
@@ -24289,6 +24468,7 @@ components:
             doc: azeventhub lib specific
           storage:
             type: string
+            extensionRef: storage
           time_formats:
             type: map
             children:
@@ -24330,6 +24510,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the azure extension to authenticate the requests to azure monitor.
+                extensionRef: auth
             doc: Authentication accepts the component azureauthextension, and uses it to get an access token to make requests. Using this, `credentials` and any related fields become useless.
           cache_resources:
             type: float
@@ -24631,6 +24812,7 @@ components:
           timeout:
             type: duration
             doc: Timeout is an optional value used to set scraper's context deadline.
+        open: true
         doc: Config defines configuration for Cisco OS receiver.
     ciscoos:
       type: ciscoos
@@ -24678,6 +24860,7 @@ components:
           timeout:
             type: duration
             doc: Timeout is an optional value used to set scraper's context deadline.
+        open: true
         doc: Config defines configuration for Cisco OS receiver.
     cloudflare:
       type: cloudflare
@@ -24795,6 +24978,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing HTTP calls.
               compression:
                 type: string
@@ -24857,6 +25041,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               proxy_url:
@@ -24978,6 +25163,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -25041,6 +25227,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           read_header_timeout:
@@ -25150,6 +25337,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -25270,6 +25458,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           password:
@@ -25412,6 +25601,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -25497,6 +25687,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           read_header_timeout:
@@ -26616,6 +26807,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -27927,6 +28119,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           nodes:
@@ -28165,6 +28358,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth for this receiver
           dialer:
             type: map
@@ -28220,6 +28414,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares for the gRPC server.
           read_buffer_size:
@@ -28313,6 +28508,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -28541,6 +28737,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -28642,6 +28839,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -28703,6 +28901,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           read_header_timeout:
@@ -29400,6 +29599,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -29675,6 +29875,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -30293,6 +30494,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                   request_params:
                     type: list
                     children:
@@ -30358,6 +30560,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               path:
@@ -30484,6 +30687,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                   request_params:
                     type: list
                     children:
@@ -30550,6 +30754,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               path:
@@ -30648,6 +30853,7 @@ components:
                 type: duration
                 doc: WriteTimeout is the maximum duration before timing out writes of the response. It is reset whenever a new request's header is read. Like ReadTimeout, it does not let Handlers make decisions on a per-request basis. A zero or negative value means there will be no timeout.
             doc: ServerConfig defines settings for creating an HTTP server.
+        open: true
         doc: Config that is exposed to this gitlab receiver through the OTEL config.yaml
     googlecloudmonitoring:
       type: googlecloudmonitoring
@@ -30812,6 +31018,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -31096,6 +31303,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -31331,6 +31539,7 @@ components:
           timeout:
             type: duration
             doc: Timeout is an optional value used to set scraper's context deadline.
+        open: true
         doc: Config defines configuration for HostMetrics receiver.
     hostmetrics:
       type: hostmetrics
@@ -31361,6 +31570,7 @@ components:
           timeout:
             type: duration
             doc: Timeout is an optional value used to set scraper's context deadline.
+        open: true
         doc: Config defines configuration for HostMetrics receiver.
     http_check:
       type: http_check
@@ -31467,6 +31677,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                     doc: Auth configuration for outgoing HTTP calls.
                   auto_content_type:
                     type: bool
@@ -31540,6 +31751,7 @@ components:
                           id:
                             type: string
                             doc: ID specifies the name of the extension to use.
+                            extensionRef: extension
                         doc: Middleware defines the extension ID for a middleware component.
                     doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
                   proxy_url:
@@ -31757,6 +31969,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                     doc: Auth configuration for outgoing HTTP calls.
                   auto_content_type:
                     type: bool
@@ -31830,6 +32043,7 @@ components:
                           id:
                             type: string
                             doc: ID specifies the name of the extension to use.
+                            extensionRef: extension
                         doc: Middleware defines the extension ID for a middleware component.
                     doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
                   proxy_url:
@@ -32171,6 +32385,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -32232,6 +32447,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           read_header_timeout:
@@ -32485,6 +32701,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -32529,6 +32746,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_buffer_size:
                     type: int
                   tls:
@@ -32617,6 +32835,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                       request_params:
                         type: list
                         children:
@@ -32665,6 +32884,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_header_timeout:
                     type: duration
                   read_timeout:
@@ -32731,6 +32951,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing RPCs.
               authority:
                 type: string
@@ -32777,6 +32998,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares for the gRPC client.
               read_buffer_size:
@@ -33262,6 +33484,7 @@ components:
           k8s_leader_elector:
             type: string
             doc: K8sLeaderElector defines the reference to the k8s leader elector extension use this when k8s cluster receiver needs to be deployed in HA mode
+            extensionRef: extension
           kube_api_burst:
             type: int
             doc: KubeAPIBurst is the maximum burst of requests to the Kubernetes API. Uses client-go's default (10) if unset. Increase if you see client-side throttling warnings.
@@ -35167,6 +35390,7 @@ components:
             doc: When using auth_type `kubeConfig`, override the current context.
           k8s_leader_elector:
             type: string
+            extensionRef: extension
           kube_api_burst:
             type: int
             doc: KubeAPIBurst is the maximum burst of requests to the Kubernetes API. Uses client-go's default (10) if unset. Increase if you see client-side throttling warnings.
@@ -35182,6 +35406,7 @@ components:
           storage:
             type: string
             doc: Storage is the ID of the storage extension to use for resource version persistence. When set, the receiver will persist the latest resource version and resume from it on restart, preventing duplicate events. Only valid for watch mode (which is the only mode this receiver uses).
+            extensionRef: storage
         doc: Config defines configuration for kubernetes events receiver.
     k8s_objects:
       type: k8s_objects
@@ -35206,6 +35431,7 @@ components:
             type: bool
           k8s_leader_elector:
             type: string
+            extensionRef: extension
           kube_api_burst:
             type: int
             doc: KubeAPIBurst is the maximum burst of requests to the Kubernetes API. Uses client-go's default (10) if unset. Increase if you see client-side throttling warnings.
@@ -35256,6 +35482,7 @@ components:
                     type: string
           storage:
             type: string
+            extensionRef: storage
         doc: APIConfig contains options relevant to connecting to the K8s API
     k8sobjects:
       type: k8sobjects
@@ -35281,6 +35508,7 @@ components:
             type: bool
           k8s_leader_elector:
             type: string
+            extensionRef: extension
           kube_api_burst:
             type: int
             doc: KubeAPIBurst is the maximum burst of requests to the Kubernetes API. Uses client-go's default (10) if unset. Increase if you see client-side throttling warnings.
@@ -35331,6 +35559,7 @@ components:
                     type: string
           storage:
             type: string
+            extensionRef: storage
         doc: APIConfig contains options relevant to connecting to the K8s API
     kafka:
       type: kafka
@@ -35395,6 +35624,7 @@ components:
                   oauthbearer_token_source:
                     type: string
                     doc: ID of type "extension" providing a TokenSource for OAUTHBEARER Mechanism, typically named "oauth2client"
+                    extensionRef: extension
                   password:
                     type: string
                     doc: Password to be used on authentication
@@ -35820,6 +36050,7 @@ components:
                   oauthbearer_token_source:
                     type: string
                     doc: ID of type "extension" providing a TokenSource for OAUTHBEARER Mechanism, typically named "oauth2client"
+                    extensionRef: extension
                   password:
                     type: string
                     doc: Password to be used on authentication
@@ -37400,6 +37631,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                   request_params:
                     type: list
                     children:
@@ -37461,6 +37693,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               read_header_timeout:
@@ -37560,6 +37793,7 @@ components:
             doc: HTTPConfig defines the configuration for the HTTP server receiving traces.
           wrapper:
             type: string
+        open: true
         doc: Config represents the receiver config settings within the collector's config.yaml
     loki:
       type: loki
@@ -37878,6 +38112,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -37922,6 +38157,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_buffer_size:
                     type: int
                   tls:
@@ -37984,6 +38220,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                       request_params:
                         type: list
                         children:
@@ -38032,6 +38269,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_header_timeout:
                     type: duration
                   read_timeout:
@@ -40873,6 +41111,7 @@ components:
             doc: BackOffConfig defines configuration for retrying batches in case of export failure. The current supported strategy is exponential backoff.
           storage:
             type: string
+            extensionRef: storage
           timeout:
             type: duration
             doc: Timeout is an optional value used to set scraper's context deadline.
@@ -42648,6 +42887,7 @@ components:
             doc: BackOffConfig defines configuration for retrying batches in case of export failure. The current supported strategy is exponential backoff.
           storage:
             type: string
+            extensionRef: storage
           timeout:
             type: duration
             doc: Timeout is an optional value used to set scraper's context deadline.
@@ -43895,6 +44135,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -44005,6 +44246,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -44117,6 +44359,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -44231,6 +44474,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           password:
@@ -45264,6 +45508,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -45308,6 +45553,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_buffer_size:
                     type: int
                   tls:
@@ -45390,6 +45636,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -45434,6 +45681,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_buffer_size:
                     type: int
                   tls:
@@ -45496,6 +45744,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                       request_params:
                         type: list
                         children:
@@ -45548,6 +45797,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_header_timeout:
                     type: duration
                   read_timeout:
@@ -45738,6 +45988,7 @@ components:
             type: string
           storage:
             type: string
+            extensionRef: storage
         doc: Config is the configuration of a file input operator
     podman_stats:
       type: podman_stats
@@ -46874,6 +47125,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           block_profile_fraction:
             type: int
@@ -46948,6 +47200,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           mutex_profile_fraction:
@@ -47058,6 +47311,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                       request_params:
                         type: list
                         children:
@@ -47119,6 +47373,7 @@ components:
                           id:
                             type: string
                             doc: ID specifies the name of the extension to use.
+                            extensionRef: extension
                         doc: Middleware defines the extension ID for a middleware component.
                     doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
                   read_header_timeout:
@@ -47222,6 +47477,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing HTTP calls.
               collector_id:
                 type: string
@@ -47291,6 +47547,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               proxy_url:
@@ -47394,6 +47651,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -47455,6 +47713,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           read_header_timeout:
@@ -47562,6 +47821,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -47637,6 +47897,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           params:
@@ -47763,6 +48024,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -47824,6 +48086,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           read_header_timeout:
@@ -48021,6 +48284,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                     doc: Config defines the auth settings for the receiver.
             doc: Array represents the list of arrays to query
           auth:
@@ -48029,6 +48293,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           compression:
             type: string
@@ -48057,6 +48322,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                     doc: Config defines the auth settings for the receiver.
             doc: Directories represents the list of directories to query
           disable_keep_alives:
@@ -48100,6 +48366,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                     doc: Config defines the auth settings for the receiver.
             doc: Hosts represents the list of hosts to query
           http2_ping_timeout:
@@ -48129,6 +48396,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           namespace:
@@ -48148,6 +48416,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                     doc: Config defines the auth settings for the receiver.
             doc: Pods represents the list of pods to query
           proxy_url:
@@ -48258,6 +48527,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                     doc: Config defines the auth settings for the receiver.
             doc: Volumes represents the list of volumes to query
           write_buffer_size:
@@ -48288,6 +48558,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                     doc: Config defines the auth settings for the receiver.
             doc: Arrays represents the list of arrays to query
           auth:
@@ -48296,6 +48567,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           clients:
             type: list
@@ -48311,6 +48583,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                     doc: Config defines the auth settings for the receiver.
             doc: Clients represents the list of clients metrics
           compression:
@@ -48377,6 +48650,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           proxy_url:
@@ -48483,6 +48757,7 @@ components:
                       authenticator:
                         type: string
                         doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                        extensionRef: auth
                     doc: Config defines the auth settings for the receiver.
             doc: Usage represents the list of usage to query
           write_buffer_size:
@@ -48505,6 +48780,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -49071,6 +49347,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           password:
@@ -49293,6 +49570,7 @@ components:
               item:
                 type: string
             doc: WatchObservers are the extensions to listen to endpoints from.
+        open: true
         doc: Config defines configuration for receiver_creator.
     redis:
       type: redis
@@ -50004,6 +50282,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth configuration for outgoing HTTP calls.
           collection_interval:
             type: duration
@@ -50206,6 +50485,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           password:
@@ -50800,6 +51080,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -50861,6 +51142,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           read_header_timeout:
@@ -51271,6 +51553,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -51315,6 +51598,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_buffer_size:
                     type: int
                   tls:
@@ -51377,6 +51661,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                       request_params:
                         type: list
                         children:
@@ -51425,6 +51710,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_header_timeout:
                     type: duration
                   read_timeout:
@@ -52534,6 +52820,7 @@ components:
             children:
               extension:
                 type: string
+                extensionRef: extension
               path:
                 type: string
           auth:
@@ -52542,6 +52829,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -52625,6 +52913,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           path:
@@ -52746,6 +53035,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing HTTP calls.
               compression:
                 type: string
@@ -52808,6 +53098,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               proxy_url:
@@ -52903,6 +53194,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing HTTP calls.
               compression:
                 type: string
@@ -52965,6 +53257,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               proxy_url:
@@ -54194,6 +54487,7 @@ components:
                   authenticator:
                     type: string
                     doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                    extensionRef: auth
                 doc: Auth configuration for outgoing HTTP calls.
               compression:
                 type: string
@@ -54256,6 +54550,7 @@ components:
                       id:
                         type: string
                         doc: ID specifies the name of the extension to use.
+                        extensionRef: extension
                     doc: Middleware defines the extension ID for a middleware component.
                 doc: Middlewares are used to add custom functionality to the HTTP client. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
               proxy_url:
@@ -54489,6 +54784,7 @@ components:
                     type: string
           storage:
             type: string
+            extensionRef: storage
           telemetry:
             type: map
             children:
@@ -55812,6 +56108,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth for this receiver
           dialer:
             type: map
@@ -55867,6 +56164,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares for the gRPC server.
           read_buffer_size:
@@ -58498,6 +58796,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -58565,6 +58864,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           path:
@@ -58954,6 +59254,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth for this receiver
           dialer:
             type: map
@@ -59009,6 +59310,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares for the gRPC server.
           read_buffer_size:
@@ -59155,6 +59457,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
             doc: Auth for this receiver
           dialer:
             type: map
@@ -59210,6 +59513,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares for the gRPC server.
           read_buffer_size:
@@ -59354,6 +59658,7 @@ components:
               authenticator:
                 type: string
                 doc: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -59415,6 +59720,7 @@ components:
                   id:
                     type: string
                     doc: ID specifies the name of the extension to use.
+                    extensionRef: extension
                 doc: Middleware defines the extension ID for a middleware component.
             doc: Middlewares are used to add custom functionality to the HTTP server. Middleware handlers are called in the order they appear in this list, with the first middleware becoming the outermost handler.
           parse_string_tags:
