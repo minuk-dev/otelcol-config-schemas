@@ -1,0 +1,2622 @@
+{
+  "distributions": {
+    "contrib": {
+      "connector": {
+        "count": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "datadog": [
+          {
+            "from": "v0.90.0"
+          }
+        ],
+        "exceptions": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "failover": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "forward": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "grafanacloud": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "otlp_json": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "otlpjson": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "round_robin": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "roundrobin": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "routing": [
+          {
+            "from": "v0.90.0"
+          }
+        ],
+        "service_graph": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "servicegraph": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "signal_to_metrics": [
+          {
+            "from": "v0.146.1"
+          }
+        ],
+        "signaltometrics": [
+          {
+            "from": "v0.120.0",
+            "to": "v0.145.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "span_metrics": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "spanmetrics": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "sum": [
+          {
+            "from": "v0.120.0"
+          }
+        ]
+      },
+      "exporter": {
+        "alibabacloud_logservice": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "alibabacloudlogservice": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "awscloudwatchlogs": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "awsemf": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "awskinesis": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "awss3": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "awsxray": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "azure_blob": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "azureblob": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "azuredataexplorer": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "azuremonitor": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "bmc_helix": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "bmchelix": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "carbon": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.140.0"
+          }
+        ],
+        "cassandra": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "clickhouse": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "coralogix": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "datadog": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "dataset": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "debug": [
+          {
+            "from": "v0.90.0"
+          }
+        ],
+        "doris": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "dynatrace": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "elasticsearch": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "f5cloud": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "faro": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "file": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "google_cloud_storage": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "googlecloud": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "googlecloudpubsub": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "googlecloudstorage": [
+          {
+            "from": "v0.140.0"
+          }
+        ],
+        "googlemanagedprometheus": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "honeycomb_marker": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "honeycombmarker": [
+          {
+            "from": "v0.90.0"
+          }
+        ],
+        "humio": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "influxdb": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "instana": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.100.0"
+          }
+        ],
+        "jaeger": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.80.0"
+          }
+        ],
+        "jaeger_thrift": [
+          {
+            "from": "v0.80.0",
+            "to": "v0.80.0"
+          }
+        ],
+        "jaegerthrifthttp": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "kafka": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "load_balancing": [
+          {
+            "from": "v0.153.0"
+          }
+        ],
+        "loadbalancing": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "logging": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.110.0"
+          }
+        ],
+        "logicmonitor": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "logzio": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "loki": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.130.0"
+          }
+        ],
+        "mezmo": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "nop": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "opencensus": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.130.0"
+          }
+        ],
+        "opensearch": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "otelarrow": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "otlp": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.143.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "otlp_grpc": [
+          {
+            "from": "v0.144.0"
+          }
+        ],
+        "otlp_http": [
+          {
+            "from": "v0.144.0"
+          }
+        ],
+        "otlphttp": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.143.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "parquet": [
+          {
+            "from": "v0.80.0",
+            "to": "v0.80.0"
+          }
+        ],
+        "prometheus": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "prometheus_remote_write": [
+          {
+            "from": "v0.154.0"
+          }
+        ],
+        "prometheusremotewrite": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "pulsar": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "rabbitmq": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "sapm": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.146.1"
+          }
+        ],
+        "sentry": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "signalfx": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "skywalking": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.100.0"
+          }
+        ],
+        "splunk_hec": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "splunkhec": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "stef": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "sumologic": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "syslog": [
+          {
+            "from": "v0.90.0"
+          }
+        ],
+        "tanzuobservability": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "tencentcloud_logservice": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "tencentcloudlogservice": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "tinybird": [
+          {
+            "from": "v0.135.0"
+          }
+        ],
+        "zipkin": [
+          {
+            "from": "v0.70.0"
+          }
+        ]
+      },
+      "extension": {
+        "ack": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "asapauth": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "asapclient": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "aws_logs_encoding": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "awscloudwatchmetricstreams_encoding": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "awslogs_encoding": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "awsproxy": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "azure_auth": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "azure_encoding": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "azureauth": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "ballast": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "basicauth": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "bearertokenauth": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "cgroup_runtime": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "cgroupruntime": [
+          {
+            "from": "v0.135.0"
+          }
+        ],
+        "datadog": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "db_storage": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "docker_observer": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "ecs_observer": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "ecs_task_observer": [
+          {
+            "from": "v0.80.0",
+            "to": "v0.138.0"
+          }
+        ],
+        "file_storage": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "google_cloud_logentry_encoding": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "googleclientauth": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "googlecloudlogentry_encoding": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "headers_setter": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "headerssetter": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "health_check": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "healthcheck": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "host_observer": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "hostobserver": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "http_forwarder": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "httpforwarder": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "jaeger_encoding": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "jaegerremotesampling": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "json_log_encoding": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "k8s_leader_elector": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "k8s_observer": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "k8sobserver": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "kafkatopics_observer": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "memory_ballast": [
+          {
+            "from": "v0.100.0",
+            "to": "v0.100.0"
+          }
+        ],
+        "oauth2client": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "oauth2clientauth": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "oidc": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "oidcauth": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "opamp": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "otlp_encoding": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "pebble_tail_storage": [
+          {
+            "from": "v0.155.0"
+          }
+        ],
+        "pprof": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "redis_storage": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "sigv4auth": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "skywalking_encoding": [
+          {
+            "from": "v0.135.0"
+          }
+        ],
+        "storage": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "sumologic": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "text_encoding": [
+          {
+            "from": "v0.135.0"
+          }
+        ],
+        "zipkin_encoding": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "zpages": [
+          {
+            "from": "v0.70.0"
+          }
+        ]
+      },
+      "processor": {
+        "attributes": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "batch": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "cardinality_guardian": [
+          {
+            "from": "v0.157.0"
+          }
+        ],
+        "coralogix": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "cumulative_to_delta": [
+          {
+            "from": "v0.157.0"
+          }
+        ],
+        "cumulativetodelta": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "datadog": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "delta_to_cumulative": [
+          {
+            "from": "v0.158.0"
+          }
+        ],
+        "delta_to_rate": [
+          {
+            "from": "v0.158.0"
+          }
+        ],
+        "deltatocumulative": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "deltatorate": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "drain": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "experimental_metricsgeneration": [
+          {
+            "from": "v0.80.0",
+            "to": "v0.110.0"
+          }
+        ],
+        "filter": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "gen_ai_normalizer": [
+          {
+            "from": "v0.154.0"
+          }
+        ],
+        "geoip": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "groupbyattrs": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "groupbytrace": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "interval": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "isolationforest": [
+          {
+            "from": "v0.135.0"
+          }
+        ],
+        "k8s_attributes": [
+          {
+            "from": "v0.146.1"
+          }
+        ],
+        "k8sattributes": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.145.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "log_dedup": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "logdedup": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "memory_limiter": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "memorylimiter": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "metric_start_time": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "metrics_transform": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "metricsgeneration": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          },
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "metricstarttime": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "metricstransform": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "probabilistic_sampler": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "probabilisticsampler": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "redaction": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "remotetap": [
+          {
+            "from": "v0.90.0"
+          }
+        ],
+        "resource": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "resource_detection": [
+          {
+            "from": "v0.153.0"
+          }
+        ],
+        "resourcedetection": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "routing": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.110.0"
+          }
+        ],
+        "schema": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "servicegraph": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "span": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "spanmetrics": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "sumologic": [
+          {
+            "from": "v0.90.0"
+          }
+        ],
+        "tail_sampling": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "tailsampling": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "transform": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "unroll": [
+          {
+            "from": "v0.138.0"
+          }
+        ]
+      },
+      "receiver": {
+        "active_directory_ds": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "activedirectoryds": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "aerospike": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "apache": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "apache_spark": [
+          {
+            "from": "v0.154.0"
+          }
+        ],
+        "apachespark": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "aws_cloudwatch": [
+          {
+            "from": "v0.156.0"
+          }
+        ],
+        "aws_lambda": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "awscloudwatch": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "awscontainerinsight": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "awscontainerinsightreceiver": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "awsecscontainermetrics": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "awsfirehose": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "awslambda": [
+          {
+            "from": "v0.148.0",
+            "to": "v0.151.0"
+          }
+        ],
+        "awss3": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "awsxray": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "azure_blob": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "azure_event_hub": [
+          {
+            "from": "v0.145.0"
+          }
+        ],
+        "azure_monitor": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "azureblob": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "azureeventhub": [
+          {
+            "from": "v0.80.0",
+            "to": "v0.144.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "azuremonitor": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "bigip": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.145.0"
+          }
+        ],
+        "carbon": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "chrony": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "cisco_os": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "ciscoos": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "cloud_foundry": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "cloudflare": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "cloudfoundry": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "collectd": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "couchdb": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "datadog": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "docker_stats": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "dockerstats": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "dotnetdiagnostics": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "elasticsearch": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "envoy_als": [
+          {
+            "from": "v0.154.0"
+          }
+        ],
+        "envoyals": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "expvar": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "faro": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "file": [
+          {
+            "from": "v0.80.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "file_log": [
+          {
+            "from": "v0.149.0"
+          }
+        ],
+        "file_stats": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "filelog": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "filestats": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "flink_metrics": [
+          {
+            "from": "v0.155.0"
+          }
+        ],
+        "flinkmetrics": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "fluent_forward": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "fluentforward": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "github": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "gitlab": [
+          {
+            "from": "v0.139.0"
+          }
+        ],
+        "google_cloud_spanner": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "googlecloudmonitoring": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "googlecloudpubsub": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "googlecloudspanner": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "haproxy": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "host_metrics": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "hostmetrics": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "http_check": [
+          {
+            "from": "v0.150.0"
+          }
+        ],
+        "httpcheck": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "icmpcheckreceiver": [
+          {
+            "from": "v0.158.0"
+          }
+        ],
+        "iis": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "influxdb": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "jaeger": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "jmx": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.153.0"
+          }
+        ],
+        "journald": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "k8s_cluster": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "k8s_events": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "k8s_objects": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "k8scluster": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "k8sevents": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "k8sobjects": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "kafka": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "kafka_metrics": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "kafkametrics": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "kubelet_stats": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "kubeletstats": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "libhoney": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "loki": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "macos_unified_logging": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "macosunifiedlogging": [
+          {
+            "from": "v0.142.0"
+          }
+        ],
+        "memcached": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "mongodb": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "mongodb_atlas": [
+          {
+            "from": "v0.145.0"
+          }
+        ],
+        "mongodbatlas": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.144.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "mysql": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "named_pipe": [
+          {
+            "from": "v0.150.0"
+          }
+        ],
+        "namedpipe": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "netflow": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "nginx": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "nop": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "nsxt": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "ntp": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "obi": [
+          {
+            "from": "v0.156.0"
+          }
+        ],
+        "opencensus": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.130.0"
+          }
+        ],
+        "oracledb": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "otelarrow": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "otlp": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "otlp_json_file": [
+          {
+            "from": "v0.154.0"
+          }
+        ],
+        "otlpjsonfile": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "podman": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "podman_stats": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "postgresql": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "pprof": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "prometheus": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "prometheus_remote_write": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "prometheus_simple": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "prometheusremotewrite": [
+          {
+            "from": "v0.135.0"
+          }
+        ],
+        "pulsar": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "purefa": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "purefb": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "rabbitmq": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "receiver_creator": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "receivercreator": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "redis": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "riak": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "saphana": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "sapm": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.130.0"
+          }
+        ],
+        "signalfx": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.156.0"
+          }
+        ],
+        "simpleprometheus": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "skywalking": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "snmp": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "snowflake": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "solace": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "splunk_enterprise": [
+          {
+            "from": "v0.155.0"
+          }
+        ],
+        "splunk_hec": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "splunkenterprise": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "splunkhec": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "sqlquery": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "sqlserver": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "ssh_check": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "sshcheck": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "statsd": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "stef": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "syslog": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "systemd": [
+          {
+            "from": "v0.142.0"
+          }
+        ],
+        "tcp_check": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "tcp_log": [
+          {
+            "from": "v0.150.0"
+          }
+        ],
+        "tcpcheck": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "tcplog": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "tls_check": [
+          {
+            "from": "v0.150.0"
+          }
+        ],
+        "tlscheck": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "udp_log": [
+          {
+            "from": "v0.150.0"
+          }
+        ],
+        "udplog": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "vcenter": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "wavefront": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "webhook_event": [
+          {
+            "from": "v0.154.0"
+          }
+        ],
+        "webhookevent": [
+          {
+            "from": "v0.90.0"
+          }
+        ],
+        "windows_event_log": [
+          {
+            "from": "v0.150.0"
+          }
+        ],
+        "windows_service": [
+          {
+            "from": "v0.155.0"
+          }
+        ],
+        "windowseventlog": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "windowsperfcounters": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "windowsservice": [
+          {
+            "from": "v0.155.0"
+          }
+        ],
+        "yang_grpc": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "yanggrpc": [
+          {
+            "from": "v0.142.0"
+          }
+        ],
+        "zipkin": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "zookeeper": [
+          {
+            "from": "v0.70.0"
+          }
+        ]
+      }
+    },
+    "core": {
+      "connector": {
+        "forward": [
+          {
+            "from": "v0.80.0"
+          }
+        ]
+      },
+      "exporter": {
+        "debug": [
+          {
+            "from": "v0.90.0"
+          }
+        ],
+        "file": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "jaeger": [
+          {
+            "from": "v0.40.0",
+            "to": "v0.80.0"
+          }
+        ],
+        "kafka": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "logging": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.110.0"
+          }
+        ],
+        "nop": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "opencensus": [
+          {
+            "from": "v0.40.0",
+            "to": "v0.130.0"
+          }
+        ],
+        "otlp": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.143.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "otlp_grpc": [
+          {
+            "from": "v0.144.0"
+          }
+        ],
+        "otlp_http": [
+          {
+            "from": "v0.144.0"
+          }
+        ],
+        "otlphttp": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.143.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "prometheus": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "prometheus_remote_write": [
+          {
+            "from": "v0.154.0"
+          }
+        ],
+        "prometheusremotewrite": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "zipkin": [
+          {
+            "from": "v0.40.0"
+          }
+        ]
+      },
+      "extension": {
+        "ballast": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "health_check": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "healthcheck": [
+          {
+            "from": "v0.40.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "memory_ballast": [
+          {
+            "from": "v0.100.0",
+            "to": "v0.100.0"
+          }
+        ],
+        "pprof": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "zpages": [
+          {
+            "from": "v0.70.0"
+          }
+        ]
+      },
+      "processor": {
+        "attributes": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "batch": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "filter": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "memory_limiter": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "memorylimiter": [
+          {
+            "from": "v0.70.0",
+            "to": "v0.90.0"
+          }
+        ],
+        "probabilistic_sampler": [
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "probabilisticsampler": [
+          {
+            "from": "v0.40.0",
+            "to": "v0.70.0"
+          }
+        ],
+        "resource": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "span": [
+          {
+            "from": "v0.40.0"
+          }
+        ]
+      },
+      "receiver": {
+        "host_metrics": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "hostmetrics": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "jaeger": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "kafka": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "nop": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "opencensus": [
+          {
+            "from": "v0.40.0",
+            "to": "v0.130.0"
+          }
+        ],
+        "otlp": [
+          {
+            "from": "v0.70.0"
+          }
+        ],
+        "prometheus": [
+          {
+            "from": "v0.40.0"
+          }
+        ],
+        "zipkin": [
+          {
+            "from": "v0.40.0"
+          }
+        ]
+      }
+    },
+    "k8s": {
+      "connector": {
+        "count": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "exceptions": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "failover": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "forward": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "otlp_json": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "otlpjson": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "round_robin": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "roundrobin": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "routing": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "service_graph": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "servicegraph": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "span_metrics": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "spanmetrics": [
+          {
+            "from": "v0.100.0"
+          }
+        ]
+      },
+      "exporter": {
+        "debug": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "file": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "load_balancing": [
+          {
+            "from": "v0.153.0"
+          }
+        ],
+        "loadbalancing": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "nop": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "otelarrow": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "otlp": [
+          {
+            "from": "v0.100.0",
+            "to": "v0.143.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "otlp_grpc": [
+          {
+            "from": "v0.144.0"
+          }
+        ],
+        "otlp_http": [
+          {
+            "from": "v0.144.0"
+          }
+        ],
+        "otlphttp": [
+          {
+            "from": "v0.100.0",
+            "to": "v0.143.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ]
+      },
+      "extension": {
+        "ack": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "basicauth": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "bearertokenauth": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "cgroup_runtime": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "cgroupruntime": [
+          {
+            "from": "v0.135.0"
+          }
+        ],
+        "file_storage": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "headers_setter": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "health_check": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "host_observer": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "http_forwarder": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "k8s_leader_elector": [
+          {
+            "from": "v0.130.0"
+          }
+        ],
+        "k8s_observer": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "oauth2client": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "oidc": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "opamp": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "pprof": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "zpages": [
+          {
+            "from": "v0.100.0"
+          }
+        ]
+      },
+      "processor": {
+        "attributes": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "batch": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "cumulative_to_delta": [
+          {
+            "from": "v0.157.0"
+          }
+        ],
+        "cumulativetodelta": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "delta_to_cumulative": [
+          {
+            "from": "v0.158.0"
+          }
+        ],
+        "delta_to_rate": [
+          {
+            "from": "v0.158.0"
+          }
+        ],
+        "deltatocumulative": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "deltatorate": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "drain": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "filter": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "groupbyattrs": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "groupbytrace": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "interval": [
+          {
+            "from": "v0.120.0"
+          }
+        ],
+        "k8s_attributes": [
+          {
+            "from": "v0.146.1"
+          }
+        ],
+        "k8sattributes": [
+          {
+            "from": "v0.100.0",
+            "to": "v0.145.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "log_dedup": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "logdedup": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "memory_limiter": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "metrics_transform": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "metricsgeneration": [
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "metricstransform": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "probabilistic_sampler": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "redaction": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "remotetap": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "resource": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "resource_detection": [
+          {
+            "from": "v0.153.0"
+          }
+        ],
+        "resourcedetection": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "tail_sampling": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "transform": [
+          {
+            "from": "v0.100.0"
+          }
+        ]
+      },
+      "receiver": {
+        "file_log": [
+          {
+            "from": "v0.149.0"
+          }
+        ],
+        "filelog": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "fluent_forward": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "fluentforward": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "host_metrics": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "hostmetrics": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "http_check": [
+          {
+            "from": "v0.150.0"
+          }
+        ],
+        "httpcheck": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "jaeger": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "journald": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "k8s_cluster": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "k8s_events": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "k8s_objects": [
+          {
+            "from": "v0.151.0"
+          }
+        ],
+        "k8sobjects": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "kubelet_stats": [
+          {
+            "from": "v0.152.0"
+          }
+        ],
+        "kubeletstats": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "opencensus": [
+          {
+            "from": "v0.100.0",
+            "to": "v0.130.0"
+          }
+        ],
+        "otelarrow": [
+          {
+            "from": "v0.110.0"
+          }
+        ],
+        "otlp": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "prometheus": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "receiver_creator": [
+          {
+            "from": "v0.100.0"
+          }
+        ],
+        "zipkin": [
+          {
+            "from": "v0.100.0"
+          }
+        ]
+      }
+    },
+    "otlp": {
+      "exporter": {
+        "otlp": [
+          {
+            "from": "v0.120.0",
+            "to": "v0.143.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ],
+        "otlp_grpc": [
+          {
+            "from": "v0.144.0"
+          }
+        ],
+        "otlp_http": [
+          {
+            "from": "v0.144.0"
+          }
+        ],
+        "otlphttp": [
+          {
+            "from": "v0.120.0",
+            "to": "v0.143.0"
+          },
+          {
+            "from": "v0.148.0"
+          }
+        ]
+      },
+      "receiver": {
+        "otlp": [
+          {
+            "from": "v0.120.0"
+          }
+        ]
+      }
+    }
+  }
+}
