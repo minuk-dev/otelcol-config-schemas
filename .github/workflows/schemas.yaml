@@ -23,9 +23,9 @@ name: schemas
 # against the wrong component set, so this has to keep up on its own rather
 # than when somebody remembers.
 #
-# "Behind" is measured against the whole window the retention policy promises,
-# not against the newest release in it. Measured by the newest alone, a hole
-# further back sits behind the high-water mark, where no run would ever see it.
+# "Behind" is measured against every release the registry serves, not against
+# the newest one it holds. Measured by the newest alone, a hole further back
+# sits behind the high-water mark, where no run would ever see it.
 on:
   schedule:
     # Upstream tags roughly every other week, on no fixed day; weekly picks each
@@ -67,16 +67,38 @@ env:
   # backlog is caught up over the following runs, or by dispatching a batch by
   # hand.
   MAX_RELEASES: 10
-  # Retention. Every release is a few megabytes across four distributions and
-  # two formats, and upstream tags every other week, so the registry is kept to
-  # a window: the newest RETAIN releases, plus every RETAIN_EVERY-th minor for
-  # good, so a config pinned to a round release keeps resolving long after its
-  # neighbours are gone.
+  # Retention: none. The registry serves every release from FLOOR up and drops
+  # nothing, which is what --retain 0 means to the generator.
   #
-  # These two are also what "behind" means, so the window the registry is
-  # filled up to and the window it is pruned back to are one number.
-  RETAIN: 24
+  # It used to keep a window -- the newest 24 releases, plus every tenth minor
+  # for good -- which is why everything below v0.135.0 is a round number. A
+  # window is cheap to serve and wrong to pin against. A config pinned to
+  # v0.132.0 is told "no schema for collector version v0.132.0" and has to be
+  # checked against a neighbour instead, and which of its neighbours survived
+  # was an accident of when the pruning last ran rather than anything about the
+  # release. Nobody pins to a round version because it is round.
+  #
+  # The cost is a registry that grows without bound: a release is around 10 MB
+  # across four distributions and two formats, upstream tags every other week,
+  # so roughly 250 MB a year on top of the gigabyte the history back to FLOOR
+  # comes to. That is the trade, and it is the one worth making: the registry
+  # is read one file at a time over HTTPS, so its size is a cost to whoever
+  # clones it whole, while a missing release is a cost to whoever is running
+  # that release.
+  RETAIN: 0
+  # Which older releases survive a window, when there is one. Nothing consults
+  # it while RETAIN is 0; it is kept so that reintroducing a window is one
+  # number rather than a policy to work out again.
   RETAIN_EVERY: 10
+  # The oldest release the registry serves. Upstream has tagged since v0.0.2
+  # and those releases are neither runnable nor resolvable today, so the range
+  # has to end somewhere; this is where the registry's own oldest schema is.
+  #
+  # It is also the escape hatch. A release that cannot be generated is picked
+  # again every week -- the backlog is filled oldest first -- so one that
+  # proves permanently unresolvable would sit at the head of the queue for
+  # good. Raising FLOOR past it is how that is answered.
+  FLOOR: v0.40.0
   # Free space below which the module cache is dropped mid-batch. Adjacent
   # releases share module paths but pin different versions of them, so the
   # cache grows by a gigabyte or two per release rather than levelling off,
@@ -163,10 +185,18 @@ jobs:
               sed 's#.*refs/tags/##' |
               grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V -u > all-tags.txt
 
-            # Only the end of the list is worth resolving. The window is RETAIN
-            # releases and several tags can collapse onto one, so a margin over
-            # RETAIN covers the collapsing without resolving the whole history.
-            tail -n "$((RETAIN + 10))" all-tags.txt > tags.txt
+            # Everything from FLOOR up. Below it upstream's tags predate the
+            # distributions in their current shape, and resolving them costs a
+            # "git show" and a generator run each to learn they are not
+            # candidates.
+            awk -v floor="${FLOOR}" '
+              function ver(s,  a) {
+                sub(/^v/, "", s); split(s, a, ".")
+
+                return a[1] * 1000000 + a[2] * 1000 + a[3]
+              }
+              ver($0) >= ver(floor)
+            ' all-tags.txt > tags.txt
           fi
 
           : > resolved.txt
@@ -197,23 +227,21 @@ jobs:
           if [ -n "${INPUT_VERSIONS}" ]; then
             cut -f1 one-per-release.txt > picked-releases.txt
           else
-            # The window this registry promises to serve, and what it holds.
+            # What this registry promises to serve, and what it holds. Every
+            # release from FLOOR up is promised, so a hole anywhere in the
+            # range is something to fill rather than a retention decision made
+            # earlier.
+            #
             # contrib is written by every run and is the distribution a config
             # is checked against by default, so it is the one the coverage is
             # read off. The index comes from the checkout, so it describes the
             # branch being built on rather than whatever main happens to hold.
-            cut -f1 one-per-release.txt | sort -V -u > releases.txt
-            tail -n "${RETAIN}" releases.txt > window.txt
+            cut -f1 one-per-release.txt | sort -V -u > window.txt
             jq -r '.distributions.contrib[]' index.json > have.txt
 
             # Oldest first. Each schema is summarised against the release
             # before it, so generating them in order is what makes those
             # summaries describe one release each.
-            #
-            # Milestones that fell out of the window long ago are not
-            # backfilled: an old release the registry never served is a hole
-            # nobody is pinned to, whereas the window is what the linter
-            # resolves against every day.
             comm -23 <(sort window.txt) <(sort have.txt) |
               sort -V | head -n "${MAX_RELEASES}" > picked-releases.txt
           fi
@@ -368,18 +396,36 @@ jobs:
               (cd releases && ./scripts/prepare-obi.sh otelcol-contrib) || return 1
             fi
 
+            # Only the distributions this release ships. Upstream added
+            # otelcol-k8s at v0.98.0 and otelcol-otlp at v0.111.0, and naming a
+            # manifest that is not there fails the whole release -- which a
+            # window of recent releases never reached far enough back to meet.
+            #
             # The registry's own names: upstream calls these otelcol and
             # otelcol-contrib, and what a config is linted against is core and
             # contrib. Paths are absolute because the generator runs from the
             # linter checkout while writing into this one.
+            builders=()
+
+            for pair in otelcol:core otelcol-contrib:contrib otelcol-k8s:k8s otelcol-otlp:otlp; do
+              manifest="${GITHUB_WORKSPACE}/releases/distributions/${pair%%:*}/manifest.yaml"
+
+              if [ -f "${manifest}" ]; then
+                builders+=(--builder "${pair##*:}=${manifest}")
+              fi
+            done
+
+            if [ "${#builders[@]}" -eq 0 ]; then
+              echo "  no distribution manifest at this tag"
+
+              return 1
+            fi
+
             (cd linter && go run ./cmd/schemagen generate \
               --registry "${GITHUB_WORKSPACE}" \
               --summary "${notes}/release-summary.md" \
               --retain "${RETAIN}" --retain-every "${RETAIN_EVERY}" \
-              --builder "core=${GITHUB_WORKSPACE}/releases/distributions/otelcol/manifest.yaml" \
-              --builder "contrib=${GITHUB_WORKSPACE}/releases/distributions/otelcol-contrib/manifest.yaml" \
-              --builder "k8s=${GITHUB_WORKSPACE}/releases/distributions/otelcol-k8s/manifest.yaml" \
-              --builder "otlp=${GITHUB_WORKSPACE}/releases/distributions/otelcol-otlp/manifest.yaml") || return 1
+              "${builders[@]}") || return 1
 
             # Only the release just written: the others were checked when they
             # were generated, and re-reading everything the registry holds is

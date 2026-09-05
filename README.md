@@ -61,8 +61,13 @@ be read. What cannot be resolved — a third-party config such as Prometheus's
 own, or a reference cycle in the stanza operators — is left `open`, so its keys
 go unchecked rather than being reported as unknown.
 
-`index.json` lists the releases each distribution has a schema for. Coverage
-differs between them: upstream had no `otlp` distribution before v0.120.0.
+`index.json` lists the releases each distribution has a schema for. The policy
+is to serve **every** release upstream has tagged since v0.40.0 and to drop
+none of them, so a config pinned to any of them resolves rather than having to
+be checked against a neighbour; the weekly run fills whatever is missing, ten
+releases at a time. Coverage still differs between distributions, because
+upstream added them at different times: `otelcol-k8s` from v0.98.0,
+`otelcol-otlp` from v0.111.0.
 
 ## Generation
 
