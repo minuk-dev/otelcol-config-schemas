@@ -232,12 +232,25 @@ jobs:
             # range is something to fill rather than a retention decision made
             # earlier.
             #
-            # contrib is written by every run and is the distribution a config
-            # is checked against by default, so it is the one the coverage is
-            # read off. The index comes from the checkout, so it describes the
-            # branch being built on rather than whatever main happens to hold.
+            # What it holds is read off every distribution rather than off
+            # contrib alone. A release is generated as one unit -- every
+            # distribution it ships, or none of it, since a manifest that
+            # cannot be resolved rolls the whole release back -- so appearing
+            # under any distribution is what says it was generated.
+            #
+            # Read off contrib, a release that ships no contrib is missing
+            # from it by construction. Upstream added otelcol-contrib at
+            # v0.42.0, so v0.40.0 and v0.41.0 are core-only, and every run
+            # would pick them, regenerate the same core schemas, commit
+            # nothing, and find them missing again the week after -- two of
+            # the ten slots in every batch, for good, and a registry that
+            # could never reach "nothing to generate". A window of recent
+            # releases never reached far enough back to meet this.
+            #
+            # The index comes from the checkout, so it describes the branch
+            # being built on rather than whatever main happens to hold.
             cut -f1 one-per-release.txt | sort -V -u > window.txt
-            jq -r '.distributions.contrib[]' index.json > have.txt
+            jq -r '.distributions[][]' index.json | sort -u > have.txt
 
             # Oldest first. Each schema is summarised against the release
             # before it, so generating them in order is what makes those
