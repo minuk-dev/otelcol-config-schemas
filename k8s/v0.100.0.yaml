@@ -1,6 +1,6 @@
 collectorVersion: v0.100.0
 distribution: k8s
-generatedAt: "2026-08-11T13:07:49Z"
+generatedAt: "2026-09-05T13:55:16Z"
 sources:
   k8s: github.com/open-telemetry/opentelemetry-collector-releases/k8s
 components:
@@ -259,6 +259,7 @@ components:
             type: string
           encoding:
             type: string
+            extensionRef: extension
           flush_interval:
             type: duration
           format:
@@ -310,6 +311,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   authority:
                     type: string
                   balancer_name:
@@ -358,6 +360,7 @@ components:
                         type: int
                       storage:
                         type: string
+                        extensionRef: storage
                   timeout:
                     type: duration
                   tls:
@@ -469,6 +472,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -517,6 +521,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -576,6 +581,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -633,6 +639,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -776,6 +783,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           check_collector_pipeline:
             type: map
             children:
@@ -1989,6 +1997,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
@@ -2128,6 +2137,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           azure:
             type: map
             children:
@@ -3390,6 +3400,7 @@ components:
             type: string
           timeout:
             type: duration
+        open: true
     httpcheck:
       type: httpcheck
       signals:
@@ -3433,6 +3444,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   compression:
                     type: string
                   disable_keep_alives:
@@ -3521,6 +3533,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -3629,6 +3642,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   cors:
                     type: map
                     children:
@@ -3693,6 +3707,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               authority:
                 type: string
               balancer_name:
@@ -5767,6 +5782,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors_allowed_origins:
             type: list
             children:
@@ -5871,6 +5887,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -5953,6 +5970,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   cors:
                     type: map
                     children:
@@ -6038,6 +6056,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               collector_id:
                 type: string
               compression:
@@ -6130,6 +6149,7 @@ components:
             children:
               item:
                 type: string
+        open: true
     zipkin:
       type: zipkin
       signals:
@@ -6145,6 +6165,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:

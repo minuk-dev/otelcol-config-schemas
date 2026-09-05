@@ -1,7 +1,7 @@
 {
   "collectorVersion": "v0.100.0",
   "distribution": "k8s",
-  "generatedAt": "2026-08-11T13:07:49Z",
+  "generatedAt": "2026-09-05T13:55:16Z",
   "sources": {
     "k8s": "github.com/open-telemetry/opentelemetry-collector-releases/k8s"
   },
@@ -397,7 +397,8 @@
               "type": "string"
             },
             "encoding": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             },
             "flush_interval": {
               "type": "duration"
@@ -468,7 +469,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -541,7 +543,8 @@
                           "type": "int"
                         },
                         "storage": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "storage"
                         }
                       }
                     },
@@ -714,7 +717,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -787,7 +791,8 @@
                   "type": "int"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 }
               }
             },
@@ -875,7 +880,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -961,7 +967,8 @@
                   "type": "int"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 }
               }
             },
@@ -1180,7 +1187,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -3051,7 +3059,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -3261,7 +3270,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -5263,7 +5273,8 @@
             "timeout": {
               "type": "duration"
             }
-          }
+          },
+          "open": true
         }
       },
       "httpcheck": {
@@ -5323,7 +5334,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -5457,7 +5469,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -5624,7 +5637,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -5725,7 +5739,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -9025,7 +9040,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -9180,7 +9196,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -9307,7 +9324,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -9439,7 +9457,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -9581,7 +9600,8 @@
                 }
               }
             }
-          }
+          },
+          "open": true
         }
       },
       "zipkin": {
@@ -9600,7 +9620,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },

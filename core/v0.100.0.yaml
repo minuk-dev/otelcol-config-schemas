@@ -1,6 +1,6 @@
 collectorVersion: v0.100.0
 distribution: core
-generatedAt: "2026-08-11T13:03:37Z"
+generatedAt: "2026-09-05T13:54:44Z"
 sources:
   core: github.com/open-telemetry/opentelemetry-collector-releases/core
 components:
@@ -60,6 +60,7 @@ components:
             type: string
           encoding:
             type: string
+            extensionRef: extension
           flush_interval:
             type: duration
           format:
@@ -246,6 +247,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           topic:
@@ -275,6 +277,7 @@ components:
             type: int
           verbosity:
             type: string
+        open: true
     nop:
       type: nop
       signals:
@@ -303,6 +306,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -353,6 +357,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           tls:
             type: map
             children:
@@ -410,6 +415,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -458,6 +464,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -517,6 +524,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -574,6 +582,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -631,6 +640,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           const_labels:
             type: map
             open: true
@@ -720,6 +730,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -855,6 +866,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           default_service_name:
@@ -910,6 +922,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -962,6 +975,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           check_collector_pipeline:
             type: map
             children:
@@ -1984,6 +1998,7 @@ components:
             type: string
           timeout:
             type: duration
+        open: true
     jaeger:
       type: jaeger
       signals:
@@ -2005,6 +2020,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -2113,6 +2129,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   cors:
                     type: map
                     children:
@@ -2177,6 +2194,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               authority:
                 type: string
               balancer_name:
@@ -2419,6 +2437,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors_allowed_origins:
             type: list
             children:
@@ -2523,6 +2542,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -2605,6 +2625,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   cors:
                     type: map
                     children:
@@ -2690,6 +2711,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               collector_id:
                 type: string
               compression:
@@ -2777,6 +2799,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
