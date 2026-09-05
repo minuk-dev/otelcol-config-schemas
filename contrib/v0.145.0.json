@@ -1,7 +1,7 @@
 {
   "collectorVersion": "v0.145.0",
   "distribution": "contrib",
-  "generatedAt": "2026-08-09T10:55:52Z",
+  "generatedAt": "2026-09-04T16:06:16Z",
   "sources": {
     "contrib": "github.com/open-telemetry/opentelemetry-collector-releases/contrib"
   },
@@ -62,6 +62,7 @@
               "open": true
             }
           },
+          "open": true,
           "doc": "Config for the connector"
         }
       },
@@ -294,7 +295,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -1017,7 +1019,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -1312,7 +1315,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -1342,7 +1346,8 @@
           "type": "map",
           "children": {
             "encoding": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             },
             "encoding_file_extension": {
               "type": "string"
@@ -1453,7 +1458,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -1673,13 +1679,16 @@
               "type": "map",
               "children": {
                 "logs": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "extension"
                 },
                 "metrics": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "extension"
                 },
                 "traces": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "extension"
                 }
               }
             },
@@ -1817,7 +1826,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -1862,7 +1872,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -1934,7 +1945,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -1979,7 +1991,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -2097,7 +2110,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -2151,7 +2165,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -2485,7 +2500,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -2637,7 +2653,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -2675,7 +2692,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -2785,7 +2803,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -2823,7 +2842,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -2933,7 +2953,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -2971,7 +2992,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -3084,7 +3106,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -3122,7 +3145,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -3289,7 +3313,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -3320,7 +3345,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -3358,7 +3384,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -3617,7 +3644,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -3714,7 +3742,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -3750,7 +3779,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -3825,7 +3855,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -3902,7 +3933,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -4040,7 +4072,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -4206,7 +4239,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -4288,7 +4322,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -4430,7 +4465,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -4484,7 +4520,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -4552,7 +4589,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -4676,7 +4714,8 @@
               "type": "string"
             },
             "encoding": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             },
             "flush_interval": {
               "type": "duration"
@@ -4718,7 +4757,8 @@
                 }
               }
             }
-          }
+          },
+          "open": true
         }
       },
       "googlecloud": {
@@ -4770,7 +4810,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -4816,7 +4857,8 @@
                   "open": true
                 },
                 "encoding": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "extension"
                 }
               }
             },
@@ -4828,7 +4870,8 @@
                   "open": true
                 },
                 "encoding": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "extension"
                 }
               }
             },
@@ -4905,7 +4948,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -4926,7 +4970,8 @@
                   "open": true
                 },
                 "encoding": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "extension"
                 }
               }
             },
@@ -4993,7 +5038,8 @@
               }
             },
             "encoding": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             }
           }
         }
@@ -5066,7 +5112,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -5106,7 +5153,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -5202,7 +5250,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -5270,7 +5319,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -5384,7 +5434,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -5455,7 +5506,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -5539,7 +5591,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -6074,7 +6127,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -6222,7 +6276,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -6260,7 +6315,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -6325,7 +6381,8 @@
                           "type": "string"
                         },
                         "storage": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "storage"
                         },
                         "wait_for_result": {
                           "type": "bool"
@@ -6577,7 +6634,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -6621,7 +6679,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -6685,7 +6744,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -6767,7 +6827,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -6882,7 +6943,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -6942,7 +7004,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -7019,7 +7082,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -7129,7 +7193,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -7191,7 +7256,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -7259,7 +7325,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -7414,7 +7481,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -7468,7 +7536,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -7665,7 +7734,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -7765,7 +7835,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -7816,7 +7887,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -7881,7 +7953,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -8000,7 +8073,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -8038,7 +8112,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -8103,7 +8178,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -8221,7 +8297,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -8284,7 +8361,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -8355,7 +8433,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -8471,7 +8550,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -8558,7 +8638,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -8626,7 +8707,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -8746,7 +8828,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -8813,7 +8896,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -9209,7 +9293,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -9371,7 +9456,8 @@
               "type": "bool"
             },
             "encoding_extension": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             },
             "retry_on_failure": {
               "type": "map",
@@ -9511,7 +9597,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -9554,7 +9641,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -9608,7 +9696,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -9757,7 +9846,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -9886,7 +9976,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -9912,7 +10003,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -9981,7 +10073,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -10348,7 +10441,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -10432,7 +10526,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -10550,7 +10645,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -10680,7 +10776,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -10788,7 +10885,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -10942,7 +11040,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -10980,7 +11079,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -11045,7 +11145,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -11162,7 +11263,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -11244,7 +11346,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -11312,7 +11415,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -11498,7 +11602,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -11646,7 +11751,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -11745,7 +11851,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -11813,7 +11920,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -11939,7 +12047,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -11999,7 +12108,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -12067,7 +12177,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -12179,7 +12290,8 @@
               "type": "int"
             },
             "storage": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "storage"
             }
           }
         }
@@ -12572,7 +12684,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -12614,7 +12727,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     },
                     "request_params": {
                       "type": "list",
@@ -12688,7 +12802,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -12811,7 +12926,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -13182,7 +13298,8 @@
           "type": "map",
           "children": {
             "additional_auth": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             },
             "headers": {
               "type": "list",
@@ -13228,7 +13345,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -13318,7 +13436,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -13385,7 +13504,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -13483,7 +13603,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     },
                     "request_params": {
                       "type": "list",
@@ -13568,7 +13689,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -13693,7 +13815,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -13837,7 +13960,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -13891,7 +14015,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -13995,7 +14120,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     },
                     "request_params": {
                       "type": "list",
@@ -14069,7 +14195,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -14198,7 +14325,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -14265,7 +14393,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -14363,7 +14492,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     },
                     "request_params": {
                       "type": "list",
@@ -14437,7 +14567,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -14548,7 +14679,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -14586,7 +14718,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -15326,7 +15459,8 @@
                   "type": "map",
                   "children": {
                     "auth": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     },
                     "endpoint": {
                       "type": "string"
@@ -15421,7 +15555,8 @@
                   "type": "map",
                   "children": {
                     "auth": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     },
                     "endpoint": {
                       "type": "string"
@@ -15723,7 +15858,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -15828,7 +15964,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -15984,7 +16121,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -16066,7 +16204,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -17538,6 +17677,7 @@
               "doc": "Context section allows specifying the source type to look for the IP. Available options: resource or record."
             }
           },
+          "open": true,
           "doc": "Config holds the configuration for the GeoIP processor."
         }
       },
@@ -18655,7 +18795,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -18734,7 +18875,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -19119,7 +19261,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -20262,7 +20405,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -21006,7 +21150,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -21060,7 +21205,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -23274,6 +23420,7 @@
               }
             }
           },
+          "open": true,
           "doc": "Config defines the configuration for the processor."
         }
       },
@@ -23848,7 +23995,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -24031,7 +24179,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -24246,7 +24395,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -24879,7 +25029,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -25337,7 +25488,8 @@
               "type": "string"
             },
             "storage": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "storage"
             }
           },
           "doc": "Config is the overall config structure for the awscloudwatchreceiver"
@@ -25421,7 +25573,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -25499,7 +25652,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -25622,7 +25776,8 @@
                   "type": "map",
                   "children": {
                     "extension": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     },
                     "suffix": {
                       "type": "string"
@@ -25639,7 +25794,8 @@
               "type": "map",
               "children": {
                 "opampextension": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "extension"
                 }
               },
               "doc": "Notifications groups optional notification sources."
@@ -25882,7 +26038,8 @@
               "type": "bool"
             },
             "auth": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             },
             "connection": {
               "type": "string"
@@ -25924,7 +26081,8 @@
               "doc": "azeventhub lib specific"
             },
             "storage": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "storage"
             },
             "time_formats": {
               "type": "map",
@@ -26064,7 +26222,8 @@
               "children": {
                 "authenticator": {
                   "type": "string",
-                  "doc": "AuthenticatorID specifies the name of the azure extension to authenticate the requests to azure monitor."
+                  "doc": "AuthenticatorID specifies the name of the azure extension to authenticate the requests to azure monitor.",
+                  "extensionRef": "auth"
                 }
               },
               "doc": "Authentication accepts the component azureauthextension, and uses it to get an access token to make requests. Using this, `credentials` and any related fields become useless."
@@ -26205,7 +26364,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -26514,7 +26674,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -27206,7 +27367,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -27260,7 +27422,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -27407,7 +27570,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -27484,7 +27648,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -27600,7 +27765,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -27738,7 +27904,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -27912,7 +28079,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -28020,7 +28188,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -29142,7 +29311,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -30045,7 +30215,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -30359,7 +30530,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -30426,7 +30598,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -30534,7 +30707,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -30834,7 +31008,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -30951,7 +31126,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -31025,7 +31201,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -31535,7 +31712,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -31862,7 +32040,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -32475,7 +32654,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     },
                     "request_params": {
                       "type": "list",
@@ -32555,7 +32735,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -32694,7 +32875,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     },
                     "request_params": {
                       "type": "list",
@@ -32775,7 +32957,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -32881,6 +33064,7 @@
               }
             }
           },
+          "open": true,
           "doc": "Config that is exposed to this gitlab receiver through the OTEL config.yaml"
         }
       },
@@ -33078,7 +33262,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -33441,7 +33626,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -33707,6 +33893,7 @@
               "type": "duration"
             }
           },
+          "open": true,
           "doc": "Config defines configuration for HostMetrics receiver."
         }
       },
@@ -33852,7 +34039,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -33923,7 +34111,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -34329,7 +34518,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -34403,7 +34593,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -34522,7 +34713,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -34589,7 +34781,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -34727,7 +34920,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         },
                         "request_params": {
                           "type": "list",
@@ -34801,7 +34995,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -34905,7 +35100,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -34946,7 +35142,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -35388,7 +35585,8 @@
             },
             "k8s_leader_elector": {
               "type": "string",
-              "doc": "K8sLeaderElector defines the reference to the k8s leader elector extension use this when k8s cluster receiver needs to be deployed in HA mode"
+              "doc": "K8sLeaderElector defines the reference to the k8s leader elector extension use this when k8s cluster receiver needs to be deployed in HA mode",
+              "extensionRef": "extension"
             },
             "metadata_collection_interval": {
               "type": "duration",
@@ -37596,7 +37794,8 @@
               "doc": "When using auth_type `kubeConfig`, override the current context."
             },
             "k8s_leader_elector": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             },
             "namespaces": {
               "type": "list",
@@ -37638,7 +37837,8 @@
               "type": "bool"
             },
             "k8s_leader_elector": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             },
             "objects": {
               "type": "list",
@@ -40264,7 +40464,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     },
                     "request_params": {
                       "type": "list",
@@ -40338,7 +40539,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -40447,6 +40649,7 @@
               "type": "string"
             }
           },
+          "open": true,
           "doc": "Config represents the receiver config settings within the collector's config.yaml"
         }
       },
@@ -40474,7 +40677,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -40541,7 +40745,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -40639,7 +40844,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         },
                         "request_params": {
                           "type": "list",
@@ -40713,7 +40919,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -43204,7 +43411,8 @@
               }
             },
             "storage": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "storage"
             },
             "timeout": {
               "type": "duration"
@@ -44095,7 +44303,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -44197,7 +44406,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -44328,7 +44538,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -44457,7 +44668,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -45658,7 +45870,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -45725,7 +45938,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -45850,7 +46064,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -45917,7 +46132,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -46015,7 +46231,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         },
                         "request_params": {
                           "type": "list",
@@ -46095,7 +46312,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -46380,7 +46598,8 @@
               "type": "string"
             },
             "storage": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "storage"
             }
           },
           "doc": "Config is the configuration of a file input operator"
@@ -47689,7 +47908,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         },
                         "request_params": {
                           "type": "list",
@@ -47763,7 +47983,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -47875,7 +48096,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -47939,7 +48161,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -48059,7 +48282,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -48126,7 +48350,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -48267,7 +48492,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -48341,7 +48567,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -48579,7 +48806,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     }
@@ -48592,7 +48820,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -48624,7 +48853,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     }
@@ -48664,7 +48894,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     }
@@ -48698,7 +48929,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -48721,7 +48953,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     }
@@ -48855,7 +49088,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     }
@@ -48896,7 +49130,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     }
@@ -48909,7 +49144,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -48926,7 +49162,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     }
@@ -48989,7 +49226,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -49114,7 +49352,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     }
@@ -49146,7 +49385,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -49932,7 +50172,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -50222,6 +50463,7 @@
               "doc": "WatchObservers are the extensions to listen to endpoints from."
             }
           },
+          "open": true,
           "doc": "Config defines configuration for receiver_creator."
         }
       },
@@ -51028,7 +51270,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -51203,7 +51446,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -51894,7 +52138,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -51968,7 +52213,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -52088,7 +52334,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -52155,7 +52402,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -52253,7 +52501,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         },
                         "request_params": {
                           "type": "list",
@@ -52327,7 +52576,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -52424,7 +52674,8 @@
                 }
               }
             }
-          }
+          },
+          "open": true
         }
       },
       "snmp": {
@@ -53421,7 +53672,8 @@
               "type": "map",
               "children": {
                 "extension": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "extension"
                 },
                 "path": {
                   "type": "string"
@@ -53432,7 +53684,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -53526,7 +53779,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -53650,7 +53904,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -53704,7 +53959,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -53811,7 +54067,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -53865,7 +54122,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -54385,7 +54643,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -54439,7 +54698,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -54680,7 +54940,8 @@
               }
             },
             "storage": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "storage"
             },
             "telemetry": {
               "type": "map",
@@ -55979,7 +56240,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -56046,7 +56308,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -57673,7 +57936,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -57756,7 +58020,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -57970,7 +58235,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -58037,7 +58303,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -58195,7 +58462,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -58269,7 +58537,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }

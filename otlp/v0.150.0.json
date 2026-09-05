@@ -1,7 +1,7 @@
 {
   "collectorVersion": "v0.150.0",
   "distribution": "otlp",
-  "generatedAt": "2026-08-07T00:08:38Z",
+  "generatedAt": "2026-09-04T16:01:17Z",
   "sources": {
     "otlp": "github.com/open-telemetry/opentelemetry-collector-releases/otlp"
   },
@@ -31,7 +31,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -69,7 +70,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -147,7 +149,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -266,7 +269,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -304,7 +308,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -382,7 +387,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -501,7 +507,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -564,7 +571,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -648,7 +656,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -768,7 +777,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -831,7 +841,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -915,7 +926,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -1041,7 +1053,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -1108,7 +1121,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -1206,7 +1220,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         },
                         "request_params": {
                           "type": "list",
@@ -1286,7 +1301,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }

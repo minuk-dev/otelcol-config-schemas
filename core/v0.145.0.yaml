@@ -1,6 +1,6 @@
 collectorVersion: v0.145.0
 distribution: core
-generatedAt: "2026-08-09T10:55:20Z"
+generatedAt: "2026-09-04T16:05:43Z"
 sources:
   core: github.com/open-telemetry/opentelemetry-collector-releases/core
 components:
@@ -67,6 +67,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           use_internal_logger:
@@ -99,6 +100,7 @@ components:
             type: string
           encoding:
             type: string
+            extensionRef: extension
           flush_interval:
             type: duration
           format:
@@ -125,6 +127,7 @@ components:
                 type: int
               max_megabytes:
                 type: int
+        open: true
     kafka:
       type: kafka
       signals:
@@ -411,6 +414,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           timeout:
@@ -523,6 +527,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -549,6 +554,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           read_buffer_size:
             type: int
           retry_on_failure:
@@ -590,6 +596,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           timeout:
@@ -669,6 +676,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           compression_params:
@@ -712,6 +720,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           profiles_endpoint:
             type: string
           proxy_url:
@@ -757,6 +766,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           timeout:
@@ -833,6 +843,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -891,6 +902,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           namespace:
             type: string
             doc: Namespace if set, exports metrics under the provided value.
@@ -936,6 +948,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
             doc: QueueBatchConfig defines the queue configuration.
@@ -1016,6 +1029,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           compression_params:
@@ -1063,6 +1077,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           namespace:
             type: string
             doc: 'prefix attached to each exported metric name See: https://prometheus.io/docs/practices/naming/#metric-names'
@@ -1204,6 +1219,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           compression_params:
@@ -1245,6 +1261,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           proxy_url:
             type: string
           read_buffer_size:
@@ -1288,6 +1305,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           timeout:
@@ -1359,6 +1377,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -1417,6 +1436,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               dialer:
                 type: map
                 children:
@@ -1461,6 +1481,7 @@ components:
                     children:
                       id:
                         type: string
+                        extensionRef: extension
               read_buffer_size:
                 type: int
               tls:
@@ -1523,6 +1544,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
                   request_params:
                     type: list
                     children:
@@ -1578,6 +1600,7 @@ components:
                     children:
                       id:
                         type: string
+                        extensionRef: extension
               read_header_timeout:
                 type: duration
               read_timeout:
@@ -1658,6 +1681,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           path:
             type: string
           read_header_timeout:
@@ -1760,6 +1784,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -1813,6 +1838,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           read_header_timeout:
             type: duration
           read_timeout:
@@ -3083,6 +3109,7 @@ components:
             doc: RootPath is the host's root directory (linux only).
           timeout:
             type: duration
+        open: true
         doc: Config defines configuration for HostMetrics receiver.
     jaeger:
       type: jaeger
@@ -3106,6 +3133,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -3150,6 +3178,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_buffer_size:
                     type: int
                   tls:
@@ -3238,6 +3267,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                       request_params:
                         type: list
                         children:
@@ -3286,6 +3316,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_header_timeout:
                     type: duration
                   read_timeout:
@@ -3351,6 +3382,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               authority:
                 type: string
               balancer_name:
@@ -3379,6 +3411,7 @@ components:
                     children:
                       id:
                         type: string
+                        extensionRef: extension
               read_buffer_size:
                 type: int
               strategy_file:
@@ -3919,6 +3952,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -3963,6 +3997,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_buffer_size:
                     type: int
                   tls:
@@ -4025,6 +4060,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                       request_params:
                         type: list
                         children:
@@ -4077,6 +4113,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_header_timeout:
                     type: duration
                   read_timeout:
@@ -4159,6 +4196,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                       request_params:
                         type: list
                         children:
@@ -4207,6 +4245,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_header_timeout:
                     type: duration
                   read_timeout:
@@ -4278,6 +4317,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               collector_id:
                 type: string
               compression:
@@ -4322,6 +4362,7 @@ components:
                     children:
                       id:
                         type: string
+                        extensionRef: extension
               proxy_url:
                 type: string
               read_buffer_size:
@@ -4398,6 +4439,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -4446,6 +4488,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           parse_string_tags:
             type: bool
           read_header_timeout:

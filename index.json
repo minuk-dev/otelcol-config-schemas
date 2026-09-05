@@ -125,5 +125,11 @@
       "v0.130.0",
       "v0.120.0"
     ]
+  },
+  "extensions": {
+    "contrib": ".yaml",
+    "core": ".yaml",
+    "k8s": ".yaml",
+    "otlp": ".yaml"
   }
 }

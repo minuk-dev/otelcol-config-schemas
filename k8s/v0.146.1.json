@@ -1,7 +1,7 @@
 {
   "collectorVersion": "v0.146.1",
   "distribution": "k8s",
-  "generatedAt": "2026-08-09T10:56:58Z",
+  "generatedAt": "2026-09-04T16:05:22Z",
   "sources": {
     "k8s": "github.com/open-telemetry/opentelemetry-collector-releases/k8s"
   },
@@ -62,6 +62,7 @@
               "open": true
             }
           },
+          "open": true,
           "doc": "Config for the connector"
         }
       },
@@ -214,7 +215,8 @@
                 },
                 "storage": {
                   "type": "string",
-                  "doc": "StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822"
+                  "doc": "StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool",
@@ -742,7 +744,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -794,7 +797,8 @@
             },
             "encoding": {
               "type": "string",
-              "doc": "Encoding defines the encoding of the telemetry data. If specified, it overrides `FormatType` and applies an encoding extension."
+              "doc": "Encoding defines the encoding of the telemetry data. If specified, it overrides `FormatType` and applies an encoding extension.",
+              "extensionRef": "extension"
             },
             "flush_interval": {
               "type": "duration",
@@ -849,6 +853,7 @@
               "doc": "Rotation defines an option about rotation of telemetry files."
             }
           },
+          "open": true,
           "doc": "Config defines configuration for file exporter."
         }
       },
@@ -898,7 +903,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -936,7 +942,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -1001,7 +1008,8 @@
                           "type": "string"
                         },
                         "storage": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "storage"
                         },
                         "wait_for_result": {
                           "type": "bool"
@@ -1271,7 +1279,8 @@
                 },
                 "storage": {
                   "type": "string",
-                  "doc": "StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822"
+                  "doc": "StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool",
@@ -1373,7 +1382,8 @@
               "children": {
                 "authenticator": {
                   "type": "string",
-                  "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point."
+                  "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.",
+                  "extensionRef": "auth"
                 }
               },
               "doc": "Auth configuration for outgoing RPCs."
@@ -1448,7 +1458,8 @@
                   "children": {
                     "id": {
                       "type": "string",
-                      "doc": "ID specifies the name of the extension to use."
+                      "doc": "ID specifies the name of the extension to use.",
+                      "extensionRef": "extension"
                     }
                   },
                   "doc": "Middleware defines the extension ID for a middleware component."
@@ -1537,7 +1548,8 @@
                 },
                 "storage": {
                   "type": "string",
-                  "doc": "StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822"
+                  "doc": "StorageID if not empty, enables the persistent storage and uses the component specified as a storage extension for the persistent queue. TODO: This will be changed to Optional when available. See https://github.com/open-telemetry/opentelemetry-collector/issues/13822",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool",
@@ -1679,7 +1691,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -1717,7 +1730,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -1782,7 +1796,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -1900,7 +1915,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 }
               }
             },
@@ -1963,7 +1979,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -2034,7 +2051,8 @@
                   "type": "string"
                 },
                 "storage": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "storage"
                 },
                 "wait_for_result": {
                   "type": "bool"
@@ -2148,7 +2166,8 @@
               "type": "int"
             },
             "storage": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "storage"
             }
           }
         }
@@ -2319,7 +2338,8 @@
           "type": "map",
           "children": {
             "additional_auth": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             },
             "headers": {
               "type": "list",
@@ -2365,7 +2385,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -2455,7 +2476,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -2522,7 +2544,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -2620,7 +2643,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     },
                     "request_params": {
                       "type": "list",
@@ -2705,7 +2729,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -2830,7 +2855,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -2974,7 +3000,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     }
                   }
                 },
@@ -3028,7 +3055,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -3132,7 +3160,8 @@
                   "type": "map",
                   "children": {
                     "authenticator": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "auth"
                     },
                     "request_params": {
                       "type": "list",
@@ -3206,7 +3235,8 @@
                       "type": "map",
                       "children": {
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "extension"
                         }
                       }
                     }
@@ -3643,7 +3673,8 @@
                   "type": "map",
                   "children": {
                     "auth": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     },
                     "endpoint": {
                       "type": "string"
@@ -3738,7 +3769,8 @@
                   "type": "map",
                   "children": {
                     "auth": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     },
                     "endpoint": {
                       "type": "string"
@@ -3876,7 +3908,8 @@
               "type": "map",
               "children": {
                 "authenticator": {
-                  "type": "string"
+                  "type": "string",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -3958,7 +3991,8 @@
                   "type": "map",
                   "children": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "extensionRef": "extension"
                     }
                   }
                 }
@@ -5470,6 +5504,7 @@
               "doc": "Deprecated: use TraceConditions instead."
             }
           },
+          "open": true,
           "doc": "Config defines configuration for Resource processor."
         }
       },
@@ -6347,7 +6382,8 @@
               "children": {
                 "authenticator": {
                   "type": "string",
-                  "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point."
+                  "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -6439,7 +6475,8 @@
                   "children": {
                     "id": {
                       "type": "string",
-                      "doc": "ID specifies the name of the extension to use."
+                      "doc": "ID specifies the name of the extension to use.",
+                      "extensionRef": "extension"
                     }
                   },
                   "doc": "Middleware defines the extension ID for a middleware component."
@@ -6870,7 +6907,8 @@
               "children": {
                 "authenticator": {
                   "type": "string",
-                  "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point."
+                  "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.",
+                  "extensionRef": "auth"
                 }
               },
               "doc": "Auth configuration for outgoing HTTP calls."
@@ -8044,7 +8082,8 @@
                   "children": {
                     "id": {
                       "type": "string",
-                      "doc": "ID specifies the name of the extension to use."
+                      "doc": "ID specifies the name of the extension to use.",
+                      "extensionRef": "extension"
                     }
                   },
                   "doc": "Middleware defines the extension ID for a middleware component."
@@ -10388,6 +10427,7 @@
               }
             }
           },
+          "open": true,
           "doc": "Config defines the configuration for the processor."
         }
       }
@@ -10675,6 +10715,7 @@
               "doc": "Timeout is an optional value used to set scraper's context deadline."
             }
           },
+          "open": true,
           "doc": "Config defines configuration for HostMetrics receiver."
         }
       },
@@ -10823,7 +10864,8 @@
                       "children": {
                         "authenticator": {
                           "type": "string",
-                          "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point."
+                          "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.",
+                          "extensionRef": "auth"
                         }
                       },
                       "doc": "Auth configuration for outgoing HTTP calls."
@@ -10925,7 +10967,8 @@
                           "children": {
                             "id": {
                               "type": "string",
-                              "doc": "ID specifies the name of the extension to use."
+                              "doc": "ID specifies the name of the extension to use.",
+                              "extensionRef": "extension"
                             }
                           },
                           "doc": "Middleware defines the extension ID for a middleware component."
@@ -11314,7 +11357,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -11381,7 +11425,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -11519,7 +11564,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         },
                         "request_params": {
                           "type": "list",
@@ -11593,7 +11639,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -11698,7 +11745,8 @@
                   "children": {
                     "authenticator": {
                       "type": "string",
-                      "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point."
+                      "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.",
+                      "extensionRef": "auth"
                     }
                   },
                   "doc": "Auth configuration for outgoing RPCs."
@@ -11763,7 +11811,8 @@
                       "children": {
                         "id": {
                           "type": "string",
-                          "doc": "ID specifies the name of the extension to use."
+                          "doc": "ID specifies the name of the extension to use.",
+                          "extensionRef": "extension"
                         }
                       },
                       "doc": "Middleware defines the extension ID for a middleware component."
@@ -12326,7 +12375,8 @@
             },
             "k8s_leader_elector": {
               "type": "string",
-              "doc": "K8sLeaderElector defines the reference to the k8s leader elector extension use this when k8s cluster receiver needs to be deployed in HA mode"
+              "doc": "K8sLeaderElector defines the reference to the k8s leader elector extension use this when k8s cluster receiver needs to be deployed in HA mode",
+              "extensionRef": "extension"
             },
             "metadata_collection_interval": {
               "type": "duration",
@@ -14857,7 +14907,8 @@
               "doc": "When using auth_type `kubeConfig`, override the current context."
             },
             "k8s_leader_elector": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             },
             "namespaces": {
               "type": "list",
@@ -14899,7 +14950,8 @@
               "type": "bool"
             },
             "k8s_leader_elector": {
-              "type": "string"
+              "type": "string",
+              "extensionRef": "extension"
             },
             "objects": {
               "type": "list",
@@ -16662,7 +16714,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -16729,7 +16782,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -16854,7 +16908,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         }
                       }
                     },
@@ -16921,7 +16976,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -17019,7 +17075,8 @@
                       "type": "map",
                       "children": {
                         "authenticator": {
-                          "type": "string"
+                          "type": "string",
+                          "extensionRef": "auth"
                         },
                         "request_params": {
                           "type": "list",
@@ -17099,7 +17156,8 @@
                           "type": "map",
                           "children": {
                             "id": {
-                              "type": "string"
+                              "type": "string",
+                              "extensionRef": "extension"
                             }
                           }
                         }
@@ -17228,7 +17286,8 @@
                       "children": {
                         "authenticator": {
                           "type": "string",
-                          "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point."
+                          "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.",
+                          "extensionRef": "auth"
                         },
                         "request_params": {
                           "type": "list",
@@ -17315,7 +17374,8 @@
                           "children": {
                             "id": {
                               "type": "string",
-                              "doc": "ID specifies the name of the extension to use."
+                              "doc": "ID specifies the name of the extension to use.",
+                              "extensionRef": "extension"
                             }
                           },
                           "doc": "Middleware defines the extension ID for a middleware component."
@@ -17468,7 +17528,8 @@
                   "children": {
                     "authenticator": {
                       "type": "string",
-                      "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point."
+                      "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.",
+                      "extensionRef": "auth"
                     }
                   },
                   "doc": "Auth configuration for outgoing HTTP calls."
@@ -17563,7 +17624,8 @@
                       "children": {
                         "id": {
                           "type": "string",
-                          "doc": "ID specifies the name of the extension to use."
+                          "doc": "ID specifies the name of the extension to use.",
+                          "extensionRef": "extension"
                         }
                       },
                       "doc": "Middleware defines the extension ID for a middleware component."
@@ -17742,6 +17804,7 @@
               "doc": "WatchObservers are the extensions to listen to endpoints from."
             }
           },
+          "open": true,
           "doc": "Config defines configuration for receiver_creator."
         }
       },
@@ -17762,7 +17825,8 @@
               "children": {
                 "authenticator": {
                   "type": "string",
-                  "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point."
+                  "doc": "AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.",
+                  "extensionRef": "auth"
                 },
                 "request_params": {
                   "type": "list",
@@ -17849,7 +17913,8 @@
                   "children": {
                     "id": {
                       "type": "string",
-                      "doc": "ID specifies the name of the extension to use."
+                      "doc": "ID specifies the name of the extension to use.",
+                      "extensionRef": "extension"
                     }
                   },
                   "doc": "Middleware defines the extension ID for a middleware component."
