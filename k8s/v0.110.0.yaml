@@ -1,6 +1,6 @@
 collectorVersion: v0.110.0
 distribution: k8s
-generatedAt: "2026-08-07T00:13:02Z"
+generatedAt: "2026-09-05T13:54:22Z"
 sources:
   k8s: github.com/open-telemetry/opentelemetry-collector-releases/k8s
 components:
@@ -265,6 +265,7 @@ components:
             type: string
           encoding:
             type: string
+            extensionRef: extension
           flush_interval:
             type: duration
           format:
@@ -316,6 +317,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   authority:
                     type: string
                   balancer_name:
@@ -375,6 +377,7 @@ components:
                         type: int
                       storage:
                         type: string
+                        extensionRef: storage
                   timeout:
                     type: duration
                   tls:
@@ -521,6 +524,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -587,6 +591,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -646,6 +651,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -705,6 +711,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -764,6 +771,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           cookies:
@@ -826,6 +834,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -977,6 +986,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -1217,6 +1227,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -2313,6 +2324,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
               request_params:
                 type: list
                 children:
@@ -2470,6 +2482,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           azure:
             type: map
             children:
@@ -3776,6 +3789,7 @@ components:
             type: string
           timeout:
             type: duration
+        open: true
     httpcheck:
       type: httpcheck
       signals:
@@ -3819,6 +3833,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   compression:
                     type: string
                   cookies:
@@ -3912,6 +3927,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -4020,6 +4036,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                       request_params:
                         type: list
                         children:
@@ -4102,6 +4119,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               authority:
                 type: string
               balancer_name:
@@ -6198,6 +6216,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors_allowed_origins:
             type: list
             children:
@@ -6320,6 +6339,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -6421,6 +6441,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -6503,6 +6524,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                       request_params:
                         type: list
                         children:
@@ -6606,6 +6628,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               collector_id:
                 type: string
               compression:
@@ -6704,6 +6727,7 @@ components:
             children:
               item:
                 type: string
+        open: true
     zipkin:
       type: zipkin
       signals:
@@ -6719,6 +6743,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
               request_params:
                 type: list
                 children:

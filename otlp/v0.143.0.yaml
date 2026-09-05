@@ -1,6 +1,6 @@
 collectorVersion: v0.143.0
 distribution: otlp
-generatedAt: "2026-08-09T10:54:33Z"
+generatedAt: "2026-09-05T02:59:52Z"
 sources:
   otlp: github.com/open-telemetry/opentelemetry-collector-releases/otlp
 components:
@@ -26,6 +26,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -52,6 +53,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           read_buffer_size:
             type: int
           retry_on_failure:
@@ -93,6 +95,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           timeout:
@@ -172,6 +175,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           compression_params:
@@ -215,6 +219,7 @@ components:
                 children:
                   id:
                     type: string
+                    extensionRef: extension
           profiles_endpoint:
             type: string
           proxy_url:
@@ -260,6 +265,7 @@ components:
                 type: string
               storage:
                 type: string
+                extensionRef: storage
               wait_for_result:
                 type: bool
           timeout:
@@ -346,6 +352,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -390,6 +397,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_buffer_size:
                     type: int
                   tls:
@@ -452,6 +460,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                       request_params:
                         type: list
                         children:
@@ -499,6 +508,7 @@ components:
                         children:
                           id:
                             type: string
+                            extensionRef: extension
                   read_header_timeout:
                     type: duration
                   read_timeout:

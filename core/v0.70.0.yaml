@@ -1,6 +1,6 @@
 collectorVersion: v0.70.0
 distribution: core
-generatedAt: "2026-08-11T12:53:58Z"
+generatedAt: "2026-09-05T14:01:03Z"
 sources:
   core: github.com/open-telemetry/opentelemetry-collector-releases/core
 components:
@@ -39,6 +39,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           balancer_name:
             type: string
           compression:
@@ -81,6 +82,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -233,6 +235,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           topic:
@@ -252,6 +255,7 @@ components:
             type: int
           verbosity:
             type: string
+        open: true
     opencensus:
       type: opencensus
       module: github.com/open-telemetry/opentelemetry-collector-contrib/exporter/opencensusexporter
@@ -263,6 +267,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           balancer_name:
             type: string
           compression:
@@ -307,6 +312,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           tls:
             type: map
             children:
@@ -343,6 +349,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           balancer_name:
             type: string
           compression:
@@ -385,6 +392,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -423,6 +431,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           endpoint:
@@ -466,6 +475,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -504,6 +514,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           const_labels:
             type: map
             open: true
@@ -569,6 +580,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           endpoint:
@@ -671,6 +683,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           default_service_name:
@@ -714,6 +727,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -761,6 +775,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           check_collector_pipeline:
             type: map
             children:
@@ -1625,6 +1640,7 @@ components:
             type: duration
           root_path:
             type: string
+        open: true
     jaeger:
       type: jaeger
       module: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/jaegerreceiver
@@ -1642,6 +1658,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   endpoint:
                     type: string
                   include_metadata:
@@ -1730,6 +1747,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   cors:
                     type: map
                     children:
@@ -1776,6 +1794,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               balancer_name:
                 type: string
               compression:
@@ -1949,6 +1968,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors_allowed_origins:
             type: list
             children:
@@ -2025,6 +2045,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   endpoint:
                     type: string
                   include_metadata:
@@ -2087,6 +2108,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   cors:
                     type: map
                     children:
@@ -2150,6 +2172,7 @@ components:
                 type: duration
           use_start_time_metric:
             type: bool
+        open: true
     zipkin:
       type: zipkin
       module: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/zipkinreceiver
@@ -2161,6 +2184,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:

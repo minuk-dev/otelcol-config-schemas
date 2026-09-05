@@ -1,6 +1,6 @@
 collectorVersion: v0.100.0
 distribution: contrib
-generatedAt: "2026-08-11T13:06:51Z"
+generatedAt: "2026-09-05T13:55:15Z"
 sources:
   contrib: github.com/open-telemetry/opentelemetry-collector-releases/contrib
 components:
@@ -412,6 +412,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           tags:
             type: map
             open: true
@@ -586,6 +587,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
     awss3:
@@ -604,6 +606,7 @@ components:
         children:
           encoding:
             type: string
+            extensionRef: extension
           encoding_file_extension:
             type: string
           marshaler:
@@ -751,6 +754,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           tenant_id:
             type: string
           timeout:
@@ -794,6 +798,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           spaneventsenabled:
             type: bool
     carbon:
@@ -846,6 +851,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
     cassandra:
@@ -946,6 +952,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           table_engine:
             type: map
             children:
@@ -989,6 +996,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -1005,6 +1013,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               authority:
                 type: string
               balancer_name:
@@ -1087,6 +1096,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               authority:
                 type: string
               balancer_name:
@@ -1155,6 +1165,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               authority:
                 type: string
               balancer_name:
@@ -1245,6 +1256,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           subsystem_name:
             type: string
           subsystem_name_attributes:
@@ -1296,6 +1308,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               authority:
                 type: string
               balancer_name:
@@ -1388,6 +1401,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -1510,6 +1524,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -1583,6 +1598,7 @@ components:
                 type: int
           write_buffer_size:
             type: int
+        open: true
     dataset:
       type: dataset
       signals:
@@ -1666,6 +1682,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           server_host:
             type: map
             children:
@@ -1810,6 +1827,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -1877,6 +1895,7 @@ components:
             type: string
           encoding:
             type: string
+            extensionRef: extension
           flush_interval:
             type: duration
           format:
@@ -1928,6 +1947,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
     googlecloudpubsub:
@@ -1978,6 +1998,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           topic:
@@ -2025,6 +2046,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           user_agent:
@@ -2048,6 +2070,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -2121,6 +2144,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -2178,6 +2202,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           bucket:
             type: string
           compression:
@@ -2244,6 +2269,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           span_dimensions:
             type: list
             children:
@@ -2317,6 +2343,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -2540,6 +2567,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           topic:
@@ -2571,6 +2599,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   authority:
                     type: string
                   balancer_name:
@@ -2619,6 +2648,7 @@ components:
                         type: int
                       storage:
                         type: string
+                        extensionRef: storage
                   timeout:
                     type: duration
                   tls:
@@ -2734,6 +2764,7 @@ components:
             type: int
           verbosity:
             type: string
+        open: true
     logicmonitor:
       type: logicmonitor
       signals:
@@ -2758,6 +2789,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -2819,6 +2851,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -2876,6 +2909,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           custom_endpoint:
@@ -2937,6 +2971,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -2990,6 +3025,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           default_labels_enabled:
@@ -3044,6 +3080,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -3097,6 +3134,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -3152,6 +3190,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -3218,6 +3257,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -3268,6 +3308,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           tls:
             type: map
             children:
@@ -3330,6 +3371,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               compression:
                 type: string
               disable_keep_alives:
@@ -3451,6 +3493,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -3499,6 +3542,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -3558,6 +3602,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -3615,6 +3660,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -3672,6 +3718,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           const_labels:
             type: map
             open: true
@@ -3761,6 +3808,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -3999,6 +4047,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls_allow_insecure_connection:
@@ -4059,6 +4108,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
     sentry:
@@ -4136,6 +4186,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           correlation:
@@ -4146,6 +4197,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               cleanup_interval:
                 type: duration
               compression:
@@ -4390,6 +4442,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           sync_host_metadata:
             type: bool
           timeout:
@@ -4499,6 +4552,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           authority:
             type: string
           balancer_name:
@@ -4549,6 +4603,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -4608,6 +4663,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           batcher:
             type: map
             children:
@@ -4717,6 +4773,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           source:
             type: string
           sourcetype:
@@ -4795,6 +4852,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           client:
             type: string
           compress_encoding:
@@ -4863,6 +4921,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           source_category:
             type: string
           source_host:
@@ -4953,6 +5012,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -5024,6 +5084,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           default_service_name:
@@ -5079,6 +5140,7 @@ components:
                 type: int
               storage:
                 type: string
+                extensionRef: storage
           timeout:
             type: duration
           tls:
@@ -5132,6 +5194,7 @@ components:
             type: int
           storage:
             type: string
+            extensionRef: storage
     asapclient:
       type: asapclient
       stability:
@@ -5379,6 +5442,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -5515,6 +5579,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           check_collector_pipeline:
             type: map
             children:
@@ -5615,6 +5680,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               compression:
                 type: string
               disable_keep_alives:
@@ -5686,6 +5752,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               cors:
                 type: map
                 children:
@@ -5768,6 +5835,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               dialer:
                 type: map
                 children:
@@ -5850,6 +5918,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               cors:
                 type: map
                 children:
@@ -5921,6 +5990,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   authority:
                     type: string
                   balancer_name:
@@ -7307,6 +7377,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
@@ -7446,6 +7517,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           azure:
             type: map
             children:
@@ -9307,6 +9379,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -9510,6 +9583,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -10146,6 +10220,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
@@ -10332,6 +10407,7 @@ components:
             type: string
           storage:
             type: string
+            extensionRef: storage
     azuremonitor:
       type: azuremonitor
       signals:
@@ -10408,6 +10484,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -10950,6 +11027,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               compression:
                 type: string
               disable_keep_alives:
@@ -11046,6 +11124,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
@@ -11121,6 +11200,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -11278,6 +11358,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
@@ -11918,6 +11999,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -12577,6 +12659,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -12898,6 +12981,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -13374,6 +13458,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -13670,6 +13755,7 @@ components:
             type: string
           timeout:
             type: duration
+        open: true
     httpcheck:
       type: httpcheck
       signals:
@@ -13713,6 +13799,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   compression:
                     type: string
                   disable_keep_alives:
@@ -13927,6 +14014,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
@@ -14004,6 +14092,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -14112,6 +14201,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   cors:
                     type: map
                     children:
@@ -14176,6 +14266,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               authority:
                 type: string
               balancer_name:
@@ -16633,6 +16724,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -16715,6 +16807,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   cors:
                     type: map
                     children:
@@ -17953,6 +18046,7 @@ components:
                 type: float
           storage:
             type: string
+            extensionRef: storage
           timeout:
             type: duration
     mysql:
@@ -18299,6 +18393,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -18415,6 +18510,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -18644,6 +18740,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors_allowed_origins:
             type: list
             children:
@@ -18940,6 +19037,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -19022,6 +19120,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   cors:
                     type: map
                     children:
@@ -19190,6 +19289,7 @@ components:
             type: string
           storage:
             type: string
+            extensionRef: storage
     podman_stats:
       type: podman_stats
       signals:
@@ -19723,6 +19823,7 @@ components:
                 children:
                   authenticator:
                     type: string
+                    extensionRef: auth
               collector_id:
                 type: string
               compression:
@@ -19810,6 +19911,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -19990,11 +20092,13 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
           auth:
             type: map
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           compression:
             type: string
           directories:
@@ -20010,6 +20114,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
           disable_keep_alives:
             type: bool
           endpoint:
@@ -20034,6 +20139,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
           http2_ping_timeout:
             type: duration
           http2_read_idle_timeout:
@@ -20059,6 +20165,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
           proxy_url:
             type: string
           read_buffer_size:
@@ -20128,6 +20235,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
           write_buffer_size:
             type: int
     purefb:
@@ -20153,11 +20261,13 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
           auth:
             type: map
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           clients:
             type: list
             children:
@@ -20171,6 +20281,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
           compression:
             type: string
           disable_keep_alives:
@@ -20259,6 +20370,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
           write_buffer_size:
             type: int
     rabbitmq:
@@ -20276,6 +20388,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -20478,6 +20591,7 @@ components:
             children:
               item:
                 type: string
+        open: true
     redis:
       type: redis
       signals:
@@ -20812,6 +20926,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           collection_interval:
             type: duration
           compression:
@@ -20964,6 +21079,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
@@ -21039,6 +21155,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
@@ -21118,6 +21235,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   dialer:
                     type: map
                     children:
@@ -21200,6 +21318,7 @@ components:
                     children:
                       authenticator:
                         type: string
+                        extensionRef: auth
                   cors:
                     type: map
                     children:
@@ -21635,6 +21754,7 @@ components:
             children:
               extension:
                 type: string
+                extensionRef: extension
               path:
                 type: string
           auth:
@@ -21642,6 +21762,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
@@ -21791,6 +21912,7 @@ components:
                     type: string
           storage:
             type: string
+            extensionRef: storage
           telemetry:
             type: map
             children:
@@ -22767,6 +22889,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
@@ -22905,6 +23028,7 @@ components:
             children:
               authenticator:
                 type: string
+                extensionRef: auth
           cors:
             type: map
             children:
