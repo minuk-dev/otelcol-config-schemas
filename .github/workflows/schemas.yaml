@@ -98,7 +98,24 @@ env:
   # again every week -- the backlog is filled oldest first -- so one that
   # proves permanently unresolvable would sit at the head of the queue for
   # good. Raising FLOOR past it is how that is answered.
-  FLOOR: v0.40.0
+  #
+  # It has been raised once, past v0.44.0, whose contrib manifest cannot be
+  # resolved by anyone any more:
+  #
+  #   go: github.com/coralogix/opentelemetry-cx-protobuf-api/coralogixpb
+  #       @v0.0.0-20211201100428-d2a5d0ecf53e: invalid version:
+  #       git ls-remote -q origin ...: exit status 128
+  #
+  # coralogixexporter pins that repository at a pseudo-version, and the
+  # repository is gone -- GitHub answers 404 and the module proxy never
+  # cached it, so there is no copy left to resolve against. Its core
+  # generated fine; contrib did not, and a release is written whole or not
+  # at all.
+  #
+  # v0.41.0 through v0.43.1 were generated before it and stay served:
+  # retention is off, so nothing below FLOOR is dropped, and the floor only
+  # decides what is looked for. Only v0.44.0 is given up.
+  FLOOR: v0.45.0
   # Free space below which the module cache is dropped mid-batch. Adjacent
   # releases share module paths but pin different versions of them, so the
   # cache grows by a gigabyte or two per release rather than levelling off,
