@@ -127,7 +127,7 @@
         "awsprometheusremotewrite": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "awss3": [
@@ -189,7 +189,7 @@
         "collector": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "coralogix": [
@@ -226,7 +226,7 @@
         "elastic": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "elasticsearch": [
@@ -278,7 +278,7 @@
         "honeycomb": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "honeycomb_marker": [
@@ -371,7 +371,7 @@
         "newrelic": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "nop": [
@@ -490,7 +490,7 @@
         "stackdriver": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "stef": [
@@ -596,7 +596,7 @@
         ],
         "basicauth": [
           {
-            "from": "v0.70.0"
+            "from": "v0.43.1"
           }
         ],
         "bearertokenauth": [
@@ -617,7 +617,7 @@
         "collector": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "datadog": [
@@ -654,7 +654,7 @@
         "fluentbit": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "google_cloud_logentry_encoding": [
@@ -861,7 +861,7 @@
         "collector": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "coralogix": [
@@ -1125,7 +1125,7 @@
         ],
         "apache": [
           {
-            "from": "v0.70.0"
+            "from": "v0.43.1"
           }
         ],
         "apache_spark": [
@@ -1273,7 +1273,7 @@
         "collector": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "couchdb": [
@@ -1563,7 +1563,7 @@
         ],
         "mysql": [
           {
-            "from": "v0.70.0"
+            "from": "v0.43.1"
           }
         ],
         "named_pipe": [
@@ -1650,7 +1650,7 @@
         ],
         "postgresql": [
           {
-            "from": "v0.70.0"
+            "from": "v0.43.1"
           }
         ],
         "pprof": [
@@ -1676,7 +1676,7 @@
         "prometheusexec": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "prometheusremotewrite": [
@@ -1948,7 +1948,7 @@
         "collector": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "debug": [
@@ -2048,7 +2048,7 @@
         "collector": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "health_check": [
@@ -2093,7 +2093,7 @@
         "collector": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "filter": [
@@ -2138,7 +2138,7 @@
         "collector": [
           {
             "from": "v0.42.0",
-            "to": "v0.42.0"
+            "to": "v0.43.1"
           }
         ],
         "host_metrics": [
