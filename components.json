@@ -139,6 +139,11 @@
             "from": "v0.148.0"
           }
         ],
+        "azure_monitor": [
+          {
+            "from": "v0.159.0"
+          }
+        ],
         "azureblob": [
           {
             "from": "v0.130.0"
@@ -517,6 +522,11 @@
             "from": "v0.80.0"
           }
         ],
+        "aws_iam_db_auth": [
+          {
+            "from": "v0.159.0"
+          }
+        ],
         "aws_logs_encoding": [
           {
             "from": "v0.148.0"
@@ -701,7 +711,8 @@
         ],
         "kafkatopics_observer": [
           {
-            "from": "v0.130.0"
+            "from": "v0.130.0",
+            "to": "v0.158.0"
           }
         ],
         "memory_ballast": [
@@ -1721,6 +1732,11 @@
           {
             "from": "v0.70.0",
             "to": "v0.70.0"
+          }
+        ],
+        "sql_query": [
+          {
+            "from": "v0.159.0"
           }
         ],
         "sqlquery": [
