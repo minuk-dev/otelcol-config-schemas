@@ -99,23 +99,30 @@ env:
   # proves permanently unresolvable would sit at the head of the queue for
   # good. Raising FLOOR past it is how that is answered.
   #
-  # It has been raised once, past v0.44.0, whose contrib manifest cannot be
-  # resolved by anyone any more:
+  # It has been raised past the contrib manifests that cannot be resolved by
+  # anyone any more:
   #
   #   go: github.com/coralogix/opentelemetry-cx-protobuf-api/coralogixpb
   #       @v0.0.0-20211201100428-d2a5d0ecf53e: invalid version:
   #       git ls-remote -q origin ...: exit status 128
   #
-  # coralogixexporter pins that repository at a pseudo-version, and the
-  # repository is gone -- GitHub answers 404 and the module proxy never
-  # cached it, so there is no copy left to resolve against. Its core
-  # generated fine; contrib did not, and a release is written whole or not
-  # at all.
+  # coralogixexporter pins that repository at a pseudo-version and the
+  # repository is gone: GitHub answers 404 and the module proxy never cached
+  # it -- /@v/list is empty -- so there is no copy left to resolve against.
+  # Core resolves fine at those releases; contrib does not, and a release is
+  # written whole or not at all.
   #
-  # v0.41.0 through v0.43.1 were generated before it and stay served:
-  # retention is off, so nothing below FLOOR is dropped, and the floor only
-  # decides what is looked for. Only v0.44.0 is given up.
-  FLOOR: v0.45.0
+  # It is a range, not a release. coralogixexporter's own go.mod, read off
+  # the proxy, carries the pin from v0.44.0 through v0.66.0 and drops it at
+  # v0.67.0, so the floor has to clear the whole span -- raising it one
+  # release at a time just meets the same error at the next one, which is
+  # what raising it to v0.45.0 did.
+  #
+  # v0.40.0 through v0.43.1 were generated before the pin appeared and stay
+  # served: retention is off, so nothing below FLOOR is dropped, and the
+  # floor only decides what is looked for. What is given up is v0.44.0
+  # through v0.66.0.
+  FLOOR: v0.67.0
   # Free space below which the module cache is dropped mid-batch. Adjacent
   # releases share module paths but pin different versions of them, so the
   # cache grows by a gigabyte or two per release rather than levelling off,
