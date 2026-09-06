@@ -1030,10 +1030,20 @@
             "from": "v0.70.0"
           }
         ],
+        "span_pruning": [
+          {
+            "from": "v0.160.0"
+          }
+        ],
         "spanmetrics": [
           {
             "from": "v0.70.0",
             "to": "v0.90.0"
+          }
+        ],
+        "spanpruning": [
+          {
+            "from": "v0.160.0"
           }
         ],
         "sumologic": [
@@ -1378,6 +1388,11 @@
         "httpcheck": [
           {
             "from": "v0.70.0"
+          }
+        ],
+        "icmp_check": [
+          {
+            "from": "v0.160.0"
           }
         ],
         "icmpcheckreceiver": [
@@ -1842,6 +1857,11 @@
         "windows_event_log": [
           {
             "from": "v0.150.0"
+          }
+        ],
+        "windows_perf_counters": [
+          {
+            "from": "v0.160.0"
           }
         ],
         "windows_service": [
