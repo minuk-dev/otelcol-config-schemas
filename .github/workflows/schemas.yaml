@@ -118,9 +118,15 @@ jobs:
       versions: ${{ steps.pick.outputs.versions }}
     steps:
       - name: Checkout the registry
+        # Into a directory of its own, so that the linter and the upstream
+        # clone below are its siblings rather than its contents. schemagen
+        # reads what the registry already holds by listing --registry's
+        # subdirectories, so a checkout inside it is a distribution as far as
+        # the index is concerned.
         uses: actions/checkout@v5
         with:
           ref: ${{ inputs.base || 'main' }}
+          path: registry
       - name: Checkout the linter
         # For "schemagen print-version", which is how a tag is turned into
         # the release it resolves to. Public, so no token.
@@ -250,7 +256,7 @@ jobs:
             # The index comes from the checkout, so it describes the branch
             # being built on rather than whatever main happens to hold.
             cut -f1 one-per-release.txt | sort -V -u > window.txt
-            jq -r '.distributions[][]' index.json | sort -u > have.txt
+            jq -r '.distributions[][]' registry/index.json | sort -u > have.txt
 
             # Oldest first. Each schema is summarised against the release
             # before it, so generating them in order is what makes those
@@ -291,9 +297,20 @@ jobs:
     timeout-minutes: 350
     steps:
       - name: Checkout the registry
+        # Into a directory of its own; see the discover job. Without it the
+        # linter and upstream checkouts sit inside --registry, and schemagen
+        # writes them into index.json as distributions of their own:
+        #
+        #   "linter":   [".golangci", ".goreleaser", ".octocov", "action", ...]
+        #   "releases": [".goreleaser", "renovate"]
+        #
+        # Excluding them from git kept them out of the commit but not out of
+        # the scan, so the index that was committed described six
+        # distributions where the registry serves four.
         uses: actions/checkout@v5
         with:
           ref: ${{ inputs.base || 'main' }}
+          path: registry
           # Whole history. This job commits each release as it generates it, and
           # create-pull-request then has to work out what those commits are
           # against the branch it is opening: from a depth-1 checkout it asked
@@ -322,13 +339,6 @@ jobs:
         run: |
           git clone --filter=blob:none --no-checkout \
             https://github.com/open-telemetry/opentelemetry-collector-releases releases
-      - name: Keep the checkouts out of the commit
-        # Both have to live under the workspace -- actions/checkout takes a
-        # path relative to it -- and the workspace is this repository, so
-        # without this they are untracked files that "git add -A" would commit
-        # into the registry.
-        run: |
-          printf '/linter/\n/releases/\n' >> .git/info/exclude
       - name: Set up Go
         uses: actions/setup-go@v6
         with:
@@ -370,8 +380,8 @@ jobs:
           # in the batch could be generated, and threw away the one that had.
           notes="${RUNNER_TEMP}"
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C registry config user.name "github-actions[bot]"
+          git -C registry config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # Dropping the cache costs the next release its downloads, which is a
           # few minutes; running out of disk costs the batch.
@@ -435,7 +445,7 @@ jobs:
             fi
 
             (cd linter && go run ./cmd/schemagen generate \
-              --registry "${GITHUB_WORKSPACE}" \
+              --registry "${GITHUB_WORKSPACE}/registry" \
               --summary "${notes}/release-summary.md" \
               --retain "${RETAIN}" --retain-every "${RETAIN_EVERY}" \
               "${builders[@]}") || return 1
@@ -445,10 +455,10 @@ jobs:
             # work that grows with the registry.
             jq -r --arg version "${version}" \
               '.distributions | to_entries[] | select(.value | index($version)) | .key' \
-              index.json |
+              registry/index.json |
             while read -r distribution; do
               (cd linter && go run ./cmd/otelcol-config-lint run \
-                --schema-location "${GITHUB_WORKSPACE}" --distribution "${distribution}" \
+                --schema-location "${GITHUB_WORKSPACE}/registry" --distribution "${distribution}" \
                 --collector-version "${version}" --min-severity error \
                 --ignore-missing-schemas testdata/valid) || exit 1
             done || return 1
@@ -464,8 +474,8 @@ jobs:
             echo "::group::${tag} (${version})"
 
             if generate_one "${tag}" "${version}"; then
-              git add -A
-              git commit -q \
+              git -C registry add -A
+              git -C registry commit -q \
                 -m "Add schemas for ${version}" \
                 -m "Generated by cmd/schemagen in otelcol-config-lint."
 
@@ -484,8 +494,8 @@ jobs:
 
             # Whatever half of it reached the registry is not a release, so it
             # does not go into the pull request.
-            git checkout -- .
-            git clean -qfd
+            git -C registry checkout -- .
+            git -C registry clean -qfd
 
             echo "::endgroup::"
             echo "::error::${version} could not be generated; the batch stops here"
@@ -583,6 +593,9 @@ jobs:
       - name: Open a pull request
         uses: peter-evans/create-pull-request@v8
         with:
+          # The registry checkout, not the workspace: that is the repository
+          # the commits are in and the one the pull request is against.
+          path: registry
           base: ${{ inputs.base || 'main' }}
           branch: ${{ steps.generate.outputs.branch }}
           title: ${{ steps.generate.outputs.title }}
