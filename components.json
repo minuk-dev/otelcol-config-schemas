@@ -145,6 +145,11 @@
             "from": "v0.148.0"
           }
         ],
+        "azure_monitor": [
+          {
+            "from": "v0.159.0"
+          }
+        ],
         "azureblob": [
           {
             "from": "v0.130.0"
@@ -553,6 +558,11 @@
             "from": "v0.80.0"
           }
         ],
+        "aws_iam_db_auth": [
+          {
+            "from": "v0.159.0"
+          }
+        ],
         "aws_logs_encoding": [
           {
             "from": "v0.148.0"
@@ -749,7 +759,8 @@
         ],
         "kafkatopics_observer": [
           {
-            "from": "v0.130.0"
+            "from": "v0.130.0",
+            "to": "v0.158.0"
           }
         ],
         "memory_ballast": [
@@ -1073,10 +1084,20 @@
             "from": "v0.42.0"
           }
         ],
+        "span_pruning": [
+          {
+            "from": "v0.160.0"
+          }
+        ],
         "spanmetrics": [
           {
             "from": "v0.42.0",
             "to": "v0.90.0"
+          }
+        ],
+        "spanpruning": [
+          {
+            "from": "v0.160.0"
           }
         ],
         "sumologic": [
@@ -1427,6 +1448,11 @@
         "httpcheck": [
           {
             "from": "v0.70.0"
+          }
+        ],
+        "icmp_check": [
+          {
+            "from": "v0.160.0"
           }
         ],
         "icmpcheckreceiver": [
@@ -1789,6 +1815,11 @@
             "to": "v0.70.0"
           }
         ],
+        "sql_query": [
+          {
+            "from": "v0.159.0"
+          }
+        ],
         "sqlquery": [
           {
             "from": "v0.70.0"
@@ -1892,6 +1923,11 @@
         "windows_event_log": [
           {
             "from": "v0.150.0"
+          }
+        ],
+        "windows_perf_counters": [
+          {
+            "from": "v0.160.0"
           }
         ],
         "windows_service": [
