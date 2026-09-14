@@ -544,7 +544,7 @@
       "extension": {
         "ack": [
           {
-            "from": "v0.100.0"
+            "from": "v0.99.0"
           }
         ],
         "asapauth": [
@@ -2381,7 +2381,7 @@
         ],
         "file_storage": [
           {
-            "from": "v0.100.0"
+            "from": "v0.99.0"
           }
         ],
         "headers_setter": [
