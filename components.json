@@ -39,7 +39,7 @@
         ],
         "otlpjson": [
           {
-            "from": "v0.110.0"
+            "from": "v0.106.0"
           }
         ],
         "round_robin": [
@@ -310,7 +310,7 @@
         "instana": [
           {
             "from": "v0.70.0",
-            "to": "v0.102.1"
+            "to": "v0.106.0"
           }
         ],
         "jaeger": [
@@ -397,7 +397,7 @@
         ],
         "otelarrow": [
           {
-            "from": "v0.110.0"
+            "from": "v0.106.0"
           }
         ],
         "otlp": [
@@ -456,7 +456,7 @@
         ],
         "rabbitmq": [
           {
-            "from": "v0.110.0"
+            "from": "v0.106.0"
           }
         ],
         "sapm": [
@@ -674,7 +674,7 @@
         ],
         "googleclientauth": [
           {
-            "from": "v0.110.0"
+            "from": "v0.106.0"
           }
         ],
         "googlecloudlogentry_encoding": [
@@ -738,7 +738,7 @@
         ],
         "json_log_encoding": [
           {
-            "from": "v0.110.0"
+            "from": "v0.106.0"
           }
         ],
         "k8s_leader_elector": [
@@ -766,7 +766,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.102.1"
+            "to": "v0.106.0"
           }
         ],
         "oauth2client": [
@@ -834,7 +834,7 @@
         ],
         "sumologic": [
           {
-            "from": "v0.110.0"
+            "from": "v0.106.0"
           }
         ],
         "text_encoding": [
@@ -1645,7 +1645,7 @@
         ],
         "otelarrow": [
           {
-            "from": "v0.110.0"
+            "from": "v0.106.0"
           }
         ],
         "otlp": [
@@ -2101,7 +2101,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.102.1"
+            "to": "v0.106.0"
           }
         ],
         "pprof": [
@@ -2321,7 +2321,7 @@
         ],
         "otelarrow": [
           {
-            "from": "v0.110.0"
+            "from": "v0.106.0"
           }
         ],
         "otlp": [
@@ -2686,7 +2686,7 @@
         ],
         "otelarrow": [
           {
-            "from": "v0.110.0"
+            "from": "v0.106.0"
           }
         ],
         "otlp": [
