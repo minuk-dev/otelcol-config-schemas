@@ -225,7 +225,7 @@
         "dynatrace": [
           {
             "from": "v0.42.0",
-            "to": "v0.96.0"
+            "to": "v0.97.0"
           }
         ],
         "elastic": [
@@ -793,7 +793,7 @@
         ],
         "opamp": [
           {
-            "from": "v0.100.0"
+            "from": "v0.97.0"
           }
         ],
         "otlp_encoding": [
