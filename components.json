@@ -225,7 +225,7 @@
         "dynatrace": [
           {
             "from": "v0.42.0",
-            "to": "v0.95.0"
+            "to": "v0.96.0"
           }
         ],
         "elastic": [
@@ -637,7 +637,7 @@
         ],
         "db_storage": [
           {
-            "from": "v0.100.0"
+            "from": "v0.96.0"
           }
         ],
         "docker_observer": [
@@ -658,7 +658,7 @@
         ],
         "file_storage": [
           {
-            "from": "v0.100.0"
+            "from": "v0.96.0"
           }
         ],
         "fluentbit": [
