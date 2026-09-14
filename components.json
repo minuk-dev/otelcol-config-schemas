@@ -310,7 +310,7 @@
         "instana": [
           {
             "from": "v0.70.0",
-            "to": "v0.100.0"
+            "to": "v0.101.0"
           }
         ],
         "jaeger": [
@@ -478,7 +478,7 @@
         "skywalking": [
           {
             "from": "v0.42.0",
-            "to": "v0.100.0"
+            "to": "v0.101.0"
           }
         ],
         "splunk_hec": [
@@ -766,7 +766,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.100.0"
+            "to": "v0.101.0"
           }
         ],
         "oauth2client": [
@@ -1806,7 +1806,7 @@
         ],
         "splunkenterprise": [
           {
-            "from": "v0.110.0"
+            "from": "v0.101.0"
           }
         ],
         "splunkhec": [
@@ -2101,7 +2101,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.100.0"
+            "to": "v0.101.0"
           }
         ],
         "pprof": [
