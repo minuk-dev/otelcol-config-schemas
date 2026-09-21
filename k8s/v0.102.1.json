@@ -1,7 +1,7 @@
 {
   "collectorVersion": "v0.102.1",
   "distribution": "k8s",
-  "generatedAt": "2026-09-21T13:06:11Z",
+  "generatedAt": "2026-09-21T13:06:43Z",
   "sources": {
     "k8s": "github.com/open-telemetry/opentelemetry-collector-releases/k8s"
   },

@@ -310,7 +310,7 @@
         "instana": [
           {
             "from": "v0.70.0",
-            "to": "v0.102.1"
+            "to": "v0.103.0"
           }
         ],
         "jaeger": [
@@ -478,7 +478,7 @@
         "skywalking": [
           {
             "from": "v0.42.0",
-            "to": "v0.102.1"
+            "to": "v0.103.0"
           }
         ],
         "splunk_hec": [
@@ -674,7 +674,7 @@
         ],
         "googleclientauth": [
           {
-            "from": "v0.110.0"
+            "from": "v0.103.0"
           }
         ],
         "googlecloudlogentry_encoding": [
@@ -738,7 +738,7 @@
         ],
         "json_log_encoding": [
           {
-            "from": "v0.110.0"
+            "from": "v0.103.0"
           }
         ],
         "k8s_leader_elector": [
@@ -766,7 +766,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.102.1"
+            "to": "v0.103.0"
           }
         ],
         "oauth2client": [
@@ -2101,7 +2101,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.102.1"
+            "to": "v0.103.0"
           }
         ],
         "pprof": [
