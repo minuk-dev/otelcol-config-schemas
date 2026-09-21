@@ -310,7 +310,7 @@
         "instana": [
           {
             "from": "v0.70.0",
-            "to": "v0.106.1"
+            "to": "v0.107.0"
           }
         ],
         "jaeger": [
@@ -766,7 +766,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.106.1"
+            "to": "v0.107.0"
           }
         ],
         "oauth2client": [
@@ -983,7 +983,7 @@
         ],
         "logdedup": [
           {
-            "from": "v0.110.0"
+            "from": "v0.107.0"
           }
         ],
         "memory_limiter": [
@@ -2101,7 +2101,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.106.1"
+            "to": "v0.107.0"
           }
         ],
         "pprof": [
@@ -2533,7 +2533,7 @@
         ],
         "logdedup": [
           {
-            "from": "v0.110.0"
+            "from": "v0.107.0"
           }
         ],
         "memory_limiter": [
