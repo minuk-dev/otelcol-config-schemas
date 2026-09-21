@@ -310,7 +310,7 @@
         "instana": [
           {
             "from": "v0.70.0",
-            "to": "v0.107.0"
+            "to": "v0.108.1"
           }
         ],
         "jaeger": [
@@ -908,7 +908,7 @@
         ],
         "deltatocumulative": [
           {
-            "from": "v0.110.0"
+            "from": "v0.108.1"
           }
         ],
         "deltatorate": [
@@ -939,7 +939,7 @@
         ],
         "geoip": [
           {
-            "from": "v0.110.0"
+            "from": "v0.108.1"
           }
         ],
         "groupbyattrs": [
