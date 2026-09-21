@@ -310,7 +310,7 @@
         "instana": [
           {
             "from": "v0.70.0",
-            "to": "v0.102.0"
+            "to": "v0.102.1"
           }
         ],
         "jaeger": [
@@ -478,7 +478,7 @@
         "skywalking": [
           {
             "from": "v0.42.0",
-            "to": "v0.102.0"
+            "to": "v0.102.1"
           }
         ],
         "splunk_hec": [
@@ -766,7 +766,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.102.0"
+            "to": "v0.102.1"
           }
         ],
         "oauth2client": [
@@ -2101,7 +2101,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.102.0"
+            "to": "v0.102.1"
           }
         ],
         "pprof": [
