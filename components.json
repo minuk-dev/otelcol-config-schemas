@@ -310,7 +310,7 @@
         "instana": [
           {
             "from": "v0.70.0",
-            "to": "v0.106.0"
+            "to": "v0.106.1"
           }
         ],
         "jaeger": [
@@ -766,7 +766,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.106.0"
+            "to": "v0.106.1"
           }
         ],
         "oauth2client": [
@@ -2101,7 +2101,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.106.0"
+            "to": "v0.106.1"
           }
         ],
         "pprof": [
