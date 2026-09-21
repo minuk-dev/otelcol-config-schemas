@@ -39,7 +39,7 @@
         ],
         "otlpjson": [
           {
-            "from": "v0.110.0"
+            "from": "v0.106.0"
           }
         ],
         "round_robin": [
@@ -310,7 +310,7 @@
         "instana": [
           {
             "from": "v0.70.0",
-            "to": "v0.105.0"
+            "to": "v0.106.0"
           }
         ],
         "jaeger": [
@@ -766,7 +766,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.105.0"
+            "to": "v0.106.0"
           }
         ],
         "oauth2client": [
@@ -2101,7 +2101,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.105.0"
+            "to": "v0.106.0"
           }
         ],
         "pprof": [
