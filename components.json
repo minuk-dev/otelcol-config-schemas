@@ -4,7 +4,7 @@
       "connector": {
         "count": [
           {
-            "from": "v0.80.0"
+            "from": "v0.73.0"
           }
         ],
         "datadog": [
@@ -24,7 +24,7 @@
         ],
         "forward": [
           {
-            "from": "v0.80.0"
+            "from": "v0.73.0"
           }
         ],
         "grafanacloud": [
@@ -64,7 +64,7 @@
         ],
         "servicegraph": [
           {
-            "from": "v0.80.0"
+            "from": "v0.75.0"
           }
         ],
         "signal_to_metrics": [
@@ -88,7 +88,7 @@
         ],
         "spanmetrics": [
           {
-            "from": "v0.80.0"
+            "from": "v0.74.0"
           }
         ],
         "sum": [
@@ -106,12 +106,12 @@
         "alibabacloudlogservice": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           }
         ],
         "awscloudwatchlogs": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "awsemf": [
@@ -132,7 +132,7 @@
         ],
         "awss3": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "awsxray": [
@@ -157,7 +157,7 @@
         ],
         "azuredataexplorer": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "azuremonitor": [
@@ -188,7 +188,7 @@
         ],
         "clickhouse": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "collector": [
@@ -199,7 +199,7 @@
         ],
         "coralogix": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "datadog": [
@@ -267,7 +267,7 @@
         ],
         "googlecloudpubsub": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "googlecloudstorage": [
@@ -277,7 +277,7 @@
         ],
         "googlemanagedprometheus": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "honeycomb": [
@@ -309,7 +309,7 @@
         ],
         "instana": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.102.0"
           }
         ],
@@ -328,7 +328,7 @@
         "jaegerthrifthttp": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           }
         ],
         "kafka": [
@@ -348,13 +348,13 @@
         ],
         "logging": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.110.0"
           }
         ],
         "logicmonitor": [
           {
-            "from": "v0.80.0"
+            "from": "v0.71.0"
           }
         ],
         "logzio": [
@@ -370,7 +370,7 @@
         ],
         "mezmo": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "newrelic": [
@@ -402,7 +402,7 @@
         ],
         "otlp": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.143.0"
           },
           {
@@ -421,7 +421,7 @@
         ],
         "otlphttp": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.143.0"
           },
           {
@@ -451,7 +451,7 @@
         ],
         "pulsar": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "rabbitmq": [
@@ -489,7 +489,13 @@
         "splunkhec": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.76.1"
+          }
+        ],
+        "splunkhecexporter": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "stackdriver": [
@@ -521,13 +527,13 @@
         ],
         "tencentcloud_logservice": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "tencentcloudlogservice": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.76.1"
           }
         ],
         "tinybird": [
@@ -550,12 +556,12 @@
         "asapauth": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.76.1"
           }
         ],
         "asapclient": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "aws_iam_db_auth": [
@@ -600,7 +606,7 @@
         ],
         "ballast": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.90.0"
           }
         ],
@@ -642,7 +648,7 @@
         ],
         "docker_observer": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "ecs_observer": [
@@ -684,35 +690,35 @@
         ],
         "headers_setter": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "headerssetter": [
           {
-            "from": "v0.70.0",
-            "to": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.76.1"
           }
         ],
         "health_check": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "healthcheck": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.76.1"
           }
         ],
         "host_observer": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "hostobserver": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.76.1"
           }
         ],
         "http_forwarder": [
@@ -723,7 +729,7 @@
         "httpforwarder": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           }
         ],
         "jaeger_encoding": [
@@ -733,7 +739,7 @@
         ],
         "jaegerremotesampling": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "json_log_encoding": [
@@ -748,13 +754,13 @@
         ],
         "k8s_observer": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "k8sobserver": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.76.1"
           }
         ],
         "kafkatopics_observer": [
@@ -771,24 +777,24 @@
         ],
         "oauth2client": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "oauth2clientauth": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.76.1"
           }
         ],
         "oidc": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "oidcauth": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.76.1"
           }
         ],
         "opamp": [
@@ -818,7 +824,7 @@
         ],
         "sigv4auth": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "skywalking_encoding": [
@@ -849,7 +855,7 @@
         ],
         "zpages": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ]
       },
@@ -861,7 +867,7 @@
         ],
         "batch": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "cardinality_guardian": [
@@ -892,7 +898,7 @@
         ],
         "datadog": [
           {
-            "from": "v0.70.0",
+            "from": "v0.69.0",
             "to": "v0.93.0"
           }
         ],
@@ -993,7 +999,7 @@
         ],
         "memorylimiter": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.90.0"
           }
         ],
@@ -1010,7 +1016,7 @@
         "metricsgeneration": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           },
           {
             "from": "v0.120.0"
@@ -1034,12 +1040,12 @@
         "probabilisticsampler": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           }
         ],
         "redaction": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "remotetap": [
@@ -1049,7 +1055,11 @@
         ],
         "resource": [
           {
-            "from": "v0.42.0"
+            "from": "v0.42.0",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
           }
         ],
         "resource_detection": [
@@ -1059,7 +1069,23 @@
         ],
         "resourcedetection": [
           {
-            "from": "v0.42.0"
+            "from": "v0.42.0",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "resourcedetectionprocessor": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
+          }
+        ],
+        "resourceprocessor": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "routing": [
@@ -1075,7 +1101,7 @@
         ],
         "servicegraph": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.93.0"
           }
         ],
@@ -1113,12 +1139,12 @@
         "tailsampling": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           }
         ],
         "transform": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "unroll": [
@@ -1135,23 +1161,49 @@
         ],
         "activedirectoryds": [
           {
-            "from": "v0.70.0",
-            "to": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.76.1"
+          }
+        ],
+        "activedirectorydsreceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "aerospike": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "aerospikereceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "apache": [
           {
-            "from": "v0.43.1"
+            "from": "v0.43.1",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
           }
         ],
         "apache_spark": [
           {
             "from": "v0.154.0"
+          }
+        ],
+        "apachereceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "apachespark": [
@@ -1171,13 +1223,13 @@
         ],
         "awscloudwatch": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "awscontainerinsight": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           }
         ],
         "awscontainerinsightreceiver": [
@@ -1192,7 +1244,7 @@
         ],
         "awsfirehose": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "awslambda": [
@@ -1233,6 +1285,10 @@
         ],
         "azureeventhub": [
           {
+            "from": "v0.72.0",
+            "to": "v0.76.1"
+          },
+          {
             "from": "v0.80.0",
             "to": "v0.144.0"
           },
@@ -1240,15 +1296,31 @@
             "from": "v0.148.0"
           }
         ],
+        "azureeventhubreceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
+          }
+        ],
         "azuremonitor": [
           {
-            "from": "v0.80.0"
+            "from": "v0.76.1"
           }
         ],
         "bigip": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0",
             "to": "v0.145.0"
+          }
+        ],
+        "bigipreceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "carbon": [
@@ -1278,12 +1350,12 @@
         ],
         "cloudflare": [
           {
-            "from": "v0.80.0"
+            "from": "v0.74.0"
           }
         ],
         "cloudfoundry": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "collectd": [
@@ -1299,12 +1371,22 @@
         ],
         "couchdb": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "couchdbreceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "datadog": [
           {
-            "from": "v0.80.0"
+            "from": "v0.71.0"
           }
         ],
         "docker_stats": [
@@ -1315,18 +1397,34 @@
         "dockerstats": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.75.0"
+          }
+        ],
+        "dockerstatsreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "dotnetdiagnostics": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.74.0"
           }
         ],
         "elasticsearch": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "elasticsearchreceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "envoy_als": [
@@ -1341,7 +1439,17 @@
         ],
         "expvar": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "expvarreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "faro": [
@@ -1382,7 +1490,17 @@
         ],
         "flinkmetrics": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "flinkmetricsreceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "fluent_forward": [
@@ -1417,7 +1535,7 @@
         ],
         "googlecloudpubsub": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "googlecloudspanner": [
@@ -1447,7 +1565,17 @@
         ],
         "httpcheck": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "httpcheckreceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "icmp_check": [
@@ -1462,7 +1590,17 @@
         ],
         "iis": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "iisreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "influxdb": [
@@ -1504,18 +1642,18 @@
         "k8scluster": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           }
         ],
         "k8sevents": [
           {
-            "from": "v0.70.0",
-            "to": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.77.0"
           }
         ],
         "k8sobjects": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "kafka": [
@@ -1530,7 +1668,17 @@
         ],
         "kafkametrics": [
           {
-            "from": "v0.42.0"
+            "from": "v0.42.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "kafkametricsreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "kubelet_stats": [
@@ -1540,7 +1688,17 @@
         ],
         "kubeletstats": [
           {
-            "from": "v0.42.0"
+            "from": "v0.42.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "kubeletstatsreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "libhoney": [
@@ -1550,7 +1708,7 @@
         ],
         "loki": [
           {
-            "from": "v0.80.0"
+            "from": "v0.76.1"
           }
         ],
         "macos_unified_logging": [
@@ -1565,12 +1723,32 @@
         ],
         "memcached": [
           {
-            "from": "v0.42.0"
+            "from": "v0.42.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "memcachedreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
+          }
+        ],
+        "mongoatlasreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "mongodb": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
           }
         ],
         "mongodb_atlas": [
@@ -1581,15 +1759,35 @@
         "mongodbatlas": [
           {
             "from": "v0.42.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0",
             "to": "v0.144.0"
           },
           {
             "from": "v0.148.0"
           }
         ],
+        "mongodbreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
+          }
+        ],
         "mysql": [
           {
-            "from": "v0.43.1"
+            "from": "v0.43.1",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "mysqlreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "named_pipe": [
@@ -1609,7 +1807,17 @@
         ],
         "nginx": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "nginxreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "nop": [
@@ -1619,7 +1827,17 @@
         ],
         "nsxt": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "nsxtreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "ntp": [
@@ -1650,7 +1868,7 @@
         ],
         "otlp": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "otlp_json_file": [
@@ -1660,13 +1878,13 @@
         ],
         "otlpjsonfile": [
           {
-            "from": "v0.70.0"
+            "from": "v0.69.0"
           }
         ],
         "podman": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           }
         ],
         "podman_stats": [
@@ -1676,7 +1894,17 @@
         ],
         "postgresql": [
           {
-            "from": "v0.43.1"
+            "from": "v0.43.1",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "postgresqlreceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "pprof": [
@@ -1712,22 +1940,32 @@
         ],
         "pulsar": [
           {
-            "from": "v0.80.0"
+            "from": "v0.72.0"
           }
         ],
         "purefa": [
           {
-            "from": "v0.70.0"
+            "from": "v0.68.0"
           }
         ],
         "purefb": [
           {
-            "from": "v0.80.0"
+            "from": "v0.71.0"
           }
         ],
         "rabbitmq": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "rabbitmqreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "receiver_creator": [
@@ -1738,17 +1976,37 @@
         "receivercreator": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           }
         ],
         "redis": [
           {
-            "from": "v0.42.0"
+            "from": "v0.42.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "redisreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "riak": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "riakreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "saphana": [
@@ -1771,17 +2029,17 @@
         "simpleprometheus": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           }
         ],
         "skywalking": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "snmp": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "snowflake": [
@@ -1791,7 +2049,7 @@
         ],
         "solace": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "splunk_enterprise": [
@@ -1801,7 +2059,7 @@
         ],
         "splunk_hec": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "splunkenterprise": [
@@ -1812,7 +2070,7 @@
         "splunkhec": [
           {
             "from": "v0.42.0",
-            "to": "v0.70.0"
+            "to": "v0.76.1"
           }
         ],
         "sql_query": [
@@ -1822,12 +2080,22 @@
         ],
         "sqlquery": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "sqlserver": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "sqlserverreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "ssh_check": [
@@ -1902,7 +2170,17 @@
         ],
         "vcenter": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "vcenterreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ],
         "wavefront": [
@@ -1937,7 +2215,7 @@
         ],
         "windowseventlog": [
           {
-            "from": "v0.80.0"
+            "from": "v0.72.0"
           }
         ],
         "windowsperfcounters": [
@@ -1962,12 +2240,32 @@
         ],
         "zipkin": [
           {
-            "from": "v0.42.0"
+            "from": "v0.42.0",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "zipkinreceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "zookeeper": [
           {
-            "from": "v0.42.0"
+            "from": "v0.42.0",
+            "to": "v0.75.0"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "zookeeperreceiver": [
+          {
+            "from": "v0.76.1",
+            "to": "v0.77.0"
           }
         ]
       }
@@ -1976,7 +2274,7 @@
       "connector": {
         "forward": [
           {
-            "from": "v0.80.0"
+            "from": "v0.73.0"
           }
         ]
       },
@@ -2010,7 +2308,7 @@
         ],
         "logging": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.110.0"
           }
         ],
@@ -2027,7 +2325,7 @@
         ],
         "otlp": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.143.0"
           },
           {
@@ -2046,7 +2344,7 @@
         ],
         "otlphttp": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.143.0"
           },
           {
@@ -2077,7 +2375,7 @@
       "extension": {
         "ballast": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.90.0"
           }
         ],
@@ -2089,13 +2387,13 @@
         ],
         "health_check": [
           {
-            "from": "v0.80.0"
+            "from": "v0.77.0"
           }
         ],
         "healthcheck": [
           {
             "from": "v0.40.0",
-            "to": "v0.70.0"
+            "to": "v0.76.1"
           }
         ],
         "memory_ballast": [
@@ -2111,7 +2409,7 @@
         ],
         "zpages": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ]
       },
@@ -2123,7 +2421,7 @@
         ],
         "batch": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "collector": [
@@ -2144,7 +2442,7 @@
         ],
         "memorylimiter": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.90.0"
           }
         ],
@@ -2156,12 +2454,22 @@
         "probabilisticsampler": [
           {
             "from": "v0.40.0",
-            "to": "v0.70.0"
+            "to": "v0.77.0"
           }
         ],
         "resource": [
           {
-            "from": "v0.40.0"
+            "from": "v0.40.0",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "resourceprocessor": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ],
         "span": [
@@ -2210,7 +2518,7 @@
         ],
         "otlp": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "prometheus": [
@@ -2220,7 +2528,17 @@
         ],
         "zipkin": [
           {
-            "from": "v0.40.0"
+            "from": "v0.40.0",
+            "to": "v0.76.1"
+          },
+          {
+            "from": "v0.80.0"
+          }
+        ],
+        "zipkinreceiver": [
+          {
+            "from": "v0.77.0",
+            "to": "v0.77.0"
           }
         ]
       }
