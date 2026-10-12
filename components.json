@@ -106,7 +106,7 @@
         "alibabacloudlogservice": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "awscloudwatchlogs": [
@@ -328,7 +328,7 @@
         "jaegerthrifthttp": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "kafka": [
@@ -489,7 +489,7 @@
         "splunkhec": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "stackdriver": [
@@ -527,7 +527,7 @@
         "tencentcloudlogservice": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "tinybird": [
@@ -550,7 +550,7 @@
         "asapauth": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "asapclient": [
@@ -690,7 +690,7 @@
         "headerssetter": [
           {
             "from": "v0.67.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "health_check": [
@@ -701,7 +701,7 @@
         "healthcheck": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "host_observer": [
@@ -712,7 +712,7 @@
         "hostobserver": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "http_forwarder": [
@@ -723,7 +723,7 @@
         "httpforwarder": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "jaeger_encoding": [
@@ -754,7 +754,7 @@
         "k8sobserver": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "kafkatopics_observer": [
@@ -777,7 +777,7 @@
         "oauth2clientauth": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "oidc": [
@@ -788,7 +788,7 @@
         "oidcauth": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "opamp": [
@@ -1010,7 +1010,7 @@
         "metricsgeneration": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           },
           {
             "from": "v0.120.0"
@@ -1034,7 +1034,7 @@
         "probabilisticsampler": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "redaction": [
@@ -1113,7 +1113,7 @@
         "tailsampling": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "transform": [
@@ -1136,7 +1136,7 @@
         "activedirectoryds": [
           {
             "from": "v0.67.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "aerospike": [
@@ -1177,7 +1177,7 @@
         "awscontainerinsight": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "awscontainerinsightreceiver": [
@@ -1233,7 +1233,7 @@
         ],
         "azureeventhub": [
           {
-            "from": "v0.80.0",
+            "from": "v0.72.0",
             "to": "v0.144.0"
           },
           {
@@ -1315,13 +1315,13 @@
         "dockerstats": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "dotnetdiagnostics": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "elasticsearch": [
@@ -1504,13 +1504,13 @@
         "k8scluster": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "k8sevents": [
           {
             "from": "v0.67.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "k8sobjects": [
@@ -1666,7 +1666,7 @@
         "podman": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "podman_stats": [
@@ -1712,7 +1712,7 @@
         ],
         "pulsar": [
           {
-            "from": "v0.80.0"
+            "from": "v0.72.0"
           }
         ],
         "purefa": [
@@ -1738,7 +1738,7 @@
         "receivercreator": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "redis": [
@@ -1771,7 +1771,7 @@
         "simpleprometheus": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "skywalking": [
@@ -1812,7 +1812,7 @@
         "splunkhec": [
           {
             "from": "v0.42.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "sql_query": [
@@ -1937,7 +1937,7 @@
         ],
         "windowseventlog": [
           {
-            "from": "v0.80.0"
+            "from": "v0.72.0"
           }
         ],
         "windowsperfcounters": [
@@ -2095,7 +2095,7 @@
         "healthcheck": [
           {
             "from": "v0.40.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "memory_ballast": [
@@ -2156,7 +2156,7 @@
         "probabilisticsampler": [
           {
             "from": "v0.40.0",
-            "to": "v0.71.0"
+            "to": "v0.72.0"
           }
         ],
         "resource": [
