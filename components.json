@@ -111,7 +111,7 @@
         ],
         "awscloudwatchlogs": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "awsemf": [
@@ -157,7 +157,7 @@
         ],
         "azuredataexplorer": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "azuremonitor": [
@@ -188,7 +188,7 @@
         ],
         "clickhouse": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "collector": [
@@ -199,7 +199,7 @@
         ],
         "coralogix": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "datadog": [
@@ -267,7 +267,7 @@
         ],
         "googlecloudpubsub": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "googlecloudstorage": [
@@ -277,7 +277,7 @@
         ],
         "googlemanagedprometheus": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "honeycomb": [
@@ -309,7 +309,7 @@
         ],
         "instana": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.102.0"
           }
         ],
@@ -348,7 +348,7 @@
         ],
         "logging": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.110.0"
           }
         ],
@@ -370,7 +370,7 @@
         ],
         "mezmo": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "newrelic": [
@@ -402,7 +402,7 @@
         ],
         "otlp": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.143.0"
           },
           {
@@ -421,7 +421,7 @@
         ],
         "otlphttp": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.143.0"
           },
           {
@@ -451,7 +451,7 @@
         ],
         "pulsar": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "rabbitmq": [
@@ -600,7 +600,7 @@
         ],
         "ballast": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.90.0"
           }
         ],
@@ -689,7 +689,7 @@
         ],
         "headerssetter": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.70.0"
           }
         ],
@@ -733,7 +733,7 @@
         ],
         "jaegerremotesampling": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "json_log_encoding": [
@@ -818,7 +818,7 @@
         ],
         "sigv4auth": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "skywalking_encoding": [
@@ -849,7 +849,7 @@
         ],
         "zpages": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ]
       },
@@ -861,7 +861,7 @@
         ],
         "batch": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "cardinality_guardian": [
@@ -993,7 +993,7 @@
         ],
         "memorylimiter": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.90.0"
           }
         ],
@@ -1039,7 +1039,7 @@
         ],
         "redaction": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "remotetap": [
@@ -1075,7 +1075,7 @@
         ],
         "servicegraph": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.93.0"
           }
         ],
@@ -1118,7 +1118,7 @@
         ],
         "transform": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "unroll": [
@@ -1135,13 +1135,13 @@
         ],
         "activedirectoryds": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.70.0"
           }
         ],
         "aerospike": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "apache": [
@@ -1171,7 +1171,7 @@
         ],
         "awscloudwatch": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "awscontainerinsight": [
@@ -1192,7 +1192,7 @@
         ],
         "awsfirehose": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "awslambda": [
@@ -1247,7 +1247,7 @@
         ],
         "bigip": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.145.0"
           }
         ],
@@ -1283,7 +1283,7 @@
         ],
         "cloudfoundry": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "collectd": [
@@ -1299,7 +1299,7 @@
         ],
         "couchdb": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "datadog": [
@@ -1326,7 +1326,7 @@
         ],
         "elasticsearch": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "envoy_als": [
@@ -1341,7 +1341,7 @@
         ],
         "expvar": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "faro": [
@@ -1382,7 +1382,7 @@
         ],
         "flinkmetrics": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "fluent_forward": [
@@ -1417,7 +1417,7 @@
         ],
         "googlecloudpubsub": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "googlecloudspanner": [
@@ -1447,7 +1447,7 @@
         ],
         "httpcheck": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "icmp_check": [
@@ -1462,7 +1462,7 @@
         ],
         "iis": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "influxdb": [
@@ -1509,13 +1509,13 @@
         ],
         "k8sevents": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.70.0"
           }
         ],
         "k8sobjects": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "kafka": [
@@ -1570,7 +1570,7 @@
         ],
         "mongodb": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "mongodb_atlas": [
@@ -1609,7 +1609,7 @@
         ],
         "nginx": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "nop": [
@@ -1619,7 +1619,7 @@
         ],
         "nsxt": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "ntp": [
@@ -1650,7 +1650,7 @@
         ],
         "otlp": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "otlp_json_file": [
@@ -1727,7 +1727,7 @@
         ],
         "rabbitmq": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "receiver_creator": [
@@ -1748,7 +1748,7 @@
         ],
         "riak": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "saphana": [
@@ -1776,12 +1776,12 @@
         ],
         "skywalking": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "snmp": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "snowflake": [
@@ -1791,7 +1791,7 @@
         ],
         "solace": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "splunk_enterprise": [
@@ -1822,12 +1822,12 @@
         ],
         "sqlquery": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "sqlserver": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "ssh_check": [
@@ -1902,7 +1902,7 @@
         ],
         "vcenter": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "wavefront": [
@@ -2010,7 +2010,7 @@
         ],
         "logging": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.110.0"
           }
         ],
@@ -2027,7 +2027,7 @@
         ],
         "otlp": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.143.0"
           },
           {
@@ -2046,7 +2046,7 @@
         ],
         "otlphttp": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.143.0"
           },
           {
@@ -2077,7 +2077,7 @@
       "extension": {
         "ballast": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.90.0"
           }
         ],
@@ -2111,7 +2111,7 @@
         ],
         "zpages": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ]
       },
@@ -2123,7 +2123,7 @@
         ],
         "batch": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "collector": [
@@ -2144,7 +2144,7 @@
         ],
         "memorylimiter": [
           {
-            "from": "v0.70.0",
+            "from": "v0.67.0",
             "to": "v0.90.0"
           }
         ],
@@ -2210,7 +2210,7 @@
         ],
         "otlp": [
           {
-            "from": "v0.70.0"
+            "from": "v0.67.0"
           }
         ],
         "prometheus": [
