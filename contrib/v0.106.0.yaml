@@ -1,6 +1,6 @@
 collectorVersion: v0.106.0
 distribution: contrib
-generatedAt: "2026-09-14T15:51:14Z"
+generatedAt: "2026-09-21T13:08:29Z"
 sources:
   contrib: github.com/open-telemetry/opentelemetry-collector-releases/contrib
 components:

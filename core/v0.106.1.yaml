@@ -1,6 +1,6 @@
 collectorVersion: v0.106.1
 distribution: core
-generatedAt: "2026-09-14T15:51:30Z"
+generatedAt: "2026-09-21T13:08:41Z"
 sources:
   core: github.com/open-telemetry/opentelemetry-collector-releases/core
 components:

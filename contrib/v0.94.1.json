@@ -1,7 +1,7 @@
 {
   "collectorVersion": "v0.94.1",
   "distribution": "contrib",
-  "generatedAt": "2026-09-14T14:02:53Z",
+  "generatedAt": "2026-09-14T13:27:19Z",
   "sources": {
     "contrib": "github.com/open-telemetry/opentelemetry-collector-releases/contrib"
   },

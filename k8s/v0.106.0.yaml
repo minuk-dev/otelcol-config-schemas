@@ -1,6 +1,6 @@
 collectorVersion: v0.106.0
 distribution: k8s
-generatedAt: "2026-09-14T15:51:15Z"
+generatedAt: "2026-09-21T13:08:30Z"
 sources:
   k8s: github.com/open-telemetry/opentelemetry-collector-releases/k8s
 components:

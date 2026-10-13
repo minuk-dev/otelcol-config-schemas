@@ -1,7 +1,7 @@
 {
   "collectorVersion": "v0.102.1",
   "distribution": "core",
-  "generatedAt": "2026-09-14T15:13:02Z",
+  "generatedAt": "2026-09-21T13:05:28Z",
   "sources": {
     "core": "github.com/open-telemetry/opentelemetry-collector-releases/core"
   },
