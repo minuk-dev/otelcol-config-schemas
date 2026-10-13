@@ -39,7 +39,7 @@
         ],
         "otlpjson": [
           {
-            "from": "v0.110.0"
+            "from": "v0.106.0"
           }
         ],
         "round_robin": [
@@ -310,7 +310,7 @@
         "instana": [
           {
             "from": "v0.67.0",
-            "to": "v0.102.0"
+            "to": "v0.109.0"
           }
         ],
         "jaeger": [
@@ -397,7 +397,7 @@
         ],
         "otelarrow": [
           {
-            "from": "v0.110.0"
+            "from": "v0.105.0"
           }
         ],
         "otlp": [
@@ -456,7 +456,7 @@
         ],
         "rabbitmq": [
           {
-            "from": "v0.110.0"
+            "from": "v0.104.0"
           }
         ],
         "sapm": [
@@ -478,7 +478,7 @@
         "skywalking": [
           {
             "from": "v0.42.0",
-            "to": "v0.102.0"
+            "to": "v0.104.0"
           }
         ],
         "splunk_hec": [
@@ -680,7 +680,7 @@
         ],
         "googleclientauth": [
           {
-            "from": "v0.110.0"
+            "from": "v0.103.0"
           }
         ],
         "googlecloudlogentry_encoding": [
@@ -744,7 +744,7 @@
         ],
         "json_log_encoding": [
           {
-            "from": "v0.110.0"
+            "from": "v0.103.0"
           }
         ],
         "k8s_leader_elector": [
@@ -772,7 +772,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.102.0"
+            "to": "v0.107.0"
           }
         ],
         "oauth2client": [
@@ -840,7 +840,7 @@
         ],
         "sumologic": [
           {
-            "from": "v0.110.0"
+            "from": "v0.105.0"
           }
         ],
         "text_encoding": [
@@ -914,7 +914,7 @@
         ],
         "deltatocumulative": [
           {
-            "from": "v0.110.0"
+            "from": "v0.108.1"
           }
         ],
         "deltatorate": [
@@ -930,7 +930,7 @@
         "experimental_metricsgeneration": [
           {
             "from": "v0.80.0",
-            "to": "v0.110.0"
+            "to": "v0.111.0"
           }
         ],
         "filter": [
@@ -945,7 +945,7 @@
         ],
         "geoip": [
           {
-            "from": "v0.110.0"
+            "from": "v0.108.1"
           }
         ],
         "groupbyattrs": [
@@ -989,7 +989,7 @@
         ],
         "logdedup": [
           {
-            "from": "v0.110.0"
+            "from": "v0.107.0"
           }
         ],
         "memory_limiter": [
@@ -1091,7 +1091,7 @@
         "routing": [
           {
             "from": "v0.42.0",
-            "to": "v0.110.0"
+            "to": "v0.111.0"
           }
         ],
         "schema": [
@@ -1515,7 +1515,7 @@
         ],
         "github": [
           {
-            "from": "v0.110.0"
+            "from": "v0.109.0"
           }
         ],
         "gitlab": [
@@ -1863,7 +1863,7 @@
         ],
         "otelarrow": [
           {
-            "from": "v0.110.0"
+            "from": "v0.105.0"
           }
         ],
         "otlp": [
@@ -2399,7 +2399,7 @@
         "memory_ballast": [
           {
             "from": "v0.92.0",
-            "to": "v0.102.0"
+            "to": "v0.107.0"
           }
         ],
         "pprof": [
@@ -2639,7 +2639,7 @@
         ],
         "otelarrow": [
           {
-            "from": "v0.110.0"
+            "from": "v0.105.0"
           }
         ],
         "otlp": [
@@ -2851,7 +2851,7 @@
         ],
         "logdedup": [
           {
-            "from": "v0.110.0"
+            "from": "v0.107.0"
           }
         ],
         "memory_limiter": [
@@ -3004,7 +3004,7 @@
         ],
         "otelarrow": [
           {
-            "from": "v0.110.0"
+            "from": "v0.105.0"
           }
         ],
         "otlp": [
@@ -3033,7 +3033,7 @@
       "exporter": {
         "otlp": [
           {
-            "from": "v0.120.0",
+            "from": "v0.111.0",
             "to": "v0.143.0"
           },
           {
@@ -3052,7 +3052,7 @@
         ],
         "otlphttp": [
           {
-            "from": "v0.120.0",
+            "from": "v0.111.0",
             "to": "v0.143.0"
           },
           {
@@ -3063,7 +3063,7 @@
       "receiver": {
         "otlp": [
           {
-            "from": "v0.120.0"
+            "from": "v0.111.0"
           }
         ]
       }
