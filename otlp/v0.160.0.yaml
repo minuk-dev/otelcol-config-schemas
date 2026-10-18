@@ -1,6 +1,6 @@
 collectorVersion: v0.160.0
 distribution: otlp
-generatedAt: "2026-09-06T10:30:33Z"
+generatedAt: "2026-10-18T09:29:12Z"
 sources:
   otlp: github.com/open-telemetry/opentelemetry-collector-releases/otlp
 components:
@@ -740,7 +740,6 @@ components:
           write_buffer_size:
             type: int
             doc: WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0.
-        open: true
         doc: Config defines configuration for OTLP/HTTP exporter.
     otlphttp:
       type: otlphttp
@@ -1015,7 +1014,6 @@ components:
           write_buffer_size:
             type: int
             doc: WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0.
-        open: true
         doc: Config defines configuration for OTLP/HTTP exporter.
   receiver:
     otlp:
