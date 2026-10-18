@@ -1,6 +1,6 @@
 collectorVersion: v0.160.0
 distribution: core
-generatedAt: "2026-09-06T10:30:04Z"
+generatedAt: "2026-10-18T09:28:24Z"
 sources:
   core: github.com/open-telemetry/opentelemetry-collector-releases/core
 components:
@@ -417,6 +417,7 @@ components:
                     type: string
                     doc: 'Hasher is the hash algorithm used for key-based partition assignment. Valid values: "sarama_compat" (default). - "sarama_compat": Sarama-compatible FNV-1a hashing (SaramaCompatHasher). - "murmur2": Murmur2 hashing.'
                 doc: StickyKey uses StickyKeyPartitioner. When a record key is set, the partition is derived from the key hash.
+            open: true
             doc: RecordPartitioner configures how Kafka records are assigned to partitions. The default ("sarama_compatible") retains the legacy Sarama-compatible hashing behavior. Set to "sticky", "round_robin", or "least_backup" to use one of the built-in franz-go partitioners, or "extension" to delegate to a custom extension.
           retry_on_failure:
             type: map
@@ -1339,7 +1340,6 @@ components:
           write_buffer_size:
             type: int
             doc: WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0.
-        open: true
         doc: Config defines configuration for OTLP/HTTP exporter.
     otlphttp:
       type: otlphttp
@@ -1614,7 +1614,6 @@ components:
           write_buffer_size:
             type: int
             doc: WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0.
-        open: true
         doc: Config defines configuration for OTLP/HTTP exporter.
     prometheus:
       type: prometheus
@@ -1922,7 +1921,6 @@ components:
           write_timeout:
             type: duration
             doc: WriteTimeout is the maximum duration before timing out writes of the response. It is reset whenever a new request's header is read. Like ReadTimeout, it does not let Handlers make decisions on a per-request basis. A zero or negative value means there will be no timeout.
-        open: true
         doc: Config defines configuration for Prometheus exporter.
     prometheus_remote_write:
       type: prometheus_remote_write
@@ -2410,7 +2408,6 @@ components:
           write_buffer_size:
             type: int
             doc: WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0.
-        open: true
         doc: Config defines configuration for Remote Write exporter.
     prometheusremotewrite:
       type: prometheusremotewrite
@@ -2899,7 +2896,6 @@ components:
           write_buffer_size:
             type: int
             doc: WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0.
-        open: true
         doc: Config defines configuration for Remote Write exporter.
     zipkin:
       type: zipkin
@@ -3155,7 +3151,6 @@ components:
           write_buffer_size:
             type: int
             doc: WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0.
-        open: true
         doc: Config defines configuration settings for the Zipkin exporter.
   extension:
     health_check:
@@ -3574,7 +3569,6 @@ components:
             type: bool
           write_timeout:
             type: duration
-        open: true
     pprof:
       type: pprof
       stability:
@@ -3793,7 +3787,6 @@ components:
           write_timeout:
             type: duration
             doc: WriteTimeout is the maximum duration before timing out writes of the response. It is reset whenever a new request's header is read. Like ReadTimeout, it does not let Handlers make decisions on a per-request basis. A zero or negative value means there will be no timeout.
-        open: true
         doc: Config has the configuration for the extension enabling the zPages extension.
   processor:
     attributes:
@@ -7802,5 +7795,4 @@ components:
           write_timeout:
             type: duration
             doc: WriteTimeout is the maximum duration before timing out writes of the response. It is reset whenever a new request's header is read. Like ReadTimeout, it does not let Handlers make decisions on a per-request basis. A zero or negative value means there will be no timeout.
-        open: true
         doc: Config defines configuration for Zipkin receiver.

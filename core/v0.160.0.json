@@ -1,7 +1,7 @@
 {
   "collectorVersion": "v0.160.0",
   "distribution": "core",
-  "generatedAt": "2026-09-06T10:30:04Z",
+  "generatedAt": "2026-10-18T09:28:24Z",
   "sources": {
     "core": "github.com/open-telemetry/opentelemetry-collector-releases/core"
   },
@@ -578,6 +578,7 @@
                   "doc": "StickyKey uses StickyKeyPartitioner. When a record key is set, the partition is derived from the key hash."
                 }
               },
+              "open": true,
               "doc": "RecordPartitioner configures how Kafka records are assigned to partitions. The default (\"sarama_compatible\") retains the legacy Sarama-compatible hashing behavior. Set to \"sticky\", \"round_robin\", or \"least_backup\" to use one of the built-in franz-go partitioners, or \"extension\" to delegate to a custom extension."
             },
             "retry_on_failure": {
@@ -1853,7 +1854,6 @@
               "doc": "WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0."
             }
           },
-          "open": true,
           "doc": "Config defines configuration for OTLP/HTTP exporter."
         }
       },
@@ -2232,7 +2232,6 @@
               "doc": "WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0."
             }
           },
-          "open": true,
           "doc": "Config defines configuration for OTLP/HTTP exporter."
         }
       },
@@ -2668,7 +2667,6 @@
               "doc": "WriteTimeout is the maximum duration before timing out writes of the response. It is reset whenever a new request's header is read. Like ReadTimeout, it does not let Handlers make decisions on a per-request basis. A zero or negative value means there will be no timeout."
             }
           },
-          "open": true,
           "doc": "Config defines configuration for Prometheus exporter."
         }
       },
@@ -3351,7 +3349,6 @@
               "doc": "WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0."
             }
           },
-          "open": true,
           "doc": "Config defines configuration for Remote Write exporter."
         }
       },
@@ -4035,7 +4032,6 @@
               "doc": "WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0."
             }
           },
-          "open": true,
           "doc": "Config defines configuration for Remote Write exporter."
         }
       },
@@ -4392,7 +4388,6 @@
               "doc": "WriteBufferSize for HTTP client. See http.Transport.WriteBufferSize. Default is 0."
             }
           },
-          "open": true,
           "doc": "Config defines configuration settings for the Zipkin exporter."
         }
       }
@@ -5039,8 +5034,7 @@
             "write_timeout": {
               "type": "duration"
             }
-          },
-          "open": true
+          }
         }
       },
       "pprof": {
@@ -5352,7 +5346,6 @@
               "doc": "WriteTimeout is the maximum duration before timing out writes of the response. It is reset whenever a new request's header is read. Like ReadTimeout, it does not let Handlers make decisions on a per-request basis. A zero or negative value means there will be no timeout."
             }
           },
-          "open": true,
           "doc": "Config has the configuration for the extension enabling the zPages extension."
         }
       }
@@ -11025,7 +11018,6 @@
               "doc": "WriteTimeout is the maximum duration before timing out writes of the response. It is reset whenever a new request's header is read. Like ReadTimeout, it does not let Handlers make decisions on a per-request basis. A zero or negative value means there will be no timeout."
             }
           },
-          "open": true,
           "doc": "Config defines configuration for Zipkin receiver."
         }
       }
