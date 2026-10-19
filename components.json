@@ -9,7 +9,7 @@
         ],
         "datadog": [
           {
-            "from": "v0.90.0"
+            "from": "v0.84.0"
           }
         ],
         "exceptions": [
@@ -316,13 +316,13 @@
         "jaeger": [
           {
             "from": "v0.42.0",
-            "to": "v0.83.0"
+            "to": "v0.84.0"
           }
         ],
         "jaeger_thrift": [
           {
             "from": "v0.78.2",
-            "to": "v0.83.0"
+            "to": "v0.84.0"
           }
         ],
         "jaegerthrifthttp": [
@@ -431,7 +431,7 @@
         "parquet": [
           {
             "from": "v0.80.0",
-            "to": "v0.83.0"
+            "to": "v0.84.0"
           }
         ],
         "prometheus": [
@@ -1051,7 +1051,7 @@
         "remoteobserver": [
           {
             "from": "v0.82.0",
-            "to": "v0.83.0"
+            "to": "v0.84.0"
           }
         ],
         "remotetap": [
@@ -2201,7 +2201,7 @@
         ],
         "webhookevent": [
           {
-            "from": "v0.90.0"
+            "from": "v0.84.0"
           }
         ],
         "windows_event_log": [
@@ -2304,7 +2304,7 @@
         "jaeger": [
           {
             "from": "v0.40.0",
-            "to": "v0.83.0"
+            "to": "v0.84.0"
           }
         ],
         "kafka": [
