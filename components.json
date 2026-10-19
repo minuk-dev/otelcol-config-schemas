@@ -431,7 +431,7 @@
         "parquet": [
           {
             "from": "v0.80.0",
-            "to": "v0.84.0"
+            "to": "v0.85.0"
           }
         ],
         "prometheus": [
@@ -1051,7 +1051,7 @@
         "remoteobserver": [
           {
             "from": "v0.82.0",
-            "to": "v0.84.0"
+            "to": "v0.85.0"
           }
         ],
         "remotetap": [
