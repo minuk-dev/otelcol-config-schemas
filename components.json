@@ -316,13 +316,13 @@
         "jaeger": [
           {
             "from": "v0.42.0",
-            "to": "v0.82.0"
+            "to": "v0.83.0"
           }
         ],
         "jaeger_thrift": [
           {
             "from": "v0.78.2",
-            "to": "v0.82.0"
+            "to": "v0.83.0"
           }
         ],
         "jaegerthrifthttp": [
@@ -431,7 +431,7 @@
         "parquet": [
           {
             "from": "v0.80.0",
-            "to": "v0.82.0"
+            "to": "v0.83.0"
           }
         ],
         "prometheus": [
@@ -1051,7 +1051,7 @@
         "remoteobserver": [
           {
             "from": "v0.82.0",
-            "to": "v0.82.0"
+            "to": "v0.83.0"
           }
         ],
         "remotetap": [
@@ -2304,7 +2304,7 @@
         "jaeger": [
           {
             "from": "v0.40.0",
-            "to": "v0.82.0"
+            "to": "v0.83.0"
           }
         ],
         "kafka": [
