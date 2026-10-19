@@ -54,7 +54,7 @@
         ],
         "routing": [
           {
-            "from": "v0.90.0"
+            "from": "v0.86.0"
           }
         ],
         "service_graph": [
@@ -214,7 +214,7 @@
         ],
         "debug": [
           {
-            "from": "v0.90.0"
+            "from": "v0.86.0"
           }
         ],
         "doris": [
@@ -431,7 +431,7 @@
         "parquet": [
           {
             "from": "v0.80.0",
-            "to": "v0.85.0"
+            "to": "v0.86.0"
           }
         ],
         "prometheus": [
@@ -1051,7 +1051,7 @@
         "remoteobserver": [
           {
             "from": "v0.82.0",
-            "to": "v0.85.0"
+            "to": "v0.86.0"
           }
         ],
         "remotetap": [
@@ -2293,7 +2293,7 @@
         ],
         "debug": [
           {
-            "from": "v0.90.0"
+            "from": "v0.86.0"
           }
         ],
         "file": [
