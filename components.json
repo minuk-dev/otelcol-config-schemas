@@ -929,7 +929,7 @@
         ],
         "experimental_metricsgeneration": [
           {
-            "from": "v0.80.0",
+            "from": "v0.79.0",
             "to": "v0.111.0"
           }
         ],
@@ -1034,7 +1034,7 @@
         ],
         "probabilistic_sampler": [
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "probabilisticsampler": [
@@ -1133,7 +1133,7 @@
         ],
         "tail_sampling": [
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "tailsampling": [
@@ -1234,7 +1234,7 @@
         ],
         "awscontainerinsightreceiver": [
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "awsecscontainermetrics": [
@@ -1391,7 +1391,7 @@
         ],
         "docker_stats": [
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "dockerstats": [
@@ -1443,7 +1443,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "expvarreceiver": [
@@ -1569,7 +1569,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "httpcheckreceiver": [
@@ -1672,7 +1672,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "kafkametricsreceiver": [
@@ -1692,7 +1692,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "kubeletstatsreceiver": [
@@ -2259,7 +2259,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "zookeeperreceiver": [
@@ -2448,7 +2448,7 @@
         ],
         "probabilistic_sampler": [
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "probabilisticsampler": [
