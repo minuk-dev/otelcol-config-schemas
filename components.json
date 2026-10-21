@@ -9,7 +9,7 @@
         ],
         "datadog": [
           {
-            "from": "v0.90.0"
+            "from": "v0.84.0"
           }
         ],
         "exceptions": [
@@ -54,7 +54,7 @@
         ],
         "routing": [
           {
-            "from": "v0.90.0"
+            "from": "v0.86.0"
           }
         ],
         "service_graph": [
@@ -100,7 +100,7 @@
       "exporter": {
         "alibabacloud_logservice": [
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "alibabacloudlogservice": [
@@ -209,12 +209,12 @@
         ],
         "dataset": [
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "debug": [
           {
-            "from": "v0.90.0"
+            "from": "v0.86.0"
           }
         ],
         "doris": [
@@ -316,13 +316,13 @@
         "jaeger": [
           {
             "from": "v0.42.0",
-            "to": "v0.80.0"
+            "to": "v0.84.0"
           }
         ],
         "jaeger_thrift": [
           {
-            "from": "v0.80.0",
-            "to": "v0.80.0"
+            "from": "v0.78.2",
+            "to": "v0.84.0"
           }
         ],
         "jaegerthrifthttp": [
@@ -431,7 +431,7 @@
         "parquet": [
           {
             "from": "v0.80.0",
-            "to": "v0.80.0"
+            "to": "v0.86.0"
           }
         ],
         "prometheus": [
@@ -483,7 +483,7 @@
         ],
         "splunk_hec": [
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "splunkhec": [
@@ -723,7 +723,7 @@
         ],
         "http_forwarder": [
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "httpforwarder": [
@@ -929,7 +929,7 @@
         ],
         "experimental_metricsgeneration": [
           {
-            "from": "v0.80.0",
+            "from": "v0.79.0",
             "to": "v0.111.0"
           }
         ],
@@ -1016,7 +1016,7 @@
         "metricsgeneration": [
           {
             "from": "v0.42.0",
-            "to": "v0.77.0"
+            "to": "v0.78.2"
           },
           {
             "from": "v0.120.0"
@@ -1034,18 +1034,24 @@
         ],
         "probabilistic_sampler": [
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "probabilisticsampler": [
           {
             "from": "v0.42.0",
-            "to": "v0.77.0"
+            "to": "v0.78.2"
           }
         ],
         "redaction": [
           {
             "from": "v0.67.0"
+          }
+        ],
+        "remoteobserver": [
+          {
+            "from": "v0.82.0",
+            "to": "v0.88.0"
           }
         ],
         "remotetap": [
@@ -1059,7 +1065,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "resource_detection": [
@@ -1073,7 +1079,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "resourcedetectionprocessor": [
@@ -1133,13 +1139,13 @@
         ],
         "tail_sampling": [
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "tailsampling": [
           {
             "from": "v0.42.0",
-            "to": "v0.77.0"
+            "to": "v0.78.2"
           }
         ],
         "transform": [
@@ -1156,7 +1162,7 @@
       "receiver": {
         "active_directory_ds": [
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "activedirectoryds": [
@@ -1177,7 +1183,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "aerospikereceiver": [
@@ -1192,7 +1198,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "apache_spark": [
@@ -1229,12 +1235,12 @@
         "awscontainerinsight": [
           {
             "from": "v0.42.0",
-            "to": "v0.77.0"
+            "to": "v0.78.2"
           }
         ],
         "awscontainerinsightreceiver": [
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "awsecscontainermetrics": [
@@ -1289,7 +1295,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0",
+            "from": "v0.78.2",
             "to": "v0.144.0"
           },
           {
@@ -1313,7 +1319,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0",
+            "from": "v0.78.2",
             "to": "v0.145.0"
           }
         ],
@@ -1375,7 +1381,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "couchdbreceiver": [
@@ -1391,7 +1397,7 @@
         ],
         "docker_stats": [
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "dockerstats": [
@@ -1403,7 +1409,7 @@
         "dockerstatsreceiver": [
           {
             "from": "v0.76.1",
-            "to": "v0.77.0"
+            "to": "v0.78.2"
           }
         ],
         "dotnetdiagnostics": [
@@ -1418,7 +1424,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "elasticsearchreceiver": [
@@ -1443,13 +1449,13 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "expvarreceiver": [
           {
             "from": "v0.76.1",
-            "to": "v0.77.0"
+            "to": "v0.78.2"
           }
         ],
         "faro": [
@@ -1480,7 +1486,7 @@
         ],
         "filestats": [
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "flink_metrics": [
@@ -1494,7 +1500,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "flinkmetricsreceiver": [
@@ -1569,13 +1575,13 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "httpcheckreceiver": [
           {
             "from": "v0.77.0",
-            "to": "v0.77.0"
+            "to": "v0.78.2"
           }
         ],
         "icmp_check": [
@@ -1594,7 +1600,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "iisreceiver": [
@@ -1626,12 +1632,12 @@
         ],
         "k8s_cluster": [
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "k8s_events": [
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "k8s_objects": [
@@ -1672,13 +1678,13 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "kafkametricsreceiver": [
           {
             "from": "v0.76.1",
-            "to": "v0.77.0"
+            "to": "v0.78.2"
           }
         ],
         "kubelet_stats": [
@@ -1692,13 +1698,13 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "kubeletstatsreceiver": [
           {
             "from": "v0.76.1",
-            "to": "v0.77.0"
+            "to": "v0.78.2"
           }
         ],
         "libhoney": [
@@ -1727,7 +1733,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "memcachedreceiver": [
@@ -1748,7 +1754,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "mongodb_atlas": [
@@ -1762,7 +1768,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0",
+            "from": "v0.78.2",
             "to": "v0.144.0"
           },
           {
@@ -1781,7 +1787,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "mysqlreceiver": [
@@ -1811,7 +1817,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "nginxreceiver": [
@@ -1831,7 +1837,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "nsxtreceiver": [
@@ -1889,7 +1895,7 @@
         ],
         "podman_stats": [
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "postgresql": [
@@ -1898,7 +1904,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "postgresqlreceiver": [
@@ -1924,7 +1930,7 @@
         ],
         "prometheus_simple": [
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "prometheusexec": [
@@ -1959,7 +1965,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "rabbitmqreceiver": [
@@ -1970,7 +1976,7 @@
         ],
         "receiver_creator": [
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "receivercreator": [
@@ -1985,7 +1991,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "redisreceiver": [
@@ -2000,7 +2006,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "riakreceiver": [
@@ -2089,7 +2095,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "sqlserverreceiver": [
@@ -2174,7 +2180,7 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "vcenterreceiver": [
@@ -2195,7 +2201,7 @@
         ],
         "webhookevent": [
           {
-            "from": "v0.90.0"
+            "from": "v0.84.0"
           }
         ],
         "windows_event_log": [
@@ -2244,7 +2250,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "zipkinreceiver": [
@@ -2259,13 +2265,13 @@
             "to": "v0.75.0"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "zookeeperreceiver": [
           {
             "from": "v0.76.1",
-            "to": "v0.77.0"
+            "to": "v0.78.2"
           }
         ]
       }
@@ -2287,7 +2293,7 @@
         ],
         "debug": [
           {
-            "from": "v0.90.0"
+            "from": "v0.86.0"
           }
         ],
         "file": [
@@ -2298,7 +2304,7 @@
         "jaeger": [
           {
             "from": "v0.40.0",
-            "to": "v0.80.0"
+            "to": "v0.84.0"
           }
         ],
         "kafka": [
@@ -2448,13 +2454,13 @@
         ],
         "probabilistic_sampler": [
           {
-            "from": "v0.80.0"
+            "from": "v0.79.0"
           }
         ],
         "probabilisticsampler": [
           {
             "from": "v0.40.0",
-            "to": "v0.77.0"
+            "to": "v0.78.2"
           }
         ],
         "resource": [
@@ -2463,7 +2469,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "resourceprocessor": [
@@ -2532,7 +2538,7 @@
             "to": "v0.76.1"
           },
           {
-            "from": "v0.80.0"
+            "from": "v0.78.2"
           }
         ],
         "zipkinreceiver": [
