@@ -522,7 +522,7 @@
         "tanzuobservability": [
           {
             "from": "v0.42.0",
-            "to": "v0.90.0"
+            "to": "v0.90.1"
           }
         ],
         "tencentcloud_logservice": [
@@ -607,7 +607,7 @@
         "ballast": [
           {
             "from": "v0.67.0",
-            "to": "v0.90.0"
+            "to": "v0.90.1"
           }
         ],
         "basicauth": [
@@ -1000,7 +1000,7 @@
         "memorylimiter": [
           {
             "from": "v0.67.0",
-            "to": "v0.90.0"
+            "to": "v0.90.1"
           }
         ],
         "metric_start_time": [
@@ -2382,7 +2382,7 @@
         "ballast": [
           {
             "from": "v0.67.0",
-            "to": "v0.90.0"
+            "to": "v0.90.1"
           }
         ],
         "collector": [
@@ -2449,7 +2449,7 @@
         "memorylimiter": [
           {
             "from": "v0.67.0",
-            "to": "v0.90.0"
+            "to": "v0.90.1"
           }
         ],
         "probabilistic_sampler": [
