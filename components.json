@@ -516,7 +516,7 @@
         ],
         "syslog": [
           {
-            "from": "v0.90.0"
+            "from": "v0.89.0"
           }
         ],
         "tanzuobservability": [
@@ -1056,7 +1056,7 @@
         ],
         "remotetap": [
           {
-            "from": "v0.90.0"
+            "from": "v0.89.0"
           }
         ],
         "resource": [
@@ -1134,7 +1134,7 @@
         ],
         "sumologic": [
           {
-            "from": "v0.90.0"
+            "from": "v0.89.0"
           }
         ],
         "tail_sampling": [
