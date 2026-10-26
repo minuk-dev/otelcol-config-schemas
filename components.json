@@ -19,7 +19,7 @@
         ],
         "failover": [
           {
-            "from": "v0.120.0"
+            "from": "v0.116.0"
           }
         ],
         "forward": [
@@ -93,7 +93,7 @@
         ],
         "sum": [
           {
-            "from": "v0.120.0"
+            "from": "v0.117.0"
           }
         ]
       },
@@ -219,7 +219,7 @@
         ],
         "doris": [
           {
-            "from": "v0.120.0"
+            "from": "v0.116.0"
           }
         ],
         "dynatrace": [
@@ -516,13 +516,13 @@
         ],
         "syslog": [
           {
-            "from": "v0.90.0"
+            "from": "v0.89.0"
           }
         ],
         "tanzuobservability": [
           {
             "from": "v0.42.0",
-            "to": "v0.90.0"
+            "to": "v0.91.0"
           }
         ],
         "tencentcloud_logservice": [
@@ -607,7 +607,7 @@
         "ballast": [
           {
             "from": "v0.67.0",
-            "to": "v0.90.0"
+            "to": "v0.91.0"
           }
         ],
         "basicauth": [
@@ -819,7 +819,7 @@
         ],
         "redis_storage": [
           {
-            "from": "v0.120.0"
+            "from": "v0.116.0"
           }
         ],
         "sigv4auth": [
@@ -1000,7 +1000,7 @@
         "memorylimiter": [
           {
             "from": "v0.67.0",
-            "to": "v0.90.0"
+            "to": "v0.91.0"
           }
         ],
         "metric_start_time": [
@@ -1019,7 +1019,7 @@
             "to": "v0.78.2"
           },
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "metricstarttime": [
@@ -1056,7 +1056,7 @@
         ],
         "remotetap": [
           {
-            "from": "v0.90.0"
+            "from": "v0.89.0"
           }
         ],
         "resource": [
@@ -1097,7 +1097,7 @@
         "routing": [
           {
             "from": "v0.42.0",
-            "to": "v0.111.0"
+            "to": "v0.118.0"
           }
         ],
         "schema": [
@@ -1134,7 +1134,7 @@
         ],
         "sumologic": [
           {
-            "from": "v0.90.0"
+            "from": "v0.89.0"
           }
         ],
         "tail_sampling": [
@@ -1261,7 +1261,7 @@
         ],
         "awss3": [
           {
-            "from": "v0.120.0"
+            "from": "v0.113.0"
           }
         ],
         "awsxray": [
@@ -1536,7 +1536,7 @@
         ],
         "googlecloudmonitoring": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "googlecloudpubsub": [
@@ -1546,7 +1546,11 @@
         ],
         "googlecloudspanner": [
           {
-            "from": "v0.42.0"
+            "from": "v0.42.0",
+            "to": "v0.111.0"
+          },
+          {
+            "from": "v0.113.0"
           }
         ],
         "haproxy": [
@@ -1709,7 +1713,7 @@
         ],
         "libhoney": [
           {
-            "from": "v0.120.0"
+            "from": "v0.117.0"
           }
         ],
         "loki": [
@@ -1848,7 +1852,7 @@
         ],
         "ntp": [
           {
-            "from": "v0.120.0"
+            "from": "v0.113.0"
           }
         ],
         "obi": [
@@ -2382,7 +2386,7 @@
         "ballast": [
           {
             "from": "v0.67.0",
-            "to": "v0.90.0"
+            "to": "v0.91.0"
           }
         ],
         "collector": [
@@ -2449,7 +2453,7 @@
         "memorylimiter": [
           {
             "from": "v0.67.0",
-            "to": "v0.90.0"
+            "to": "v0.91.0"
           }
         ],
         "probabilistic_sampler": [
@@ -2558,12 +2562,12 @@
         ],
         "exceptions": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "failover": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "forward": [
@@ -2578,7 +2582,7 @@
         ],
         "otlpjson": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "round_robin": [
@@ -2588,7 +2592,7 @@
         ],
         "roundrobin": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "routing": [
@@ -2680,7 +2684,7 @@
       "extension": {
         "ack": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "basicauth": [
@@ -2725,7 +2729,7 @@
         ],
         "http_forwarder": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "k8s_leader_elector": [
@@ -2750,7 +2754,7 @@
         ],
         "opamp": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "pprof": [
@@ -2803,7 +2807,7 @@
         ],
         "deltatocumulative": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "deltatorate": [
