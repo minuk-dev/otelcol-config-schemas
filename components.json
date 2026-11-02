@@ -19,7 +19,7 @@
         ],
         "failover": [
           {
-            "from": "v0.120.0"
+            "from": "v0.116.0"
           }
         ],
         "forward": [
@@ -219,7 +219,7 @@
         ],
         "doris": [
           {
-            "from": "v0.120.0"
+            "from": "v0.116.0"
           }
         ],
         "dynatrace": [
@@ -819,7 +819,7 @@
         ],
         "redis_storage": [
           {
-            "from": "v0.120.0"
+            "from": "v0.116.0"
           }
         ],
         "sigv4auth": [
@@ -1097,7 +1097,7 @@
         "routing": [
           {
             "from": "v0.42.0",
-            "to": "v0.115.0"
+            "to": "v0.116.0"
           }
         ],
         "schema": [
