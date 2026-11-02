@@ -1019,7 +1019,7 @@
             "to": "v0.78.2"
           },
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "metricstarttime": [
@@ -1097,7 +1097,7 @@
         "routing": [
           {
             "from": "v0.42.0",
-            "to": "v0.111.0"
+            "to": "v0.112.0"
           }
         ],
         "schema": [
@@ -1536,7 +1536,7 @@
         ],
         "googlecloudmonitoring": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "googlecloudpubsub": [
@@ -1546,7 +1546,11 @@
         ],
         "googlecloudspanner": [
           {
-            "from": "v0.42.0"
+            "from": "v0.42.0",
+            "to": "v0.111.0"
+          },
+          {
+            "from": "v0.120.0"
           }
         ],
         "haproxy": [
@@ -2558,12 +2562,12 @@
         ],
         "exceptions": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "failover": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "forward": [
@@ -2578,7 +2582,7 @@
         ],
         "otlpjson": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "round_robin": [
@@ -2588,7 +2592,7 @@
         ],
         "roundrobin": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "routing": [
@@ -2680,7 +2684,7 @@
       "extension": {
         "ack": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "basicauth": [
@@ -2725,7 +2729,7 @@
         ],
         "http_forwarder": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "k8s_leader_elector": [
@@ -2750,7 +2754,7 @@
         ],
         "opamp": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "pprof": [
@@ -2803,7 +2807,7 @@
         ],
         "deltatocumulative": [
           {
-            "from": "v0.120.0"
+            "from": "v0.112.0"
           }
         ],
         "deltatorate": [
