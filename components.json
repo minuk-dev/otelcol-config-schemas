@@ -74,7 +74,7 @@
         ],
         "signaltometrics": [
           {
-            "from": "v0.120.0",
+            "from": "v0.119.0",
             "to": "v0.145.0"
           },
           {
@@ -152,7 +152,7 @@
         ],
         "azureblob": [
           {
-            "from": "v0.130.0"
+            "from": "v0.124.0"
           }
         ],
         "azuredataexplorer": [
@@ -247,7 +247,7 @@
         ],
         "faro": [
           {
-            "from": "v0.130.0"
+            "from": "v0.127.0"
           }
         ],
         "file": [
@@ -365,6 +365,10 @@
         "loki": [
           {
             "from": "v0.42.0",
+            "to": "v0.121.0"
+          },
+          {
+            "from": "v0.123.0",
             "to": "v0.130.0"
           }
         ],
@@ -506,7 +510,7 @@
         ],
         "stef": [
           {
-            "from": "v0.130.0"
+            "from": "v0.127.0"
           }
         ],
         "sumologic": [
@@ -576,7 +580,7 @@
         ],
         "awscloudwatchmetricstreams_encoding": [
           {
-            "from": "v0.130.0"
+            "from": "v0.123.0"
           }
         ],
         "awslogs_encoding": [
@@ -601,7 +605,7 @@
         ],
         "azureauth": [
           {
-            "from": "v0.130.0"
+            "from": "v0.125.0"
           }
         ],
         "ballast": [
@@ -749,7 +753,7 @@
         ],
         "k8s_leader_elector": [
           {
-            "from": "v0.130.0"
+            "from": "v0.126.0"
           }
         ],
         "k8s_observer": [
@@ -765,7 +769,7 @@
         ],
         "kafkatopics_observer": [
           {
-            "from": "v0.130.0",
+            "from": "v0.123.0",
             "to": "v0.158.0"
           }
         ],
@@ -960,7 +964,7 @@
         ],
         "interval": [
           {
-            "from": "v0.120.0"
+            "from": "v0.119.0"
           }
         ],
         "isolationforest": [
@@ -1024,7 +1028,7 @@
         ],
         "metricstarttime": [
           {
-            "from": "v0.130.0"
+            "from": "v0.127.0"
           }
         ],
         "metricstransform": [
@@ -1097,12 +1101,12 @@
         "routing": [
           {
             "from": "v0.42.0",
-            "to": "v0.118.0"
+            "to": "v0.119.0"
           }
         ],
         "schema": [
           {
-            "from": "v0.130.0"
+            "from": "v0.123.0"
           }
         ],
         "servicegraph": [
@@ -1440,7 +1444,7 @@
         ],
         "envoyals": [
           {
-            "from": "v0.130.0"
+            "from": "v0.121.0"
           }
         ],
         "expvar": [
@@ -1460,7 +1464,7 @@
         ],
         "faro": [
           {
-            "from": "v0.130.0"
+            "from": "v0.127.0"
           }
         ],
         "file": [
@@ -1812,7 +1816,7 @@
         ],
         "netflow": [
           {
-            "from": "v0.130.0"
+            "from": "v0.121.0"
           }
         ],
         "nginx": [
@@ -2021,7 +2025,7 @@
         ],
         "saphana": [
           {
-            "from": "v0.130.0"
+            "from": "v0.123.0"
           }
         ],
         "sapm": [
@@ -2125,7 +2129,7 @@
         ],
         "stef": [
           {
-            "from": "v0.130.0"
+            "from": "v0.127.0"
           }
         ],
         "syslog": [
@@ -2150,7 +2154,7 @@
         ],
         "tcpcheck": [
           {
-            "from": "v0.130.0"
+            "from": "v0.122.1"
           }
         ],
         "tcplog": [
@@ -2165,7 +2169,7 @@
         ],
         "tlscheck": [
           {
-            "from": "v0.130.0"
+            "from": "v0.122.1"
           }
         ],
         "udp_log": [
@@ -2734,7 +2738,7 @@
         ],
         "k8s_leader_elector": [
           {
-            "from": "v0.130.0"
+            "from": "v0.126.0"
           }
         ],
         "k8s_observer": [
@@ -2837,7 +2841,7 @@
         ],
         "interval": [
           {
-            "from": "v0.120.0"
+            "from": "v0.119.0"
           }
         ],
         "k8s_attributes": [
