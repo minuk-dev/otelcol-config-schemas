@@ -74,7 +74,7 @@
         ],
         "signaltometrics": [
           {
-            "from": "v0.120.0",
+            "from": "v0.119.0",
             "to": "v0.145.0"
           },
           {
@@ -960,7 +960,7 @@
         ],
         "interval": [
           {
-            "from": "v0.120.0"
+            "from": "v0.119.0"
           }
         ],
         "isolationforest": [
@@ -1097,7 +1097,7 @@
         "routing": [
           {
             "from": "v0.42.0",
-            "to": "v0.118.0"
+            "to": "v0.119.0"
           }
         ],
         "schema": [
@@ -2837,7 +2837,7 @@
         ],
         "interval": [
           {
-            "from": "v0.120.0"
+            "from": "v0.119.0"
           }
         ],
         "k8s_attributes": [
