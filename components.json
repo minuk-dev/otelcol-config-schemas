@@ -152,7 +152,7 @@
         ],
         "azureblob": [
           {
-            "from": "v0.130.0"
+            "from": "v0.124.0"
           }
         ],
         "azuredataexplorer": [
