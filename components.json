@@ -753,7 +753,7 @@
         ],
         "k8s_leader_elector": [
           {
-            "from": "v0.130.0"
+            "from": "v0.126.0"
           }
         ],
         "k8s_observer": [
@@ -2738,7 +2738,7 @@
         ],
         "k8s_leader_elector": [
           {
-            "from": "v0.130.0"
+            "from": "v0.126.0"
           }
         ],
         "k8s_observer": [
