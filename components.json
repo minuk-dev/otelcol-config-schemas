@@ -605,7 +605,7 @@
         ],
         "azureauth": [
           {
-            "from": "v0.130.0"
+            "from": "v0.125.0"
           }
         ],
         "ballast": [
