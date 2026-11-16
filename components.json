@@ -368,7 +368,7 @@
             "to": "v0.121.0"
           },
           {
-            "from": "v0.130.0",
+            "from": "v0.123.0",
             "to": "v0.130.0"
           }
         ],
@@ -580,7 +580,7 @@
         ],
         "awscloudwatchmetricstreams_encoding": [
           {
-            "from": "v0.130.0"
+            "from": "v0.123.0"
           }
         ],
         "awslogs_encoding": [
@@ -769,7 +769,7 @@
         ],
         "kafkatopics_observer": [
           {
-            "from": "v0.130.0",
+            "from": "v0.123.0",
             "to": "v0.158.0"
           }
         ],
@@ -1106,7 +1106,7 @@
         ],
         "schema": [
           {
-            "from": "v0.130.0"
+            "from": "v0.123.0"
           }
         ],
         "servicegraph": [
@@ -2025,7 +2025,7 @@
         ],
         "saphana": [
           {
-            "from": "v0.130.0"
+            "from": "v0.123.0"
           }
         ],
         "sapm": [
